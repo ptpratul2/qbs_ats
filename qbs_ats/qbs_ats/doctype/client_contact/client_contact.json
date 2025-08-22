@@ -1,0 +1,278 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-11 22:04:05.368409",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_eti4",
+  "client",
+  "standard_fields_section",
+  "first_name",
+  "office_number",
+  "email_id",
+  "ownership",
+  "allow_access_to_all_users",
+  "column_break_ejxu",
+  "last_name",
+  "data_nren",
+  "secondary_email_id",
+  "column_break_aadi",
+  "designation",
+  "mobile_number",
+  "primary_owner",
+  "section_break_qpdv",
+  "addresss_1",
+  "state",
+  "linkedin_profile_url",
+  "google_profile_url",
+  "about_the_contact",
+  "column_break_ezxu",
+  "address_2",
+  "city",
+  "facebook_profile_url",
+  "status",
+  "column_break_vfew",
+  "country",
+  "zip_code",
+  "twitter_profile_url",
+  "client_group",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_eti4",
+   "fieldtype": "Section Break",
+   "label": "Add Contact To Client"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "standard_fields_section",
+   "fieldtype": "Section Break",
+   "label": "Standard Fields"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "office_number",
+   "fieldtype": "Data",
+   "label": "Office Number"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ownership",
+   "fieldtype": "Select",
+   "label": "Ownership",
+   "options": "[Select all]\nAmish\nAnjali\nAnjali Digankar\nAshutosh Prompt\nBenito Raj\nBhakti Thitekar\nChandrasekhar B\nDakshata\nGauri Mestry\nIshan Bonthu\nIshita Mepani\nJyoti Singh\nJyotika Gaja\nKajal Rampariya\nLisha Pawar\nMansi Naik\nMeena\nMeenakshi Asiwal\nMinakshi Ahuja\nNidhi Pandey\nNirmal Jagtap\nNisha\nPooja Kale\nPratibha\nPraveen Sharma\nPravin Sundvaisha\nPriya Jadhav\nRatul Ganguly\nRina .\nRohit Yadav\nRutuja\nSandhyarani Pawar\nSayalee Thukrul\nSheetal picholiya\nShreyas Basakhetre\nShrigowri\nShruti Jadhav\nShubhangi Shukla\nShweta Sawant\nSiddhey Patil Patil\nSiddhi Salvi\nSneha Shukla\nSrabanti Dhara\nTejaswini Dabade\nTushar\nVaishnavi\nVinod A\nYatin Kanchan\nYogiraj Bhamre"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_access_to_all_users",
+   "fieldtype": "Check",
+   "label": "Allow access to all users"
+  },
+  {
+   "fieldname": "column_break_ejxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "data_nren",
+   "fieldtype": "Data",
+   "placeholder": "Extension"
+  },
+  {
+   "fieldname": "secondary_email_id",
+   "fieldtype": "Data",
+   "label": "Secondary Email ID"
+  },
+  {
+   "fieldname": "column_break_aadi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Int",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "primary_owner",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Primary Owner",
+   "options": "Amish\nAnjali\nAnjali Digankar\nAshutosh Prompt\nBenito Raj\nBhakti Thitekar\nChandrasekhar B\nDakshata\nGauri Mestry\nIshan Bonthu\nIshita Mepani\nJyoti Singh\nJyotika Gaja\nKajal Rampariya\nLisha Pawar\nMansi Naik\nMeena\nMeenakshi Asiwal\nMinakshi Ahuja\nNidhi Pandey\nNirmal Jagtap\nNisha\nPooja Kale\nPratibha\nPraveen Sharma\nPravin Sundvaisha\nPriya Jadhav\nRatul Ganguly\nRina .\nRohit Yadav\nRutuja\nSandhyarani Pawar\nSayalee Thukrul\nSheetal picholiya\nShreyas Basakhetre\nShrigowri\nShruti Jadhav\nShubhangi Shukla\nShweta Sawant\nSiddhey Patil Patil\nSiddhi Salvi\nSneha Shukla\nSrabanti Dhara\nTejaswini Dabade\nTushar\nVaishnavi\nVinod A\nYatin Kanchan\nYogiraj Bhamre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_qpdv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "addresss_1",
+   "fieldtype": "Data",
+   "label": "Addresss 1"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State",
+   "options": "Alabama\n\nAlaska\n\nArizona\n\nArkansas\n\nCalifornia\n\nColorado\n\nConnecticut\n\nDelaware\n\nFlorida\n\nGeorgia\n\nHawaii\n\nIdaho\n\nIllinois\n\nIndiana\n\nIowa\n\nKansas\n\nKentucky\n\nLouisiana\n\nMaine\n\nMaryland\n\nMassachusetts\n\nMichigan\n\nMinnesota\n\nMississippi\n\nMissouri\n\nMontana\n\nNebraska\n\nNevada\n\nNew Hampshire\n\nNew Jersey\n\nNew Mexico\n\nNew York\n\nNorth Carolina\n\nNorth Dakota\n\nOhio\n\nOklahoma\n\nOregon\n\nPennsylvania\n\nRhode Island\n\nSouth Carolina\n\nSouth Dakota\n\nTennessee\n\nTexas\n\nUtah\n\nVermont\n\nVirginia\n\nWashington\n\nWest Virginia\n\nWisconsin\n\nWyoming"
+  },
+  {
+   "fieldname": "linkedin_profile_url",
+   "fieldtype": "Data",
+   "label": "Linkedin Profile URL"
+  },
+  {
+   "fieldname": "google_profile_url",
+   "fieldtype": "Data",
+   "label": "Google Profile URL"
+  },
+  {
+   "fieldname": "about_the_contact",
+   "fieldtype": "Small Text",
+   "label": "About the contact"
+  },
+  {
+   "fieldname": "column_break_ezxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_2",
+   "fieldtype": "Data",
+   "label": "Address 2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "facebook_profile_url",
+   "fieldtype": "Data",
+   "label": "Facebook Profile URL"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "DNC\nNegotiating\nNew Lead\nWorking"
+  },
+  {
+   "fieldname": "column_break_vfew",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Select",
+   "label": "Country",
+   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCambodia\nCameroon\nCanada\nCape Verde\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo, Democratic Republic\nCongo, Republic of the\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea, North\nKorea, South\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTaiwan\nTajikistan\nTanzania\nThailand\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States\nUruguay\nUzbekistan\nVanuatu\nVatican City\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+  },
+  {
+   "fieldname": "zip_code",
+   "fieldtype": "Int",
+   "label": "Zip Code"
+  },
+  {
+   "fieldname": "twitter_profile_url",
+   "fieldtype": "Data",
+   "label": "Twitter Profile URL"
+  },
+  {
+   "fieldname": "client_group",
+   "fieldtype": "Select",
+   "label": "Client Group"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Client-Contact",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-22 16:44:14.624742",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Client-Contact",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

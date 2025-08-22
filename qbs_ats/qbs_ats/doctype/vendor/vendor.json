@@ -1,0 +1,845 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-11 22:05:43.032131",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gi2c",
+  "primary_business_unit",
+  "vendor_name",
+  "contact_number",
+  "country",
+  "zip_code",
+  "primary_owner",
+  "technologies",
+  "vendor_type",
+  "column_break_vzxp",
+  "vendor_visibility",
+  "federal_id",
+  "fax",
+  "state",
+  "send_requirement",
+  "ownership",
+  "allow_acccess_to_all_users",
+  "about_vendor",
+  "column_break_visd",
+  "business_unit",
+  "website",
+  "address",
+  "city",
+  "send_hotlist",
+  "vendor_lead",
+  "accounts_tab",
+  "contact_person",
+  "email_id",
+  "column_break_ozbd",
+  "mobile_number",
+  "designation",
+  "column_break_rerk",
+  "office_number",
+  "payment_terms",
+  "column_break_rnel",
+  "data_szab",
+  "notes_tab",
+  "action",
+  "column_break_xfxm",
+  "notes_priority",
+  "section_break_erhk",
+  "data_ntlx",
+  "note",
+  "section_break_rgvl",
+  "notify_these_people",
+  "column_break_jnas",
+  "remind_me",
+  "contacts_tab",
+  "standard_fields_section",
+  "first_name",
+  "email_address",
+  "address_1",
+  "land",
+  "twitter_profile_url",
+  "head_owner",
+  "allow_access_to_all_users",
+  "column_break_wbpf",
+  "last_name",
+  "main_owner",
+  "address_2",
+  "postal_code",
+  "google_profile_url",
+  "column_break_ugdd",
+  "work_phone",
+  "position",
+  "nation",
+  "linkedin_profile_url",
+  "status",
+  "column_break_ivtb",
+  "data_tcuy",
+  "phone_number",
+  "province",
+  "facebook_profile_url",
+  "techniques",
+  "section_break_bkds",
+  "comment",
+  "section_break_pvhj",
+  "send_condition",
+  "vendor_group",
+  "column_break_jqyd",
+  "send_priority_list",
+  "column_break_modl",
+  "vendor_contact_type",
+  "vendor_submission_format_tab",
+  "vendor_submission_description_section",
+  "select",
+  "column_break_bqdz",
+  "select_oojh",
+  "column_break_sqzm",
+  "select_rhob",
+  "section_break_znsg",
+  "mailing_subject",
+  "body",
+  "documents_tab",
+  "upload_documents_section",
+  "document_type",
+  "column_break_zjsw",
+  "document_title",
+  "section_break_ziyu",
+  "description",
+  "section_break_jpvf",
+  "document_type_1",
+  "column_break_qkrs",
+  "document_title_1",
+  "section_break_iaoi",
+  "description1",
+  "bank_accountn_details_tab",
+  "add_bank_account_section",
+  "benificiary_name",
+  "ifsc_coderouting_number",
+  "priority",
+  "address_line_2",
+  "town",
+  "attachment",
+  "column_break_ryex",
+  "bank_name",
+  "account_number",
+  "comments",
+  "territory",
+  "pin_code",
+  "column_break_knvy",
+  "account_type",
+  "deposit_amount",
+  "address_line_1",
+  "zone",
+  "record_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gi2c",
+   "fieldtype": "Section Break",
+   "label": "Business Information"
+  },
+  {
+   "fieldname": "primary_business_unit",
+   "fieldtype": "Select",
+   "label": "Primary Business Unit",
+   "options": "Prompt Personnel Pvt.Ltd-Temp\nPrompt Personnel Private Limited-Internal\nPrompt Personnel Pvt.Ltd-Perm"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vendor Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Select",
+   "label": "Country",
+   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+  },
+  {
+   "fieldname": "zip_code",
+   "fieldtype": "Int",
+   "label": "Zip Code"
+  },
+  {
+   "fieldname": "primary_owner",
+   "fieldtype": "Select",
+   "label": "Primary Owner",
+   "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+  },
+  {
+   "fieldname": "technologies",
+   "fieldtype": "Data",
+   "label": "Technologies"
+  },
+  {
+   "fieldname": "vendor_type",
+   "fieldtype": "Select",
+   "label": "Vendor Type",
+   "options": "Full Time/Lateral\nContract / Subcon\nRPO"
+  },
+  {
+   "fieldname": "column_break_vzxp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_visibility",
+   "fieldtype": "Select",
+   "label": "Vendor Visibility",
+   "options": "Organization Level\nBusiness Unit"
+  },
+  {
+   "fieldname": "federal_id",
+   "fieldtype": "Data",
+   "label": "Federal ID"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+  },
+  {
+   "default": "0",
+   "fieldname": "send_requirement",
+   "fieldtype": "Check",
+   "label": "Send Requirement "
+  },
+  {
+   "fieldname": "ownership",
+   "fieldtype": "Select",
+   "label": "Ownership",
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_acccess_to_all_users",
+   "fieldtype": "Check",
+   "label": "Allow Acccess to All users"
+  },
+  {
+   "fieldname": "about_vendor",
+   "fieldtype": "Small Text",
+   "label": "About Vendor"
+  },
+  {
+   "fieldname": "column_break_visd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "business_unit",
+   "fieldtype": "Select",
+   "label": "Business Unit",
+   "options": "Prompt Personnel Pvt Ltd-Temp\nPrompt Personnel Private Limited-Internal\nPrompt Personnel Pvt Ltd-Perm"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "default": "0",
+   "fieldname": "send_hotlist",
+   "fieldtype": "Check",
+   "label": "Send Hotlist"
+  },
+  {
+   "fieldname": "vendor_lead",
+   "fieldtype": "Select",
+   "label": "Vendor Lead",
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+  },
+  {
+   "fieldname": "accounts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "column_break_ozbd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "column_break_rerk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "office_number",
+   "fieldtype": "Int",
+   "label": "Office Number"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms",
+   "options": "Net 10\nNet 15\nNet 30\nNet 45\nNet 60\nNet 7\nNet 90"
+  },
+  {
+   "fieldname": "column_break_rnel",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_szab",
+   "fieldtype": "Data",
+   "placeholder": "Extension"
+  },
+  {
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "label": "Action"
+  },
+  {
+   "fieldname": "column_break_xfxm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes_priority",
+   "fieldtype": "Select",
+   "label": "Notes Priority",
+   "options": "Critical\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "section_break_erhk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "data_ntlx",
+   "fieldtype": "Data",
+   "placeholder": "e.g Priority (Medium) - Action (Prescreen)  :New Note is created for "
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text Editor",
+   "label": "Note"
+  },
+  {
+   "fieldname": "section_break_rgvl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notify_these_people",
+   "fieldtype": "Select",
+   "label": "Notify these people",
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+  },
+  {
+   "fieldname": "column_break_jnas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "remind_me",
+   "fieldtype": "Check",
+   "label": "Remind Me"
+  },
+  {
+   "fieldname": "contacts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contacts"
+  },
+  {
+   "fieldname": "standard_fields_section",
+   "fieldtype": "Section Break",
+   "label": "Standard Fields"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "address_1",
+   "fieldtype": "Data",
+   "label": "Address 1"
+  },
+  {
+   "fieldname": "land",
+   "fieldtype": "Data",
+   "label": "Land"
+  },
+  {
+   "fieldname": "twitter_profile_url",
+   "fieldtype": "Data",
+   "label": "Twitter Profile URL"
+  },
+  {
+   "fieldname": "head_owner",
+   "fieldtype": "Select",
+   "label": "Head Owner",
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_access_to_all_users",
+   "fieldtype": "Check",
+   "label": "Allow Access to All users"
+  },
+  {
+   "fieldname": "column_break_wbpf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "main_owner",
+   "fieldtype": "Select",
+   "label": "Main Owner",
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_2",
+   "fieldtype": "Data",
+   "label": "Address 2"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Int",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "google_profile_url",
+   "fieldtype": "Data",
+   "label": "Google Profile URL"
+  },
+  {
+   "fieldname": "column_break_ugdd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_phone",
+   "fieldtype": "Data",
+   "label": "Work Phone"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "nation",
+   "fieldtype": "Select",
+   "label": "Nation",
+   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+  },
+  {
+   "fieldname": "linkedin_profile_url",
+   "fieldtype": "Data",
+   "label": "LinkedIn Profile URL"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "DNC\nNegotiating\nNew Lead\nWorking"
+  },
+  {
+   "fieldname": "column_break_ivtb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_tcuy",
+   "fieldtype": "Data",
+   "placeholder": "Extension"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "province",
+   "fieldtype": "Select",
+   "label": "Province",
+   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+  },
+  {
+   "fieldname": "facebook_profile_url",
+   "fieldtype": "Data",
+   "label": "Facebook Profile URL"
+  },
+  {
+   "fieldname": "techniques",
+   "fieldtype": "Data",
+   "label": "Techniques"
+  },
+  {
+   "fieldname": "section_break_bkds",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "section_break_pvhj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "send_condition",
+   "fieldtype": "Check",
+   "label": "Send Condition"
+  },
+  {
+   "fieldname": "vendor_group",
+   "fieldtype": "Select",
+   "label": "Vendor Group"
+  },
+  {
+   "fieldname": "column_break_jqyd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "send_priority_list",
+   "fieldtype": "Check",
+   "label": "Send Priority list"
+  },
+  {
+   "fieldname": "column_break_modl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_contact_type",
+   "fieldtype": "Select",
+   "label": "Vendor Contact Type"
+  },
+  {
+   "fieldname": "vendor_submission_format_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vendor Submission Format"
+  },
+  {
+   "fieldname": "vendor_submission_description_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Submission Description"
+  },
+  {
+   "fieldname": "select",
+   "fieldtype": "Select",
+   "label": "Select",
+   "options": "Bench Applicant\nVendor\nVendor Contact\nVendor Job\nVendor Submission Details"
+  },
+  {
+   "fieldname": "column_break_bqdz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_oojh",
+   "fieldtype": "Select"
+  },
+  {
+   "fieldname": "column_break_sqzm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_rhob",
+   "fieldtype": "Select",
+   "options": "Add to Subject\nAdd to Body"
+  },
+  {
+   "fieldname": "section_break_znsg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mailing_subject",
+   "fieldtype": "Data",
+   "label": "Mailing Subject"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Text Editor",
+   "label": "Body"
+  },
+  {
+   "fieldname": "documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "upload_documents_section",
+   "fieldtype": "Section Break",
+   "label": "Upload Documents"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "MSA"
+  },
+  {
+   "fieldname": "column_break_zjsw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_title",
+   "fieldtype": "Data",
+   "label": "Document Title"
+  },
+  {
+   "fieldname": "section_break_ziyu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_jpvf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "document_type_1",
+   "fieldtype": "Select",
+   "label": "Document Type 1",
+   "options": "MSA"
+  },
+  {
+   "fieldname": "column_break_qkrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_title_1",
+   "fieldtype": "Data",
+   "label": "Document Title 1"
+  },
+  {
+   "fieldname": "section_break_iaoi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description1",
+   "fieldtype": "Small Text",
+   "label": "Description1"
+  },
+  {
+   "fieldname": "bank_accountn_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Bank Accountn Details"
+  },
+  {
+   "fieldname": "add_bank_account_section",
+   "fieldtype": "Section Break",
+   "label": "Add Bank Account"
+  },
+  {
+   "fieldname": "benificiary_name",
+   "fieldtype": "Data",
+   "label": "Benificiary Name ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ifsc_coderouting_number",
+   "fieldtype": "Data",
+   "label": "IFSC Code/Routing Number"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "town",
+   "fieldtype": "Data",
+   "label": "Town"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "column_break_ryex",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Int",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Data",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "territory",
+   "fieldtype": "Select",
+   "label": "Territory",
+   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+  },
+  {
+   "fieldname": "pin_code",
+   "fieldtype": "Int",
+   "label": "Pin code"
+  },
+  {
+   "fieldname": "column_break_knvy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_type",
+   "fieldtype": "Select",
+   "label": "Account Type",
+   "options": "Savings\nChecking\nCurrent"
+  },
+  {
+   "fieldname": "deposit_amount",
+   "fieldtype": "Select",
+   "label": "Deposit Amount",
+   "options": "Full\nPartial %\nRemaining"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Select",
+   "label": "Zone",
+   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+  },
+  {
+   "fieldname": "record_status",
+   "fieldtype": "Select",
+   "label": "Record Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vendor",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-22 16:44:13.531980",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Vendor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,442 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-12 07:50:02.690409",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_details_tab",
+  "job_details_section",
+  "job_title",
+  "column_break_qgag",
+  "required_hoursweek",
+  "section_break_ptea",
+  "turnaround_time",
+  "column_break_olnp",
+  "select_ojkk",
+  "column_break_mtxc",
+  "client_bill_ratesalary",
+  "column_break_ydio",
+  "currency_gtoo",
+  "column_break_npuz",
+  "select_vgxl",
+  "section_break_qbzg",
+  "reuired_documents",
+  "column_break_onbc",
+  "skills_section",
+  "industry",
+  "column_break_dggl",
+  "degree",
+  "section_break_lvmj",
+  "experience",
+  "column_break_hpev",
+  "select_jyww",
+  "column_break_bjiy",
+  "evaluation_template",
+  "section_break_kwdy",
+  "skills",
+  "column_break_vlml",
+  "organizational_information_section",
+  "tax_terms",
+  "job_description",
+  "add_document_section",
+  "title",
+  "column_break_jirj",
+  "type",
+  "column_break_wyjg",
+  "upload_document",
+  "section_break_uudt",
+  "comments",
+  "add_education_details_section",
+  "school_name",
+  "gpa",
+  "column_break_uwii",
+  "qualification",
+  "higher_education",
+  "column_break_zbwo",
+  "year_completed",
+  "add_certification_section",
+  "certification",
+  "column_break_mjgp",
+  "completed_year",
+  "description",
+  "add_language_details_section",
+  "language",
+  "column_break_ujyq",
+  "proficiency",
+  "work_experience_section",
+  "text_jlgf",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "job_details_section",
+   "fieldtype": "Section Break",
+   "label": "JOB DETAILS"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Job Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qgag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_hoursweek",
+   "fieldtype": "Data",
+   "label": "Required Hours/Week"
+  },
+  {
+   "fieldname": "section_break_ptea",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "turnaround_time",
+   "fieldtype": "Int",
+   "label": "Turnaround Time"
+  },
+  {
+   "fieldname": "column_break_olnp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_ojkk",
+   "fieldtype": "Select",
+   "options": "Hours\nDays"
+  },
+  {
+   "fieldname": "column_break_mtxc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_bill_ratesalary",
+   "fieldtype": "Select",
+   "label": "Client Bill Rate/Salary",
+   "options": "AED\nAFN\nALL\nAMD\nANG\nAOA\nARS\nAUD,\nAWG\nAZN\nBAM\nBBD\nBDT\nBGN\nBHD\nBIF\nBMD\nBND\nBOB\nBRL\nBSD\nBTN\nBWP\nBYN\nBZD\nCAD\nCDF\nCHF\nCLP\nCNY\nCOP\nCRC\nCUP\nCVE\nCZK\nDJF\nDKK\nDOP\nDZD\nEGP\nERN\nETB\nEUR\nFJD\nFKP\nGBP\nGEL\nGHS\nGIP\nGMD\nGNF\nGTQ\nGYD\nHKD\nHNL\nHRK\nHTG\nHUF\nIDR\nILS\nINR\nIQD\nIRR\nISK\nJMD\nJOD\nJPY\nKES\nKGS\nKHR\nKMF\nKPW\nKRW\nKWD\nKYD\nKZT\nLAK\nLBP\nLKR\nLRD\nLSL\nLYD\nMAD\nMDL\nMGA\nMKD\nMMK\nMNT\nMOP\nMRU\nMUR\nMVR\nMWK\nMXN\nMYR\nMZN\nNAD\nNGN\nNIO\nNOK\nNPR\nNZD\nOMR\nPAB\nPEN\nPGK\nPHP\nPKR\nPLN\nPYG\nQAR\nRON\nRSD\nRUB\nRWF\nSAR\nSBD\nSCR\nSDG\nSEK\nSGD\nSHP\nSLL\nSOS\nSRD\nSSP\nSTN\nSYP\nSZL\nTHB\nTJS\nTMT\nTND\nTOP\nTRY\nTTD\nTWD\nTZS\nUAH\nUGX\nUSD\nUYU\nUZS\nVES\nVND\nVUV\nWST\nXAF\nXCD\nXOF\nXPF\nYER\nZAR\nZMW\nZWL"
+  },
+  {
+   "fieldname": "column_break_ydio",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency_gtoo",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "column_break_npuz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_vgxl",
+   "fieldtype": "Select",
+   "options": "Hourly\nDaily\nWeekly\nBi-Weekly\nMonthly\nYearly"
+  },
+  {
+   "fieldname": "section_break_qbzg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reuired_documents",
+   "fieldtype": "Select",
+   "label": "Reuired Documents",
+   "options": "[Select all]\nResume\nTranscripts\nDriving License\nPassport\nSSN\nEML File\n10th Mark Sheet\n12th Mark Sheet\nFollow Up"
+  },
+  {
+   "fieldname": "column_break_onbc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "skills_section",
+   "fieldtype": "Section Break",
+   "label": "SKILLS"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Select",
+   "label": "Industry",
+   "options": "[Select all]\nAccounting - Finance\nAdvertising\nAgriculture\nArchitecture - Building\nAutomotive - Motor Vehicles - Parts\nBanking - Financial Services\nBroadcasting - Radio - TV\nChemical\nConstruction\nComputer Hardware\nComputer Software\nConsulting\nConsumer Products\nCredit - Loan - Collections\nDefense - Aerospace\nEducation - Teaching - Administration\nElectronics\nEmployment - Recruiting - Staffing\nEnergy - Utilities - Gas - Electric\nEntertainment\nEnvironmental\nExercise - Fitness\nFashion - Apparel - Textile\nFuneral - Cemetery\nGovernment - Civil Service\nHealthcare - Health Services\nHomebuilding\nHospitality\nHVAC\nImport - Export\nIndustrial\nInsurance\nInternet - ECommerce\nLandscaping\nLaw Enforcement\nLegal\nLibrary Science\nManaged Care\nManufacturing\nMedical Equipment\nMerchandising\nMilitary\nMortgage\nNewspaper\nNot for Profit - Charitable\nOffice Supplies - Equipment\nOil Refining - Petroleum - Drilling\nOther Great Industries\nPackaging\nPharmaceutical\nPrinting - Publishing\nPublic Relations\nReal Estate - Property Mgt\nRestaurant\nRetail\nRecreation\nSales - Marketing\nSecurities\nSemiconductor\nSocial Services\nTelecommunications\nTraining\nTransportation\nTravel\nWireless\nAirline - Aviation\nArt - Photography - Journalism\nBiotechnology\nBuilding Materials\nFood\nHotel - Resort\nSecurity"
+  },
+  {
+   "fieldname": "column_break_dggl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "degree",
+   "fieldtype": "Select",
+   "label": "Degree",
+   "options": "Associate Degree\nBachelors Degree\nHighschool\nMasters Degree\nPHD\nUndergraduate"
+  },
+  {
+   "fieldname": "section_break_lvmj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "experience",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Experience",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hpev",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_jyww",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "options": "Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bjiy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluation_template",
+   "fieldtype": "Select",
+   "label": "Evaluation Template"
+  },
+  {
+   "fieldname": "section_break_kwdy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Small Text",
+   "label": "Skills"
+  },
+  {
+   "fieldname": "column_break_vlml",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "organizational_information_section",
+   "fieldtype": "Section Break",
+   "label": "ORGANIZATIONAL INFORMATION"
+  },
+  {
+   "fieldname": "tax_terms",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tax Terms",
+   "options": "[Select all]\nPart Time\nFull Time\nOther\nntern\nSeasonal\nContract\nC2H\nFull Time - Profit Sharing",
+   "reqd": 1
+  },
+  {
+   "fieldname": "job_description",
+   "fieldtype": "Text Editor",
+   "label": "Job Description"
+  },
+  {
+   "fieldname": "add_document_section",
+   "fieldtype": "Section Break",
+   "label": "Add Document"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "column_break_jirj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
+  },
+  {
+   "fieldname": "column_break_wyjg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "upload_document",
+   "fieldtype": "Select",
+   "label": "Upload Document ",
+   "options": "Local Drive\nDrop Box"
+  },
+  {
+   "fieldname": "section_break_uudt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "add_education_details_section",
+   "fieldtype": "Section Break",
+   "label": "Add Education Details"
+  },
+  {
+   "fieldname": "school_name",
+   "fieldtype": "Data",
+   "label": "School Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gpa",
+   "fieldtype": "Float",
+   "label": "GPA"
+  },
+  {
+   "fieldname": "column_break_uwii",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Select",
+   "label": "Qualification",
+   "options": "Associate Degree\nBachelors Degree\nHighschool\nMasters Degree\nPHD\nUndergraduate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "higher_education",
+   "fieldtype": "Select",
+   "label": "Higher Education",
+   "options": "ON\nOFF"
+  },
+  {
+   "fieldname": "column_break_zbwo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year_completed",
+   "fieldtype": "Data",
+   "label": "Year Completed",
+   "options": "Calendar View"
+  },
+  {
+   "fieldname": "add_certification_section",
+   "fieldtype": "Section Break",
+   "label": "Add Certification"
+  },
+  {
+   "fieldname": "certification",
+   "fieldtype": "Data",
+   "label": "Certification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mjgp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed_year",
+   "fieldtype": "Data",
+   "label": "Completed Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "add_language_details_section",
+   "fieldtype": "Section Break",
+   "label": "Add Language Details"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "label": "Language",
+   "options": "Arabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPrtuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
+  },
+  {
+   "fieldname": "column_break_ujyq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proficiency",
+   "fieldtype": "Select",
+   "label": "Proficiency",
+   "options": "Read\nSpeak\nWrite"
+  },
+  {
+   "fieldname": "work_experience_section",
+   "fieldtype": "Section Break",
+   "label": "Work Experience"
+  },
+  {
+   "fieldname": "text_jlgf",
+   "fieldtype": "Text"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "New Job Template",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-22 16:44:14.324590",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "New Job Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
