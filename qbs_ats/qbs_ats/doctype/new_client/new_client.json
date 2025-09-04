@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{client_name}-{#####}",
  "creation": "2025-08-11 22:04:48.688928",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,6 +22,7 @@
   "category",
   "client_lead",
   "recuired_documents",
+  "modified_by1",
   "column_break_wway",
   "vms_client_name",
   "email_id",
@@ -31,6 +33,9 @@
   "primary_owner",
   "display_on_job",
   "payment_terms",
+  "accessible_business_unites",
+  "created_on",
+  "modified_on",
   "column_break_cwaq",
   "federal_id",
   "address",
@@ -41,6 +46,9 @@
   "ownership",
   "allow_access_to_all_users",
   "practice",
+  "created_by",
+  "created_at",
+  "update_at",
   "section_break_hjjj",
   "about_company",
   "section_break_tvxq",
@@ -153,9 +161,8 @@
   },
   {
    "fieldname": "primary_business_unit",
-   "fieldtype": "Select",
-   "label": "Primary Business Unit",
-   "options": "Prompt Personnel Private Limited-Internal\nPrompt Personnel Pvt Ltd-Temp\nPrompt Personnel Pvt Ltd-Perm"
+   "fieldtype": "Data",
+   "label": "Primary Business Unit"
   },
   {
    "fieldname": "client_visibility_section",
@@ -166,6 +173,7 @@
    "default": "0",
    "fieldname": "organization_level",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Organization Level"
   },
   {
@@ -176,6 +184,7 @@
    "default": "0",
    "fieldname": "business_unit",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Business unit"
   },
   {
@@ -187,8 +196,7 @@
    "fieldname": "client_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Client Name",
-   "reqd": 1
+   "label": "Client Name"
   },
   {
    "fieldname": "contact_number",
@@ -198,21 +206,20 @@
   {
    "fieldname": "child_clients",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Child Clients",
    "options": "[Select all]\nAyodha City Developer Pvt Ltd\nCornext Agri Products Pvt Ltd\nDivya Global Pvt Ltd\nIBM Test\ninternal\nPrompt Personnel Pvt Ltd\nPrompt Personnel Pvt Ltd\nPrompt Personnel Pvt Ltd\nPW Test Client\nSirmaxo Chemicals\nSkilldzire Test\nSlack Test\nTCTSL OME"
   },
   {
    "fieldname": "state",
-   "fieldtype": "Select",
-   "label": "State",
-   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+   "fieldtype": "Data",
+   "label": "State"
   },
   {
    "fieldname": "website",
-   "fieldtype": "Data",
+   "fieldtype": "Text",
    "in_list_view": 1,
-   "label": "Website",
-   "reqd": 1
+   "label": "Website"
   },
   {
    "fieldname": "fax",
@@ -234,6 +241,7 @@
   {
    "fieldname": "recuired_documents",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Recuired Documents",
    "options": "[Select all]\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
   },
@@ -244,6 +252,7 @@
   {
    "fieldname": "vms_client_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "VMS Client Name"
   },
   {
@@ -255,6 +264,7 @@
    "default": "0",
    "fieldname": "notify_user_if_heshe_is_near_by_the_client_location_mobile_only",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Notify user if he/she is near by the client location (Mobile Only)"
   },
   {
@@ -266,13 +276,13 @@
    "default": "0",
    "fieldname": "send_requirement",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Send Requirement"
   },
   {
    "fieldname": "industry",
-   "fieldtype": "Select",
-   "label": "Industry",
-   "options": "Accounting-Finance\nAdvertising\nAgriculture\nAirline-Aviation\nArchitecture-Building\nArt-Photography-Journalism\nAutomotive-Motor Vehicles-Parts\nBanking-Financial Services\nBiotechnology\nBrodcasting-Radio-TV\nBuilding Materials\nChemical\nComputer Hardware\nComputer Software\nConstruction\nConsulting\nConsumerr Products\nCredit-Loan-Collections\nDefense-Aerospace\nEducation-Teaching-Administration\nElectronics\nEmployment-Recruiting-Staffing\nEnergy-Utilities-Gas-Electric\nEntertainment\nEnvironmental\nExercise-Fitness\nFshion-Apparel-Textile\nFood\nFuneral-Cemetery\nGovernment-Civil Service\nHealthcare-Health Services\nHomebuilding\nHospitality\nHotel-Resort\nHVAC\nImport-Export\nIndustrial\nInsurance\nInternet-ECommerce\nLandscaping\nLaw Enforcement\nLegal\nLibrary Science\nManaged Care\nManufacturing\nMedical Equipment\nMerchandising\nMilitary\nMortgage\nNewspaper\nNot for Profit-Charitable\nOffice Supplies-Equipment\nOil Refining-Petroleum-Driling\nOther Great Industries\nPackaging\nPharmaceutical\nPrinting-Publishing\nPublic Relations\nReal Estate-property Mgt\nRecreation\nRestaurant\nRetail\nSales-Marketing\nSecurities\nSecurity\nSemiconductor\nSocial services\nTelecommnications\nTraining\nTransportation\nTravel\nWireless"
+   "fieldtype": "Data",
+   "label": "Industry"
   },
   {
    "fieldname": "primary_owner",
@@ -299,6 +309,7 @@
   {
    "fieldname": "federal_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Federal ID"
   },
   {
@@ -308,11 +319,9 @@
   },
   {
    "fieldname": "country",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Country",
-   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCambodia\nCameroon\nCanada\nCape Verde\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo, Democratic Republic\nCongo, Republic of the\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea, North\nKorea, South\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTaiwan\nTajikistan\nTanzania\nThailand\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States\nUruguay\nUzbekistan\nVanuatu\nVatican City\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe",
-   "reqd": 1
+   "label": "Country"
   },
   {
    "fieldname": "postal_code",
@@ -323,6 +332,7 @@
    "default": "0",
    "fieldname": "send_hotlist",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Send Hotlist"
   },
   {
@@ -330,15 +340,12 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nArchive\nDNC\nInactive\nNegotiation\nNew Lead",
-   "reqd": 1
+   "options": "Active\nArchive\nDNC\nInactive\nNegotiation\nNew Lead"
   },
   {
    "fieldname": "ownership",
-   "fieldtype": "Select",
-   "label": "Ownership",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre\nAll",
-   "reqd": 1
+   "fieldtype": "Text",
+   "label": "Ownership"
   },
   {
    "default": "0",
@@ -349,6 +356,7 @@
   {
    "fieldname": "practice",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Practice"
   },
   {
@@ -368,6 +376,7 @@
    "default": "0",
    "fieldname": "stop_email_notification_to_client_on_submission",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Stop email notification to client on submission"
   },
   {
@@ -378,6 +387,7 @@
    "default": "0",
    "fieldname": "make_this_address_as_a_default_for_the_jobs",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Make this address as a default for the Jobs"
   },
   {
@@ -387,6 +397,7 @@
   {
    "fieldname": "client_short_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Client Short Name"
   },
   {
@@ -568,8 +579,7 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name",
-   "reqd": 1
+   "label": "First Name"
   },
   {
    "fieldname": "role",
@@ -580,8 +590,7 @@
    "fieldname": "primary_holdership",
    "fieldtype": "Select",
    "label": "Primary Holdership",
-   "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre",
-   "reqd": 1
+   "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "column_break_hesb",
@@ -621,8 +630,7 @@
   {
    "fieldname": "contact_email",
    "fieldtype": "Data",
-   "label": "Contact Email",
-   "reqd": 1
+   "label": "Contact Email"
   },
   {
    "fieldname": "column_break_ryvn",
@@ -885,16 +893,53 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "modified_by1",
+   "fieldtype": "Data",
+   "label": "Modified By"
+  },
+  {
+   "fieldname": "accessible_business_unites",
+   "fieldtype": "Data",
+   "label": "Accessible Business Unites"
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Data",
+   "label": "Created On"
+  },
+  {
+   "fieldname": "modified_on",
+   "fieldtype": "Data",
+   "label": "Modified On"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Created By"
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Data",
+   "label": "Created At"
+  },
+  {
+   "fieldname": "update_at",
+   "fieldtype": "Data",
+   "label": "Update At"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-22 16:44:13.057970",
+ "modified": "2025-09-04 09:52:01.488799",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -942,5 +987,6 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "client_name"
 }

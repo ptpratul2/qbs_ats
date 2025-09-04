@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{job_code}-{#####}",
  "creation": "2025-08-11 22:03:28.083500",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,6 +22,9 @@
   "placement_fee_percentage",
   "tvop",
   "employment_test_template",
+  "postal_code",
+  "updated",
+  "apply_job",
   "column_break_drex",
   "job_title",
   "job_start_date",
@@ -35,6 +39,9 @@
   "placement_type",
   "domain",
   "employment_level",
+  "job_created_by",
+  "job_created",
+  "apply_job_without_registration",
   "column_break_krzm",
   "client_bill_rate__salary",
   "job_end_date",
@@ -48,13 +55,16 @@
   "address",
   "commercial_model",
   "project_type",
+  "assigned_to",
+  "job_modified_on",
+  "job_category",
   "skills_section",
   "industry",
   "evaluation_template",
   "languages",
   "column_break_ekkj",
   "degree",
-  "primary_skills",
+  "skills",
   "column_break_omza",
   "experience",
   "secondary_skills",
@@ -94,9 +104,8 @@
   },
   {
    "fieldname": "business_unit",
-   "fieldtype": "Select",
-   "label": "Business Unit",
-   "options": "Prompt Personnel Private Limited- internal\nPrompt Personnel Pvt Ltd-Perm\nPrompt Personnel Pvt Ltd-Temp"
+   "fieldtype": "Data",
+   "label": "Business Unit"
   },
   {
    "fieldname": "section_break_fnbn",
@@ -107,8 +116,7 @@
    "fieldname": "job_code",
    "fieldtype": "Autocomplete",
    "in_list_view": 1,
-   "label": "Job Code",
-   "reqd": 1
+   "label": "Job Code"
   },
   {
    "fieldname": "pay_rate__salary",
@@ -129,17 +137,14 @@
   },
   {
    "fieldname": "job_status",
-   "fieldtype": "Select",
-   "label": "Job status",
-   "options": "Aashish\nAbhishek\nActive\nAfsar\nAhstonbhog\nAjinkya\nAkshata\nAlim\nALKA\nAlleni\nAniket\nAnirnan\nAnish\nAnjali\nAnkanpalle\nAnkita\nANURAG\nAruna\nAshok\nAshwini\nBegari\nBhagyshree\nBhimrao\nBholaram\nBijay\nBipin\nBodhiyanath\nBONDLA\nChakali\nChaurasiya\nCHERUKUPALLI\nClosed\nDEEPALI\nDipali\nDipankar\nDURGA\nFilled\nGaddam\nGanesh\nGAURAV\nGautam\nHafizur\nHappy\nHarnot\nHitesh\nHold by Client\nJatin\nK\nKaif\nKANNA\nKaran\nKARISENAPU\nKatravath\nKavalli\nKiran\nKotha\nKOTHAPALLI\nKriti\nKuldeep\nKummari\nLakhan\nLAXMIDEVI\nM\nMadhu\nMadhuri\nMahesh\nMalaka\nMayuri\nMd\nMeraj\nMilind\nMohammed\nmohir\nMoin\nNallamalla\nNarayan\nNaveen\nNEHAL\nNinama\nNiraj\nNitin\nOmkar\nOn Hold\nPANKAJ\nPathlavath\nPatnam\nPIYUSH\nPooja\nPramod\nPrashant\nPratik\nPULI\nPurnima\nRahul\nRAJ\nRajkimar\nRamesh\nRavi\nRavindra\nRITESH\nRohan\nROHIT\nS\nS.Aravind\nSachin\nSadat\nSaijad\nSaikumar\nSalaam\nSamsuddin\nSangameshwar\nSanika\nSanita\nSanthosh\nShaheen\nSHAIK\nSharvari\nShivakrishna\nShivani\nShubham\nSiddique\nSIYA\nSoham\nSrikanth\nSubha\nSukumar\nSuraj\nSURIKANTI\nSushma\nTejash\nThakur\nTripati\nVallepu\nVanita\nVijaya\nVIJAYDIP\nVikas\nVishwarani\nVislavath\nYanampally\nYash\nYenumula\nYeshuka",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "Job status"
   },
   {
    "fieldname": "client",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Client",
-   "options": "Customer",
-   "reqd": 1
+   "options": "Customer"
   },
   {
    "fieldname": "client_job_id",
@@ -184,8 +189,7 @@
   {
    "fieldname": "job_title",
    "fieldtype": "Data",
-   "label": "Job Title",
-   "reqd": 1
+   "label": "Job Title"
   },
   {
    "fieldname": "job_start_date",
@@ -200,10 +204,8 @@
   },
   {
    "fieldname": "states",
-   "fieldtype": "Select",
-   "label": "States",
-   "options": "[Select all]\nAndaman and Nicobar Islands\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChandigarh\nChhattisgarh\nDadra and Nagar Haveli\nDaman and Diu\nDelhi\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nLakshadweep\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nPondicherry\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "States"
   },
   {
    "fieldname": "job_type",
@@ -220,7 +222,7 @@
    "fieldname": "required_documents",
    "fieldtype": "Select",
    "label": "Required Documents",
-   "options": "[Select all]\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
+   "options": "10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
   },
   {
    "fieldname": "client_category",
@@ -231,7 +233,7 @@
    "fieldname": "work_authorization",
    "fieldtype": "Select",
    "label": "Work Authorization",
-   "options": "[Select all]\nCitizen\nD&#039;mart\nH1-B\nNot Specified"
+   "options": "Citizen\nD&#039;mart\nH1-B\nNot Specified"
   },
   {
    "fieldname": "application_form",
@@ -278,8 +280,7 @@
   {
    "fieldname": "location",
    "fieldtype": "Data",
-   "label": "Location",
-   "reqd": 1
+   "label": "Location"
   },
   {
    "fieldname": "required_hoursweek",
@@ -299,8 +300,7 @@
   {
    "fieldname": "duration",
    "fieldtype": "Data",
-   "label": "Duration",
-   "reqd": 1
+   "label": "Duration"
   },
   {
    "fieldname": "ceipal_ref",
@@ -330,9 +330,8 @@
   },
   {
    "fieldname": "industry",
-   "fieldtype": "Select",
-   "label": "Industry",
-   "options": "[Select all]\nAccounting - Finance\nAdvertising\nAgriculture\nAirline - Aviation\nArchitecture - Building\nArt - Photography - Journalism\nAutomotive - Motor Vehicles - Parts\nBanking - Financial Services\nBiotechnology\nBroadcasting - Radio - TV\nBuilding Materials\nChemical\nComputer Hardware\nComputer Software\nConstruction\nConsulting\nConsumer Products\nCredit - Loan - Collections\nDefense - Aerospace\nEducation - Teaching - Administration\nElectronics\nEmployment - Recruiting - Staffing\nEnergy - Utilities - Gas - Electric\nEntertainment\nEnvironmental\nExercise - Fitness\nFashion - Apparel - Textile\nFood\nFuneral - Cemetery\nGovernment - Civil Service\nHealthcare - Health Services\nHomebuilding\nHospitality\nHotel - Resort\nHVAC\nImport - Export\nIndustrial\nInsurance\nInternet - ECommerce\nLandscaping\nLaw Enforcement\nLegal\nLibrary Science\nManaged Care\nManufacturing\nMedical Equipment\nMerchandising\nMilitary\nMortgage\nNewspaper\nNot for Profit - Charitable\nOffice Supplies - Equipment\nOil Refining - Petroleum - Drilling\nOther Great Industries\nPackaging\nPharmaceutical\nPrinting - Publishing\nPublic Relations\nReal Estate - Property Mgt\nRecreation\nRestaurant\nRetail\nSales - Marketing\nSecurities\nSecurity\nSemiconductor\nSocial Services\nTelecommunications\nTraining\nTransportation\nTravel\nWireless"
+   "fieldtype": "Data",
+   "label": "Industry"
   },
   {
    "fieldname": "evaluation_template",
@@ -343,7 +342,7 @@
    "fieldname": "languages",
    "fieldtype": "Select",
    "label": "Languages",
-   "options": "[Select all]\nArabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPortuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
+   "options": "Arabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPortuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
   },
   {
    "fieldname": "column_break_ekkj",
@@ -354,14 +353,7 @@
    "fieldname": "degree",
    "fieldtype": "Select",
    "label": "Degree",
-   "options": "Select all]\nDegree\nAssociate Degree\nBachelors Degree\nHighschool\nMasters Degree\nPHD\nUndergraduate"
-  },
-  {
-   "fieldname": "primary_skills",
-   "fieldtype": "Select",
-   "label": "Primary Skills",
-   "placeholder": "Required",
-   "reqd": 1
+   "options": "Degree\nAssociate Degree\nBachelors Degree\nHighschool\nMasters Degree\nPHD\nUndergraduate"
   },
   {
    "fieldname": "column_break_omza",
@@ -370,8 +362,7 @@
   {
    "fieldname": "experience",
    "fieldtype": "Int",
-   "label": "Experience",
-   "reqd": 1
+   "label": "Experience"
   },
   {
    "fieldname": "secondary_skills",
@@ -386,21 +377,19 @@
   {
    "fieldname": "number_of_positions",
    "fieldtype": "Int",
-   "label": "Number Of Positions",
-   "reqd": 1
+   "label": "Number Of Positions"
   },
   {
    "fieldname": "sales_manager",
    "fieldtype": "Select",
    "label": "Sales Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "options": "Anjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "account_manager",
    "fieldtype": "Select",
    "label": "Account Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)",
-   "reqd": 1
+   "options": "Anjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "comments",
@@ -420,14 +409,13 @@
    "fieldname": "department",
    "fieldtype": "Select",
    "label": "Department",
-   "options": "Select\nBusiness Development\nInternal HR\nLLC\nMarketing\nPerm Recruitment\nRecruitment\nTemp Operations\nTemp Recruitment",
-   "reqd": 1
+   "options": "Business Development\nInternal HR\nLLC\nMarketing\nPerm Recruitment\nRecruitment\nTemp Operations\nTemp Recruitment"
   },
   {
    "fieldname": "additional_notifications",
    "fieldtype": "Select",
    "label": "Additional Notifications",
-   "options": "[Select all]\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)\nAnjali Digankar (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nYogiraj Bhamre (User)"
+   "options": "Administrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)\nAnjali Digankar (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nYogiraj Bhamre (User)"
   },
   {
    "fieldname": "column_break_hipc",
@@ -435,23 +423,18 @@
   },
   {
    "fieldname": "tax_terms",
-   "fieldtype": "Select",
-   "label": "Tax Terms",
-   "options": "[Select all]\nC2H\nContract\nFull Time\nFull Time - Profit Sharing\nIntern\nOther\nPart Time\nSeasonal",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "Tax Terms"
   },
   {
    "fieldname": "recruitment_manager",
-   "fieldtype": "Select",
-   "label": "Recruitment Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "Recruitment Manager"
   },
   {
    "fieldname": "primary_recruiter",
-   "fieldtype": "Select",
-   "label": "Primary Recruiter",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "fieldtype": "Data",
+   "label": "Primary Recruiter"
   },
   {
    "fieldname": "career_portal_published_date",
@@ -491,7 +474,7 @@
    "fieldname": "secondary_sales_manager",
    "fieldtype": "Select",
    "label": "Secondary Sales Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "options": "Anjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "column_break_mvdv",
@@ -501,7 +484,7 @@
    "fieldname": "secondary_recruitment_manager",
    "fieldtype": "Select",
    "label": "Secondary Recruitment manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "options": "Anjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nNidhi Pandey (nidhi@promptpersonnel.com)\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "user_defined_fields_section",
@@ -532,16 +515,68 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Data",
+   "label": "Assigned To"
+  },
+  {
+   "fieldname": "job_created_by",
+   "fieldtype": "Data",
+   "label": "Job Created By"
+  },
+  {
+   "fieldname": "job_created",
+   "fieldtype": "Data",
+   "label": "Job Created"
+  },
+  {
+   "fieldname": "job_modified_on",
+   "fieldtype": "Data",
+   "label": "Job Modified On"
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Text",
+   "label": "Skills",
+   "placeholder": "Required"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal code"
+  },
+  {
+   "fieldname": "updated",
+   "fieldtype": "Data",
+   "label": "Updated"
+  },
+  {
+   "fieldname": "apply_job",
+   "fieldtype": "Text",
+   "label": "Apply Job"
+  },
+  {
+   "fieldname": "apply_job_without_registration",
+   "fieldtype": "Text",
+   "label": "Apply Job Without Registration"
+  },
+  {
+   "fieldname": "job_category",
+   "fieldtype": "Data",
+   "label": "Job Category"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-22 16:44:12.691986",
+ "modified": "2025-09-04 09:40:27.147548",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Job Creation",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
