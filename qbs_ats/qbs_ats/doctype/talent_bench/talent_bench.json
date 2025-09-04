@@ -11,6 +11,8 @@
   "data_xfvu",
   "column_break_ovdt",
   "middle_name",
+  "column_break_ryez",
+  "consultant_name",
   "section_break_buuu",
   "last_name",
   "email_address",
@@ -43,6 +45,7 @@
   "select_awmy",
   "applicant_group",
   "job_title",
+  "modify_date",
   "section_break_yvqi",
   "expected_pay",
   "column_break_eeda",
@@ -53,10 +56,15 @@
   "skills",
   "technology",
   "function",
+  "resum",
   "column_break_bucg",
   "primary_skills",
   "notice_period",
   "pancard_number",
+  "modified_by1",
+  "created_by",
+  "created_at",
+  "work_authorization",
   "bench_details_section",
   "bench_start_date",
   "sales_team_member",
@@ -79,6 +87,7 @@
   "eeo_details_section",
   "gender",
   "veteran_status",
+  "resume_path",
   "column_break_fcej",
   "raceethnicity",
   "disability",
@@ -95,8 +104,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "First Name",
-   "options": "Mr\nMrs\nMs",
-   "reqd": 1
+   "options": "Mr\nMrs\nMs"
   },
   {
    "fieldname": "column_break_anro",
@@ -123,8 +131,7 @@
    "fieldname": "last_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Last Name",
-   "reqd": 1
+   "label": "Last Name"
   },
   {
    "fieldname": "email_address",
@@ -133,32 +140,37 @@
   },
   {
    "fieldname": "home_phone_number",
-   "fieldtype": "Phone",
-   "label": "Home Phone Number"
+   "fieldtype": "Data",
+   "label": "Phone"
   },
   {
    "fieldname": "work_phone_number",
-   "fieldtype": "Phone",
-   "label": "Work Phone Number"
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Alternative Phone"
   },
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Date Of Birth"
   },
   {
    "fieldname": "skype_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Skype ID"
   },
   {
    "fieldname": "facebook_profile_url",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Facebook Profile URL"
   },
   {
    "fieldname": "video_reference",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Video Reference"
   },
   {
@@ -193,29 +205,31 @@
   },
   {
    "fieldname": "mobile_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile Number",
-   "reqd": 1
+   "label": "Mobile Number"
   },
   {
    "fieldname": "other_phone",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Other Phone"
   },
   {
    "fieldname": "ssn",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "SSN"
   },
   {
    "fieldname": "linkedin_profile_url",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "LinkedIn Profile URL"
   },
   {
    "fieldname": "twitter_profile_url",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Twitter Profile URL"
   },
   {
@@ -237,9 +251,8 @@
   },
   {
    "fieldname": "source",
-   "fieldtype": "Select",
-   "label": "Source",
-   "options": "Adesh Mishra\nAdzuna\nBusiness Associates\nCampus Portal\nCareerJet\nEmployee Referral\nFacebook\nFlipkart\nGlassdoor\nGmail\nGREYT HR\nIndeed\nInternal Job Posting\nJob Fair\nLinkedin\nMonster\nNaukri\nNeuvoo\nOthers\nOutlook\nPost Job Free\nRahul Jaiswal\nRecruiterNet\nShashank\nShiva Kumar\nSKL\nTushar\nVaibhav\nVaraprasad\nVendor"
+   "fieldtype": "Data",
+   "label": "Source"
   },
   {
    "fieldname": "section_break_mzxm",
@@ -248,6 +261,7 @@
   {
    "fieldname": "experience",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Experience",
    "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50",
    "placeholder": "Years"
@@ -270,12 +284,14 @@
   {
    "fieldname": "select_awmy",
    "fieldtype": "Select",
+   "hidden": 1,
    "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
    "placeholder": "Months"
   },
   {
    "fieldname": "applicant_group",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Applicant Group"
   },
   {
@@ -316,7 +332,7 @@
   },
   {
    "fieldname": "skills",
-   "fieldtype": "Data",
+   "fieldtype": "Text",
    "label": "Skills"
   },
   {
@@ -376,8 +392,7 @@
    "fieldname": "bench_status",
    "fieldtype": "Select",
    "label": "Bench Status",
-   "options": "Active Bench\nActive / On Demand Bench\nInactive Bench",
-   "reqd": 1
+   "options": "Active Bench\nActive / On Demand Bench\nInactive Bench"
   },
   {
    "fieldname": "priority",
@@ -496,13 +511,57 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "column_break_ryez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consultant_name",
+   "fieldtype": "Data",
+   "label": "Consultant Name"
+  },
+  {
+   "fieldname": "modify_date",
+   "fieldtype": "Data",
+   "label": "Modify Date"
+  },
+  {
+   "fieldname": "modified_by1",
+   "fieldtype": "Data",
+   "label": "Modified By"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "label": "Created By"
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Data",
+   "label": "Created At"
+  },
+  {
+   "fieldname": "work_authorization",
+   "fieldtype": "Data",
+   "label": "Work Authorization"
+  },
+  {
+   "fieldname": "resume_path",
+   "fieldtype": "Text",
+   "label": "Resume Path"
+  },
+  {
+   "fieldname": "resum",
+   "fieldtype": "Attach",
+   "label": "Resum"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-22 16:44:13.982323",
+ "modified": "2025-09-04 09:25:36.133113",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Talent Bench",

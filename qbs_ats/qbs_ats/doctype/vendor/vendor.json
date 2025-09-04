@@ -1,6 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "autoincrement",
  "creation": "2025-08-11 22:05:43.032131",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,6 +14,8 @@
   "primary_owner",
   "technologies",
   "vendor_type",
+  "accessible_business_units",
+  "modified_by1",
   "column_break_vzxp",
   "vendor_visibility",
   "federal_id",
@@ -23,6 +25,7 @@
   "ownership",
   "allow_acccess_to_all_users",
   "about_vendor",
+  "created_by",
   "column_break_visd",
   "business_unit",
   "website",
@@ -30,6 +33,8 @@
   "city",
   "send_hotlist",
   "vendor_lead",
+  "created",
+  "modified1",
   "accounts_tab",
   "contact_person",
   "email_id",
@@ -141,20 +146,18 @@
   },
   {
    "fieldname": "primary_business_unit",
-   "fieldtype": "Select",
-   "label": "Primary Business Unit",
-   "options": "Prompt Personnel Pvt.Ltd-Temp\nPrompt Personnel Private Limited-Internal\nPrompt Personnel Pvt.Ltd-Perm"
+   "fieldtype": "Data",
+   "label": "Primary Business Unit"
   },
   {
    "fieldname": "vendor_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Vendor Name",
-   "reqd": 1
+   "label": "Vendor Name"
   },
   {
    "fieldname": "contact_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Contact Number"
   },
   {
@@ -170,18 +173,20 @@
   },
   {
    "fieldname": "primary_owner",
-   "fieldtype": "Select",
-   "label": "Primary Owner",
-   "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Primary Owner"
   },
   {
    "fieldname": "technologies",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Technologies"
   },
   {
    "fieldname": "vendor_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Vendor Type",
    "options": "Full Time/Lateral\nContract / Subcon\nRPO"
   },
@@ -198,35 +203,38 @@
   {
    "fieldname": "federal_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Federal ID"
   },
   {
    "fieldname": "fax",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Fax"
   },
   {
    "fieldname": "state",
-   "fieldtype": "Select",
-   "label": "State",
-   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+   "fieldtype": "Data",
+   "label": "State"
   },
   {
    "default": "0",
    "fieldname": "send_requirement",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Send Requirement "
   },
   {
    "fieldname": "ownership",
-   "fieldtype": "Select",
-   "label": "Ownership",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Ownership"
   },
   {
    "default": "0",
    "fieldname": "allow_acccess_to_all_users",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Allow Acccess to All users"
   },
   {
@@ -263,11 +271,13 @@
    "default": "0",
    "fieldname": "send_hotlist",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Send Hotlist"
   },
   {
    "fieldname": "vendor_lead",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Vendor Lead",
    "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
@@ -391,8 +401,7 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name",
-   "reqd": 1
+   "label": "First Name"
   },
   {
    "fieldname": "email_address",
@@ -433,15 +442,13 @@
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name ",
-   "reqd": 1
+   "label": "Last Name "
   },
   {
    "fieldname": "main_owner",
    "fieldtype": "Select",
    "label": "Main Owner",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre",
-   "reqd": 1
+   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "address_2",
@@ -684,8 +691,7 @@
   {
    "fieldname": "benificiary_name",
    "fieldtype": "Data",
-   "label": "Benificiary Name ",
-   "reqd": 1
+   "label": "Benificiary Name "
   },
   {
    "fieldname": "ifsc_coderouting_number",
@@ -785,16 +791,43 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "accessible_business_units",
+   "fieldtype": "Data",
+   "label": "Accessible Business Units"
+  },
+  {
+   "fieldname": "modified_by1",
+   "fieldtype": "Data",
+   "label": "Modified By"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Created By"
+  },
+  {
+   "fieldname": "created",
+   "fieldtype": "Data",
+   "label": "Created"
+  },
+  {
+   "fieldname": "modified1",
+   "fieldtype": "Data",
+   "label": "Modified"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-22 16:44:13.531980",
+ "modified": "2025-09-04 09:39:20.806093",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Vendor",
+ "naming_rule": "Autoincrement",
  "owner": "Administrator",
  "permissions": [
   {
