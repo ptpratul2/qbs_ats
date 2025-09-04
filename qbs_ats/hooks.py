@@ -26,7 +26,12 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/qbs_ats/css/qbs_ats.css"
-# app_include_js = "/assets/qbs_ats/js/qbs_ats.js"
+# app_include_js = "/assets/qbs_ats/js/job_creation_list.js"
+app_include_js = "qbs_ats/public/js/job_creation_list.js"
+
+
+
+
 
 # include js, css files in header of web template
 # web_include_css = "/assets/qbs_ats/css/qbs_ats.css"
@@ -148,23 +153,24 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"qbs_ats.tasks.all"
 # 	],
 # 	"daily": [
 # 		"qbs_ats.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"qbs_ats.tasks.hourly"
-# 	],
+	"hourly": [
+		"qbs_ats.qbs_ats.doctype.job_creation.job_creation.generate_ceipal_token"
+
+	],
 # 	"weekly": [
 # 		"qbs_ats.tasks.weekly"
 # 	],
 # 	"monthly": [
 # 		"qbs_ats.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------
