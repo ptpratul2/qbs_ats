@@ -108,7 +108,11 @@ def get_ceipal_job_postings():
 
         try:
             print(f"Fetching jobs from URL: {current_page_url}")
-            response = requests.get(current_page_url, headers=headers, timeout=120)
+            response = requests.get(current_page_url, headers=headers, timeout=30)
+            if response.status_code == 429:
+                frappe.logger().info("Rate limit hit (429). Sleeping for 60s...")
+                time.sleep(60)
+                continue
 
             if response.status_code == 401:
                 frappe.logger().info("Token explicitly rejected (401) during job fetch → Regenerating and retrying...")
@@ -149,120 +153,3 @@ def get_ceipal_job_postings():
             return all_job_postings
 
     return all_job_postings
-
-
-# ------------------ MAIN SYNC ------------------
-@frappe.whitelist()
-def custom_method():
-    """Sync job postings from Ceipal → ERPNext Doctype"""
-    frappe.msgprint("Starting Ceipal → ERPNext Job Sync")
-    job_postings = get_ceipal_job_postings()
-
-    print(f"Total Jobs Fetched from CEIPAL: {len(job_postings)}")
-    frappe.logger().info(f"Total Jobs Fetched from CEIPAL: {len(job_postings)}")
-
-    if not job_postings:
-        return "No job postings found from Ceipal API."
-
-    synced_count = 0
-    errors_count = 0
-    for job in job_postings:
-        print("\nProcessing Job Data ========================")
-
-        res = sync_erpnext_document(job)
-        if res:
-            synced_count += 1
-        else:
-            errors_count += 1
-            frappe.log_error(f"Failed to sync job: {job.get('id', 'N/A')} - {job.get('position_title', 'N/A')}", "CEIPAL Job Sync Error")
-
-    frappe.db.commit()
-    return f"Ceipal Job Sync Complete! Successfully synced {synced_count} job postings. Failed: {errors_count}."
-
-
-# ------------------ ERPNext Sync ------------------
-def sync_erpnext_document(job_data):
-    """Create/Update ERPNext Job Creation document from CEIPAL data"""
-    headers = {
-        "Authorization": f"token {ERPNEXT_API_KEY}:{ERPNEXT_API_SECRET}",
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-    }
-
-    ceipal_unique_id = job_data.get("id")
-    if not ceipal_unique_id:
-        print("Skipping job, missing unique 'id' from CEIPAL:", job_data.get("position_title", "Unknown Job"))
-        frappe.logger().info(f"Skipping job, missing unique 'id' from CEIPAL: {job_data.get('position_title', 'Unknown Job')}")
-        return None
-
-    existing_doc_name = None
-    try:
-        existing_docs = frappe.get_list(ERPNEXT_DOCTYPE,
-                                        filters={"ceipal_ref": ceipal_unique_id},
-                                        fields=["name"])
-        if existing_docs:
-            existing_doc_name = existing_docs[0].get("name")
-            print(f"Found existing ERPNext document '{existing_doc_name}' for CEIPAL ID {ceipal_unique_id}")
-            frappe.logger().info(f"Found existing ERPNext document '{existing_doc_name}' for CEIPAL ID {ceipal_unique_id}")
-        else:
-            print(f"No existing ERPNext document found for CEIPAL ID {ceipal_unique_id}")
-
-    except Exception as e:
-        frappe.log_error(f"Error checking for existing document in ERPNext for CEIPAL ID {ceipal_unique_id}: {e}", "CEIPAL Sync Error")
-        print("Error checking for existing document in ERPNext:", str(e))
-        return None
-
-    data_to_sync = {
-        "ceipal_ref": ceipal_unique_id,
-        "job_title": job_data.get("position_title", ""),
-        "job_code": job_data.get("job_code", ""),
-        "job_status": job_data.get("job_status", ""),
-        "job_type": job_data.get("job_type", ""),
-        "country": job_data.get("country", ""),
-        "states": job_data.get("state", ""),
-        "job_start_date": job_data.get("job_start_date", ""),
-        "job_end_date": job_data.get("job_end_date", ""),
-        "priority": job_data.get("priority", ""),
-        "skills": job_data.get("skills", ""),
-        "postal_code": job_data.get("postal_code", ""),
-        "updated": job_data.get("updated", ""),
-        "apply_job": job_data.get("apply_job", ""),
-        "job_category": job_data.get("job_category", ""),
-        "apply_job_without_registration": job_data.get("apply_job_without_registration", ""),
-        "tax_terms": job_data.get("tax_terms", ""),
-        "job_description": job_data.get("public_job_desc") or job_data.get("requisition_description") or "",
-        "remote_job": job_data.get("remote_opportunities", ""),
-        "post_job_on_career_portal": 1 if str(job_data.get("post_on_careerportal", "")).lower() in ["1", "yes", "true"] else 0,
-    }
-    
-    for key, value in data_to_sync.items():
-        if isinstance(value, str) and value.strip() == "":
-            data_to_sync[key] = None
-
-    print(f"Data prepared for ERPNext Sync for job '{job_data.get('position_title')}':")
-    frappe.logger().info(f"Data prepared for ERPNext Sync for job '{job_data.get('position_title')}': {json.dumps(data_to_sync, indent=2)}")
-
-    try:
-        if existing_doc_name:
-            print(f"Updating existing ERPNext Job Creation: {existing_doc_name} (CEIPAL ID: {ceipal_unique_id})")
-            doc = frappe.get_doc(ERPNEXT_DOCTYPE, existing_doc_name)
-            doc.update(data_to_sync)
-            doc.save(ignore_permissions=True)
-            doc.submit()  # ✅ Ensure submitted
-
-            print(f"Updated & Submitted ERPNext document: {doc.name}")
-            return {"status": "updated", "doc_name": doc.name}
-        else:
-            print(f"Creating new ERPNext Job Creation document for CEIPAL ID: {ceipal_unique_id}")
-            doc = frappe.new_doc(ERPNEXT_DOCTYPE)
-            doc.update(data_to_sync)
-            doc.insert(ignore_permissions=True)
-            doc.submit()  # ✅ Ensure submitted
-
-            print(f"Created & Submitted new ERPNext document: {doc.name}")
-            return {"status": "created", "doc_name": doc.name}
-
-    except Exception as e:
-        frappe.log_error(f"Error creating/updating ERPNext Job Creation for CEIPAL ID {ceipal_unique_id}: {e}", "CEIPAL Sync Error")
-        print(f"Error creating/updating ERPNext Job Creation for CEIPAL ID {ceipal_unique_id}: {str(e)}")
-        return None

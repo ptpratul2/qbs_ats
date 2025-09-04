@@ -5,6 +5,7 @@ from frappe.model.document import Document
 import frappe
 import requests
 import re
+import time
 
 from qbs_ats.qbs_ats.doctype.job_creation.job_creation import get_active_token, generate_ceipal_token
 
@@ -28,7 +29,7 @@ def get_ceipal_users_map(token):
 
     try:
         while next_page_url:
-            response = requests.get(next_page_url, headers=headers, timeout=120)
+            response = requests.get(next_page_url, headers=headers, timeout=30)
             response.raise_for_status()
             data = response.json()
 
@@ -82,6 +83,11 @@ def custom_method():
             print(f"Fetching applicants from URL: {next_page_url}")
             response = requests.get(next_page_url, headers=headers, timeout=120)
 
+            if response.status_code == 429:
+                frappe.logger().info("Rate limit hit (429). Sleeping for 60s...")
+                time.sleep(60)
+                continue
+
             if response.status_code == 401:
                 print("Token expired. Regenerating and retrying...")
                 token_data = generate_ceipal_token()
@@ -91,7 +97,7 @@ def custom_method():
                     return {"status": "error", "message": message}
                 token = token_data.get("access_token")
                 headers["Authorization"] = f"Bearer {token}"
-                response = requests.get(next_page_url, headers=headers, timeout=120 )
+                response = requests.get(next_page_url, headers=headers, timeout=120)
 
             response.raise_for_status()
             data = response.json()
