@@ -80,7 +80,7 @@ def custom_method():
 
         while next_page_url:
             print(f"Fetching applicants from URL: {next_page_url}")
-            response = requests.get(next_page_url, headers=headers, timeout=60)
+            response = requests.get(next_page_url, headers=headers, timeout=120)
 
             if response.status_code == 401:
                 print("Token expired. Regenerating and retrying...")
@@ -91,7 +91,7 @@ def custom_method():
                     return {"status": "error", "message": message}
                 token = token_data.get("access_token")
                 headers["Authorization"] = f"Bearer {token}"
-                response = requests.get(next_page_url, headers=headers, timeout=60)
+                response = requests.get(next_page_url, headers=headers, timeout=120 )
 
             response.raise_for_status()
             data = response.json()
