@@ -21,7 +21,7 @@ def requests_session():
     session = requests.Session()
     retries = Retry(
         total=5,
-        backoff_factor=3,  # exponential backoff (3s, 6s, 12s...)
+        backoff_factor=3,  
         status_forcelist=[403, 429, 500, 502, 503, 504],
         allowed_methods=["GET", "POST"]
     )
@@ -63,10 +63,9 @@ def get_ceipal_users_map(token):
 
 
 @frappe.whitelist()
-def custom_method(batch_size=50):
+def custom_method(batch_size=50, start_page=1, max_pages=None):
     """
-    Fetch all applicants from CEIPAL API with retry + timeout + pagination handling.
-    Processes in batches to avoid timeout.
+    Fetch all applicants from CEIPAL API with retry + timeout + pagination + batch processing.
     """
     print("Starting CEIPAL Applicants Sync...")
 
@@ -87,16 +86,21 @@ def custom_method(batch_size=50):
 
         created_count = 0
         skipped_count = 0
-        page = 1
+        page = start_page
         has_more = True
 
         while has_more:
+            if max_pages and page > max_pages:
+                print(f"Reached max_pages limit: {max_pages}")
+                break
+
             next_page_url = f"{CEIPAL_APPLICANTS_API}page={page}"
             print(f"Fetching applicants from: {next_page_url}")
 
             try:
                 response = session.get(next_page_url, headers=headers, timeout=90)
 
+                # Token expired or forbidden, regenerate
                 if response.status_code in [401, 403]:
                     token_data = generate_ceipal_token()
                     if not token_data or not token_data.get("access_token"):
@@ -111,14 +115,15 @@ def custom_method(batch_size=50):
                 data = response.json()
 
             except requests.exceptions.Timeout:
-                frappe.logger().info(f"Timeout fetching: {next_page_url}, retrying...")
+                frappe.logger().info(f"Timeout fetching: {next_page_url}, retrying after 5s...")
+                time.sleep(5)
                 continue
             except Exception as e:
                 frappe.log_error(f"Request failed for {next_page_url}: {str(e)}", "CEIPAL Applicants Sync")
                 break
 
             applicants_from_api = data.get("results", [])
-            print(f"Processing {len(applicants_from_api)} applicants from page {page}...")
+            print(f"Page {page}: received {len(applicants_from_api)} applicants")
 
             if not applicants_from_api:
                 has_more = False
@@ -134,7 +139,7 @@ def custom_method(batch_size=50):
                         email = applicant_data.get("email")
                         applicant_id = applicant_data.get("applicant_id")
 
-                        # skip if duplicate
+                        # Skip duplicates
                         if email and frappe.db.exists("Applicants", {"email_address": email}):
                             skipped_count += 1
                             continue
@@ -176,10 +181,10 @@ def custom_method(batch_size=50):
                     except Exception as e:
                         frappe.log_error(f"Failed to create applicant: {str(e)}", "CEIPAL Applicant Creation")
 
-                frappe.db.commit()  
-                time.sleep(1)       
+                frappe.db.commit()
+                time.sleep(1)  
 
-            if data.get("next"):
+            if data.get("next"): 
                 page += 1
             else:
                 has_more = False
