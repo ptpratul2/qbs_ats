@@ -236,14 +236,14 @@
    "fieldname": "client_lead",
    "fieldtype": "Select",
    "label": "Client Lead",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre\nAll"
+   "options": "\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre\nAll"
   },
   {
    "fieldname": "recuired_documents",
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Recuired Documents",
-   "options": "[Select all]\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
+   "options": "\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
   },
   {
    "fieldname": "column_break_wway",
@@ -340,7 +340,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nArchive\nDNC\nInactive\nNegotiation\nNew Lead"
+   "options": "\nActive\nArchive\nDNC\nInactive\nNegotiation\nNew Lead"
   },
   {
    "fieldname": "ownership",
@@ -456,7 +456,7 @@
    "fieldname": "action",
    "fieldtype": "Select",
    "label": "Action",
-   "options": "ERCN-Email Received from Candidate\nImported from ResumeInbox\nPrescreen\nSubmitted\nCall\nInbound SMS\nMeeting\nOutbound SMS"
+   "options": "\nERCN-Email Received from Candidate\nImported from ResumeInbox\nPrescreen\nSubmitted\nCall\nInbound SMS\nMeeting\nOutbound SMS"
   },
   {
    "fieldname": "column_break_hmxn",
@@ -466,7 +466,7 @@
    "fieldname": "notes_priority",
    "fieldtype": "Select",
    "label": "Notes Priority",
-   "options": "Critical\nHigh\nMedium\nLow"
+   "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
    "fieldname": "section_break_mvih",
@@ -485,7 +485,7 @@
    "fieldname": "notify_these_people",
    "fieldtype": "Select",
    "label": "Notify these people",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "column_break_fugq",
@@ -524,7 +524,7 @@
    "fieldname": "upload_document",
    "fieldtype": "Select",
    "label": "Upload Document",
-   "options": "Local Drive\nDropBox\nBox"
+   "options": "\nLocal Drive\nDropBox\nBox"
   },
   {
    "fieldname": "section_break_utbn",
@@ -590,7 +590,7 @@
    "fieldname": "primary_holdership",
    "fieldtype": "Select",
    "label": "Primary Holdership",
-   "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "column_break_hesb",
@@ -610,7 +610,7 @@
    "fieldname": "holdership",
    "fieldtype": "Select",
    "label": "Holdership",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "default": "0",
@@ -659,7 +659,7 @@
    "fieldname": "province",
    "fieldtype": "Select",
    "label": "Province",
-   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+   "options": "\nAlabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
   },
   {
    "fieldname": "linkedin_profile_url",
@@ -694,7 +694,7 @@
    "fieldname": "position",
    "fieldtype": "Select",
    "label": "Position",
-   "options": "DNC\nNegotiating\nNew Lead\nWorking"
+   "options": "\nDNC\nNegotiating\nNew Lead\nWorking"
   },
   {
    "fieldname": "column_break_dpad",
@@ -704,7 +704,7 @@
    "fieldname": "nation",
    "fieldtype": "Select",
    "label": "Nation",
-   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCambodia\nCameroon\nCanada\nCape Verde\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo, Democratic Republic\nCongo, Republic of the\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea, North\nKorea, South\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTaiwan\nTajikistan\nTanzania\nThailand\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States\nUruguay\nUzbekistan\nVanuatu\nVatican City\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+   "options": "\nAfghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCambodia\nCameroon\nCanada\nCape Verde\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo, Democratic Republic\nCongo, Republic of the\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea, North\nKorea, South\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTaiwan\nTajikistan\nTanzania\nThailand\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States\nUruguay\nUzbekistan\nVanuatu\nVatican City\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
   },
   {
    "fieldname": "zip_code",
@@ -719,8 +719,7 @@
   {
    "fieldname": "client_group",
    "fieldtype": "Select",
-   "label": "Client Group",
-   "options": "Select All"
+   "label": "Client Group"
   },
   {
    "fieldname": "section_break_klcy",
@@ -741,40 +740,40 @@
    "fieldname": "configure_assigned_to_users",
    "fieldtype": "Select",
    "label": "Configure 'Assigned To' Users",
-   "options": "[Select all]\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nYogiraj Bhamre"
+   "options": "\n[Select all]\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nYogiraj Bhamre"
   },
   {
    "description": "(User selected here will be auto-populated in the 'Sales Manager' field while posting the Job.)",
    "fieldname": "configure_sales_manager",
    "fieldtype": "Select",
    "label": "Configure 'Sales Manager'",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "description": "(User selected here will be auto-populated in the 'Account Manager' field while posting the Job.)",
    "fieldname": "configure_account_manager",
    "fieldtype": "Select",
    "label": "Configure 'Account Manager'",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "description": "(User selected here will be auto-populated in the 'Recruitment Manager' field while posting the Job.)",
    "fieldname": "configure_recruitment_manager",
    "fieldtype": "Select",
    "label": "Configure 'Recruitment Manager'",
-   "options": "[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "secondary_sales_manager",
    "fieldtype": "Select",
    "label": "Secondary Sales Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nLogged in user\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "options": "\n[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nLogged in user\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "secondary_recruitment_manager",
    "fieldtype": "Select",
    "label": "Secondary Recruitment Manager",
-   "options": "[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nLogged in user\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
+   "options": "\n[Select all]\nAnjali Digankar (anjali@promptpersonnel.com)\nGauri Mestry (gauri@promptpersonnel.com)\nIshita Mepani (Ishita@promptpersonnel.com)\nKajal Rampariya (kajal@promptpersonnel.com)\nLogged in user\nYogiraj Bhamre (yogiraj@promptpersonnel.com)"
   },
   {
    "fieldname": "default_turnaround_time_configuration_for_jobvms_jobs",
@@ -785,44 +784,44 @@
    "fieldname": "tat_notification_recipient",
    "fieldtype": "Select",
    "label": "TAT Notification Recipient ",
-   "options": "[Select all]\nRecruitment Manager of Job\nSales Manager of Job\nPrimary Recruiter of Job\nAssinged To of Job\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\n[Select all]\nRecruitment Manager of Job\nSales Manager of Job\nPrimary Recruiter of Job\nAssinged To of Job\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "set_default_tax_term",
    "fieldtype": "Select",
    "label": "Set Default Tax Term",
-   "options": "[Select all]\nC2H\nContract\nFull Time\nFull Time - Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
+   "options": "\n[Select all]\nC2H\nContract\nFull Time\nFull Time - Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
   },
   {
    "fieldname": "set_default_work_authorization",
    "fieldtype": "Select",
    "label": "Set Default Work Authorization",
-   "options": "[Select all]\nCitizen\nD&#039;mart\nH1-B\nNot Specified"
+   "options": "\n[Select all]\nCitizen\nD&#039;mart\nH1-B\nNot Specified"
   },
   {
    "description": "(If turned on, \u2018Post Job on Career Portal option will be selected by default when a Job is created for this Client)",
    "fieldname": "post_job_in_career_portal",
    "fieldtype": "Select",
    "label": "Post Job in Career Portal",
-   "options": "ON\nOFF"
+   "options": "\nON\nOFF"
   },
   {
    "fieldname": "set_default_pay_rate_tax_term_on_job",
    "fieldtype": "Select",
    "label": "Set default pay rate tax term on Job",
-   "options": "C2H\nContract\nFull Time\nFull Time-Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
+   "options": "\nC2H\nContract\nFull Time\nFull Time-Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
   },
   {
    "fieldname": "set_default_bill_rate_tax_term_on_job",
    "fieldtype": "Select",
    "label": "Set default bill rate tax term on job",
-   "options": "C2H\nContract\nFull Time\nFull Time-Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
+   "options": "\nC2H\nContract\nFull Time\nFull Time-Profit Sharing\nIntern\nOther\nPart Time\nSeasonal"
   },
   {
    "fieldname": "make_references_mandatory_for_submissions",
    "fieldtype": "Select",
    "label": "Make References mandatory for submissions",
-   "options": "Yes\nNo"
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "max_of_submissions",
@@ -848,7 +847,7 @@
    "fieldname": "select_table",
    "fieldtype": "Select",
    "label": "Select Table",
-   "options": "Applicant\nClient\nClient Contact\nJob Posing\nsubmissions"
+   "options": "\nApplicant\nClient\nClient Contact\nJob Posing\nsubmissions"
   },
   {
    "fieldname": "column_break_hbsk",
@@ -867,7 +866,7 @@
    "fieldname": "select",
    "fieldtype": "Select",
    "label": "Select",
-   "options": "Add to Subject\nAdd to Body"
+   "options": "\nAdd to Subject\nAdd to Body"
   },
   {
    "fieldname": "section_break_fvhi",
@@ -935,7 +934,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-04 09:52:01.488799",
+ "modified": "2025-09-05 11:49:16.215774",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",

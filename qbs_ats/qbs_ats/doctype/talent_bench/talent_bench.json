@@ -10,32 +10,33 @@
   "column_break_anro",
   "data_xfvu",
   "column_break_ovdt",
-  "middle_name",
-  "column_break_ryez",
-  "consultant_name",
-  "section_break_buuu",
   "last_name",
+  "column_break_ryez",
+  "middle_name",
+  "section_break_buuu",
   "email_address",
   "home_phone_number",
   "work_phone_number",
+  "country",
+  "mobile_number",
   "date_of_birth",
   "skype_id",
   "facebook_profile_url",
   "video_reference",
   "address",
-  "country",
   "zip_code",
   "column_break_ojtd",
+  "consultant_name",
+  "state",
+  "city",
+  "work_authorization",
   "nick_name",
   "alternate_email_address",
-  "mobile_number",
   "other_phone",
   "ssn",
   "linkedin_profile_url",
   "twitter_profile_url",
   "clearance",
-  "city",
-  "state",
   "source",
   "section_break_mzxm",
   "experience",
@@ -64,7 +65,6 @@
   "modified_by1",
   "created_by",
   "created_at",
-  "work_authorization",
   "bench_details_section",
   "bench_start_date",
   "sales_team_member",
@@ -112,7 +112,8 @@
   },
   {
    "fieldname": "data_xfvu",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "First Name"
   },
   {
    "fieldname": "column_break_ovdt",
@@ -182,11 +183,12 @@
    "fieldname": "country",
    "fieldtype": "Select",
    "label": "Country",
-   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+   "options": "\nAfghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
   },
   {
    "fieldname": "zip_code",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Zip Code"
   },
   {
@@ -235,8 +237,9 @@
   {
    "fieldname": "clearance",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Clearance",
-   "options": "YES\nNO"
+   "options": "\nYES\nNO"
   },
   {
    "fieldname": "city",
@@ -247,7 +250,7 @@
    "fieldname": "state",
    "fieldtype": "Select",
    "label": "State",
-   "options": "Alabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
+   "options": "\nAlabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
   },
   {
    "fieldname": "source",
@@ -263,19 +266,21 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Experience",
-   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50",
+   "options": "\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50",
    "placeholder": "Years"
   },
   {
    "fieldname": "referred_by",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Referred By"
   },
   {
    "fieldname": "ownership",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Ownership",
-   "options": "[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
   {
    "fieldname": "column_break_qcyd",
@@ -297,6 +302,7 @@
   {
    "fieldname": "job_title",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Job Title"
   },
   {
@@ -306,8 +312,9 @@
   {
    "fieldname": "expected_pay",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Expected Pay",
-   "options": "INR\nUSD\nEUR\nJPY\nGBP\nCAD\nAUD\nCHF\nCNY\nZAR\nSAR\nAED\nPKR\nBDT\nNPR\nMYR\nSGD\nTHB\nVND"
+   "options": "\nINR\nUSD\nEUR\nJPY\nGBP\nCAD\nAUD\nCHF\nCNY\nZAR\nSAR\nAED\nPKR\nBDT\nNPR\nMYR\nSGD\nTHB\nVND"
   },
   {
    "fieldname": "column_break_eeda",
@@ -315,7 +322,8 @@
   },
   {
    "fieldname": "data_jmol",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_eubc",
@@ -324,7 +332,8 @@
   {
    "fieldname": "select_grkb",
    "fieldtype": "Select",
-   "options": "Hourly\nDaily\nWeekly\nMonthly\nYearly\nBi-Weekly"
+   "hidden": 1,
+   "options": "\nHourly\nDaily\nWeekly\nMonthly\nYearly\nBi-Weekly"
   },
   {
    "fieldname": "section_break_riaq",
@@ -344,7 +353,7 @@
    "fieldname": "function",
    "fieldtype": "Select",
    "label": "Function",
-   "options": "[Select all]\nArts and Design\nBusiness Development\nConsulting\nEducation\nEngineering\nFinance\nHuman Resources\nInformation Technology\nMarketing\nMedia and Communication\nOperations\nProduct Management\nProgram and Project Management\nResearch\nSales"
+   "options": "\n[Select all]\nArts and Design\nBusiness Development\nConsulting\nEducation\nEngineering\nFinance\nHuman Resources\nInformation Technology\nMarketing\nMedia and Communication\nOperations\nProduct Management\nProgram and Project Management\nResearch\nSales"
   },
   {
    "fieldname": "column_break_bucg",
@@ -358,12 +367,14 @@
   {
    "fieldname": "notice_period",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Notice Period",
    "options": "15 days Or less\n1 month\n2 month\n3 month\nMore than 3 months\nCurrently Serving Notice Period\n7 Days\n45 Days\nAny\nImmediate Joiner"
   },
   {
    "fieldname": "pancard_number",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "PanCard Number"
   },
   {
@@ -374,43 +385,50 @@
   {
    "fieldname": "bench_start_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Bench Start Date"
   },
   {
    "fieldname": "sales_team_member",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Sales Team Member",
-   "options": "[Select all]\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
+   "options": "\n[Select all]\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
   },
   {
    "fieldname": "consultant_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Consultant Type",
-   "options": "H1 Transfer\nW2"
+   "options": "\nH1 Transfer\nW2"
   },
   {
    "fieldname": "bench_status",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Bench Status",
-   "options": "Active Bench\nActive / On Demand Bench\nInactive Bench"
+   "options": "\nActive Bench\nActive / On Demand Bench\nInactive Bench"
   },
   {
    "fieldname": "priority",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Priority",
-   "options": "Critical\nHigh\nMedium\nLow"
+   "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
    "fieldname": "pay_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Pay Type",
-   "options": "Hourly\nPercentage\nSalary"
+   "options": "\nHourly\nPercentage\nSalary"
   },
   {
    "fieldname": "lead_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Lead Type",
-   "options": "H1 Transfer\nOPT/CPT\nIndependent W-2\nTN Visa"
+   "options": "\nH1 Transfer\nOPT/CPT\nIndependent W-2\nTN Visa"
   },
   {
    "fieldname": "column_break_gjnd",
@@ -424,35 +442,41 @@
   {
    "fieldname": "desired_sell_rate",
    "fieldtype": "Float",
+   "hidden": 1,
    "label": "Desired Sell Rate"
   },
   {
    "fieldname": "location_preference",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Location Preference"
   },
   {
    "fieldname": "availability",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Availability",
-   "options": "1 Week\n2 Week\nimmediate"
+   "options": "\n1 Week\n2 Week\nimmediate"
   },
   {
    "fieldname": "account_manager",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Account Manager",
-   "options": "[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
   {
    "fieldname": "employee_percentage",
    "fieldtype": "Percent",
+   "hidden": 1,
    "label": "Employee Percentage"
   },
   {
    "fieldname": "lead_generated_by",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Lead Generated By",
-   "options": "[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
+   "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
   {
    "fieldname": "section_break_utnr",
@@ -466,6 +490,7 @@
   {
    "fieldname": "additional_notifiers",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Additional Notifiers",
    "options": "[Select all]\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
   },
@@ -477,14 +502,15 @@
   {
    "fieldname": "gender",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Gender",
-   "options": "Male\nFemale\nDecline to self identify\nothers"
+   "options": "\nMale\nFemale\nDecline to self identify\nothers"
   },
   {
    "fieldname": "veteran_status",
    "fieldtype": "Select",
    "label": "Veteran Status",
-   "options": "Yes\nNo\nDecline to Designate"
+   "options": "\nYes\nNo\nDecline to Designate"
   },
   {
    "fieldname": "column_break_fcej",
@@ -493,14 +519,16 @@
   {
    "fieldname": "raceethnicity",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Race/Ethnicity",
-   "options": "American Indian / Alaska Native\nAsian / Pacific Islander\nBlack / American African\nDecline to Designate\nHispanic\nNative Hawaiian\nWhite"
+   "options": "\nAmerican Indian / Alaska Native\nAsian / Pacific Islander\nBlack / American African\nDecline to Designate\nHispanic\nNative Hawaiian\nWhite"
   },
   {
    "fieldname": "disability",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Disability",
-   "options": "Yes, I have a disability or have a history / record of having a disability\nNo, I don't have a disability or a history / record of having a disability\nI don't wish to answer"
+   "options": "\nYes, I have a disability or have a history / record of having a disability\nNo, I don't have a disability or a history / record of having a disability\nI don't wish to answer"
   },
   {
    "fieldname": "amended_from",
@@ -524,16 +552,19 @@
   {
    "fieldname": "modify_date",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Modify Date"
   },
   {
    "fieldname": "modified_by1",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Modified By"
   },
   {
    "fieldname": "created_by",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Created By"
   },
   {
@@ -561,7 +592,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-04 09:25:36.133113",
+ "modified": "2025-09-05 11:05:32.458163",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Talent Bench",

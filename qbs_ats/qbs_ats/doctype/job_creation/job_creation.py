@@ -21,7 +21,6 @@ class JobCreation(Document):
     pass
 
 
-# ------------------ TOKEN HANDLING ------------------
 @frappe.whitelist()
 def generate_ceipal_token():
     url = CEIPAL_AUTH_URL
@@ -79,12 +78,10 @@ def get_active_token():
     return token
 
 
-# ------------------ JOB FETCHING ------------------
-def get_ceipal_job_postings():
-    """Fetch ALL jobs from Ceipal using pagination and latest token with retry + timeout"""
+def get_ceipal_job_postings(batch_size=50, max_pages=100):
+    """Fetch jobs from Ceipal in batches with retry + timeout handling"""
     all_job_postings = []
-    current_page_url = CEIPAL_API_URL
-    max_pages = 100  # safety to avoid infinite loop
+    current_page_url = f"{CEIPAL_API_URL}limit={batch_size}"
     page_count = 0
 
     # Session with retry
@@ -102,12 +99,12 @@ def get_ceipal_job_postings():
         token = get_active_token()
         if not token:
             frappe.log_error("No CEIPAL token available", "CEIPAL API Error")
-            return []
+            return all_job_postings
 
         headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
         try:
-            frappe.logger().info(f"Fetching jobs page {page_count}: {current_page_url}")
+            frappe.logger().info(f"Fetching jobs batch {page_count}: {current_page_url}")
             response = session.get(current_page_url, headers=headers, timeout=30)
 
             if response.status_code == 401:  # token expired
@@ -119,7 +116,7 @@ def get_ceipal_job_postings():
                     response = session.get(current_page_url, headers=headers, timeout=30)
                 else:
                     frappe.log_error("Failed to regenerate token after 401", "CEIPAL API Error")
-                    return []
+                    return all_job_postings
 
             response.raise_for_status()
             api_response = response.json()
@@ -127,7 +124,7 @@ def get_ceipal_job_postings():
             jobs_on_page = api_response.get("results", [])
             if jobs_on_page:
                 all_job_postings.extend(jobs_on_page)
-                frappe.logger().info(f"Page {page_count}: fetched {len(jobs_on_page)} jobs (total {len(all_job_postings)})")
+                frappe.logger().info(f"Batch {page_count}: fetched {len(jobs_on_page)} jobs (total {len(all_job_postings)})")
             else:
                 break
 
@@ -135,18 +132,19 @@ def get_ceipal_job_postings():
             if not current_page_url:
                 break
 
+            time.sleep(2)  
+
         except Exception as e:
-            frappe.log_error(f"Error fetching data (Page {page_count}): {e}", "CEIPAL API Error")
+            frappe.log_error(f"Error fetching data (Batch {page_count}): {e}", "CEIPAL API Error")
             break
 
     return all_job_postings
 
 
-# ------------------ MAIN SYNC ------------------
 @frappe.whitelist()
-def custom_method():
-    frappe.msgprint("Starting Ceipal → ERPNext Job Sync")
-    job_postings = get_ceipal_job_postings()
+def custom_method(batch_size=50):
+    frappe.msgprint("Starting Ceipal → ERPNext Job Sync (Batch Mode)")
+    job_postings = get_ceipal_job_postings(batch_size=batch_size)
 
     frappe.logger().info(f"Total Jobs Fetched: {len(job_postings)}")
     if not job_postings:
@@ -154,18 +152,24 @@ def custom_method():
 
     synced_count = 0
     errors_count = 0
-    for job in job_postings:
-        res = sync_erpnext_document(job)
-        if res:
-            synced_count += 1
-        else:
-            errors_count += 1
 
-    frappe.db.commit()
+    for i in range(0, len(job_postings), batch_size):
+        batch = job_postings[i:i + batch_size]
+        frappe.logger().info(f"Syncing batch {i//batch_size + 1}, size {len(batch)}")
+
+        for job in batch:
+            res = sync_erpnext_document(job)
+            if res:
+                synced_count += 1
+            else:
+                errors_count += 1
+
+        frappe.db.commit()  
+        time.sleep(1)       
+
     return f"Ceipal Job Sync Complete! Synced: {synced_count}, Failed: {errors_count}"
 
 
-# ------------------ ERPNext Sync ------------------
 def sync_erpnext_document(job_data):
     ceipal_unique_id = job_data.get("id")
     if not ceipal_unique_id:
