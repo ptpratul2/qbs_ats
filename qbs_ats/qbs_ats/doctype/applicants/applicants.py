@@ -4,7 +4,6 @@ import requests
 import re
 import time
 import os
-import mimetypes
 import urllib.parse
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
@@ -16,10 +15,12 @@ from qbs_ats.qbs_ats.doctype.job_creation.job_creation import (
 
 CEIPAL_APPLICANTS_API = "https://api.ceipal.com/v1/getApplicantsList?"
 CEIPAL_USERS_API = "https://api.ceipal.com/v1/getUsersList?"
+CEIPAL_CREATE_APPLICANT_API = "https://api.ceipal.com/v1/createApplicant"
 
 
 class Applicants(Document):
     pass
+
 
 
 def requests_session():
@@ -46,7 +47,7 @@ def get_ceipal_users_map(token):
 
     try:
         while next_page_url:
-            response = session.get(next_page_url, headers=headers, timeout=60)
+            response = session.get(next_page_url, headers=headers, timeout=120)
             response.raise_for_status()
             data = response.json()
 
@@ -70,9 +71,8 @@ def get_ceipal_users_map(token):
         return {}
 
 
-# -------------------- DOWNLOAD RESUME --------------------
-def download_and_attach_resume(doc, resume_url, applicant_name, token):
-    """Downloads the resume and attaches it to the Applicant document."""
+def download_and_attach_resume(doc_name, resume_url, applicant_name, token):
+    """Background job: Downloads the resume and attaches it to the Applicant document."""
     if not resume_url:
         return
 
@@ -81,9 +81,7 @@ def download_and_attach_resume(doc, resume_url, applicant_name, token):
 
     try:
         safe_url = urllib.parse.quote(resume_url, safe=":/?&=%")
-
-        print(f"Downloading resume for {applicant_name} from: {safe_url}")
-        response = session.get(safe_url, headers=headers, stream=True, timeout=120)
+        response = session.get(safe_url, headers=headers, stream=True, timeout=300)
 
         if response.status_code == 400:
             frappe.log_error(
@@ -120,6 +118,8 @@ def download_and_attach_resume(doc, resume_url, applicant_name, token):
             )
             return
 
+        doc = frappe.get_doc("Applicants", doc_name)
+
         file_doc = frappe.new_doc("File")
         file_doc.file_name = filename
         file_doc.attached_to_doctype = doc.doctype
@@ -130,174 +130,192 @@ def download_and_attach_resume(doc, resume_url, applicant_name, token):
         frappe.db.commit()
 
         doc.db_set("resume", file_doc.file_url)
-        print(f" Resume {filename} attached to Applicant {doc.name}")
+        frappe.logger().info(f"Resume {filename} attached to Applicant {doc.name}")
 
-    except requests.exceptions.RequestException as e:
-        frappe.log_error(
-            message=f"Request error downloading resume for {applicant_name} from {resume_url}\nError: {str(e)}",
-            title="CEIPAL Resume Sync",
-        )
     except Exception as e:
         frappe.log_error(
-            message=f"General error attaching resume for {applicant_name}.\nURL: {resume_url}\nError: {str(e)}",
+            message=f"Error downloading resume for {applicant_name} from {resume_url}\nError: {str(e)}",
             title="CEIPAL Resume Sync",
         )
-
 
 @frappe.whitelist()
 def custom_method(batch_size=50, start_page=1, max_pages=None):
-    """Fetch all applicants from CEIPAL API with retry + timeout + pagination + batch processing."""
-    print("Starting CEIPAL Applicants Sync...")
+    """Fetch applicants from CEIPAL API and sync into ERPNext."""
+    frappe.logger().info("Starting CEIPAL Applicants Sync...")
 
     token = get_active_token()
     if not token:
         token_data = generate_ceipal_token()
         if not token_data or not token_data.get("access_token"):
-            message = "Failed to generate CEIPAL token. Sync stopped."
-            frappe.log_error(message, "CEIPAL Applicants Sync")
-            return {"status": "error", "message": message}
+            frappe.log_error("Failed to generate CEIPAL token. Sync stopped.", "CEIPAL Applicants Sync")
+            return
         token = token_data.get("access_token")
 
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     session = requests_session()
+    users_map = get_ceipal_users_map(token)
+
+    created_count, updated_count, skipped_count = 0, 0, 0
+    page, has_more = start_page, True
+
+    while has_more:
+        if max_pages and page > max_pages:
+            break
+
+        next_page_url = f"{CEIPAL_APPLICANTS_API}page={page}&limit={batch_size}"
+        frappe.logger().info(f"Fetching applicants from: {next_page_url}")
+
+        try:
+            response = session.get(next_page_url, headers=headers, timeout=300)
+
+            if response.status_code in [401, 403]:
+                token_data = generate_ceipal_token()
+                if not token_data or not token_data.get("access_token"):
+                    frappe.log_error(f"Token error ({response.status_code}). Regeneration failed.", "CEIPAL Applicants Sync")
+                    return
+                token = token_data.get("access_token")
+                headers["Authorization"] = f"Bearer {token}"
+                response = session.get(next_page_url, headers=headers, timeout=300)
+
+            response.raise_for_status()
+            data = response.json()
+
+        except Exception as e:
+            frappe.log_error(f"Request failed for {next_page_url}: {str(e)}", "CEIPAL Applicants Sync")
+            break
+
+        applicants_from_api = data.get("results", [])
+        if not applicants_from_api:
+            has_more = False
+            break
+
+        for applicant_data in applicants_from_api:
+            try:
+                email = applicant_data.get("email")
+                applicant_id = applicant_data.get("applicant_id")
+                applicant_full_name = f"{applicant_data.get('firstname', '')} {applicant_data.get('lastname', '')}".strip()
+
+                existing_doc_name = None
+                if email:
+                    existing_doc_name = frappe.db.get_value(
+                        "Applicants",
+                        {"email_address": email, "docstatus": ("!=", 2)},
+                        "name",
+                    )
+                if not existing_doc_name and applicant_id:
+                    existing_doc_name = frappe.db.get_value(
+                        "Applicants",
+                        {"applicant_id": applicant_id, "docstatus": ("!=", 2)},
+                        "name",
+                    )
+
+                raw_created_by = applicant_data.get("created_by")
+                created_by_name = users_map.get(raw_created_by, raw_created_by)
+
+                erpnext_applicant_data = {
+                    "applicant_id": applicant_id,
+                    "data_css": applicant_data.get("firstname"),
+                    "last_name": applicant_data.get("lastname"),
+                    "email_address": email,
+                    "mobile_number": re.sub(r"\D", "", str(applicant_data.get("mobile_number", ""))),
+                    "work_authorization": applicant_data.get("work_authorization"),
+                    "address": applicant_data.get("address"),
+                    "created_by": created_by_name,
+                    "created_on": applicant_data.get("created_at"),
+                    "country": applicant_data.get("country"),
+                    "state": applicant_data.get("state"),
+                    "city": applicant_data.get("city"),
+                    "source": applicant_data.get("source"),
+                    "applicant_status": applicant_data.get("applicant_status"),
+                    "job_title": applicant_data.get("job_title"),
+                    "skills": applicant_data.get("skills"),
+                }
+
+                applicant_doc = None
+                if existing_doc_name:
+                    applicant_doc = frappe.get_doc("Applicants", existing_doc_name)
+                    if applicant_doc.docstatus == 1:
+                        skipped_count += 1
+                        continue
+                    applicant_doc.update(erpnext_applicant_data)
+                    applicant_doc.save(ignore_permissions=True)
+                    updated_count += 1
+                else:
+                    applicant_doc = frappe.new_doc("Applicants")
+                    applicant_doc.update(erpnext_applicant_data)
+                    applicant_doc.insert(ignore_permissions=True)
+                    created_count += 1
+
+                if applicant_doc:
+                    resume_path = applicant_data.get("resume_path")
+                    if resume_path:
+                        frappe.enqueue(
+                            "qbs_ats.qbs_ats.doctype.applicants.applicants.download_and_attach_resume",
+                            doc_name=applicant_doc.name,
+                            resume_url=resume_path,
+                            applicant_name=applicant_full_name,
+                            token=token,
+                            queue="long",
+                        )
+
+                    if applicant_doc.docstatus == 0:
+                        applicant_doc.submit()
+
+            except Exception as e:
+                frappe.log_error(f"Failed to process applicant {applicant_data.get('applicant_id')}: {str(e)}", "CEIPAL Applicant Sync")
+
+        frappe.db.commit()
+        page += 1 if data.get("next") else 0
+        has_more = bool(data.get("next"))
+
+    frappe.logger().info(f"Sync completed. Created: {created_count}, Updated: {updated_count}, Skipped: {skipped_count}.")
+
+
+def post_applicant_to_ceipal(applicant_doc, token):
+    """Post applicant data from ERPNext to CEIPAL API."""
+    session = requests_session()
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    payload = {
+        "firstname": applicant_doc.data_css,
+        "lastname": applicant_doc.last_name,
+        "email": applicant_doc.email_address,
+        "mobile_number": applicant_doc.mobile_number,
+        "skills": applicant_doc.skills,
+        "job_title": applicant_doc.job_title,
+    }
 
     try:
-        users_map = get_ceipal_users_map(token)
-
-        created_count, updated_count, skipped_count = 0, 0, 0
-        page, has_more = start_page, True
-
-        while has_more:
-            if max_pages and page > max_pages:
-                print(f"Reached max_pages limit: {max_pages}")
-                break
-
-            next_page_url = f"{CEIPAL_APPLICANTS_API}page={page}"
-            print(f"Fetching applicants from: {next_page_url}")
-
-            try:
-                response = session.get(next_page_url, headers=headers, timeout=90)
-
-                if response.status_code in [401, 403]:
-                    frappe.logger().info(
-                        f"CEIPAL token expired/forbidden ({response.status_code}). Regenerating..."
-                    )
-                    token_data = generate_ceipal_token()
-                    if not token_data or not token_data.get("access_token"):
-                        message = f"Token error ({response.status_code}). Regeneration failed."
-                        frappe.log_error(message, "CEIPAL Applicants Sync")
-                        return {"status": "error", "message": message}
-                    token = token_data.get("access_token")
-                    headers["Authorization"] = f"Bearer {token}"
-                    response = session.get(next_page_url, headers=headers, timeout=90)
-
-                response.raise_for_status()
-                data = response.json()
-
-            except requests.exceptions.Timeout:
-                frappe.logger().info(f"Timeout fetching: {next_page_url}, retrying after 5s...")
-                time.sleep(5)
-                continue
-            except Exception as e:
-                frappe.log_error(f"Request failed for {next_page_url}: {str(e)}", "CEIPAL Applicants Sync")
-                break
-
-            applicants_from_api = data.get("results", [])
-            print(f"Page {page}: received {len(applicants_from_api)} applicants")
-
-            if not applicants_from_api:
-                has_more = False
-                break
-
-            # Process in batches
-            for i in range(0, len(applicants_from_api), batch_size):
-                batch = applicants_from_api[i:i + batch_size]
-                print(f"Processing batch {i//batch_size + 1} (size {len(batch)}) from page {page}")
-
-                for applicant_data in batch:
-                    try:
-                        email = applicant_data.get("email")
-                        applicant_id = applicant_data.get("applicant_id")
-                        applicant_full_name = f"{applicant_data.get('firstname', '')} {applicant_data.get('lastname', '')}".strip()
-
-                        # Check if applicant exists
-                        existing_doc_name = None
-                        if email:
-                            existing_doc_name = frappe.db.get_value(
-                                "Applicants",
-                                {"email_address": email, "docstatus": ("!=", 2)},
-                                "name",
-                            )
-                        if not existing_doc_name and applicant_id:
-                            existing_doc_name = frappe.db.get_value(
-                                "Applicants",
-                                {"applicant_id": applicant_id, "docstatus": ("!=", 2)},
-                                "name",
-                            )
-
-                        raw_created_by = applicant_data.get("created_by")
-                        created_by_name = users_map.get(raw_created_by, raw_created_by)
-
-                        erpnext_applicant_data = {
-                            "applicant_id": applicant_id,
-                            "data_css": applicant_data.get("firstname"),
-                            "last_name": applicant_data.get("lastname"),
-                            "email_address": email,
-                            "mobile_number": re.sub(r"\D", "", str(applicant_data.get("mobile_number", ""))),
-                            "work_authorization": applicant_data.get("work_authorization"),
-                            "address": applicant_data.get("address"),
-                            "created_by": created_by_name,
-                            "created_on": applicant_data.get("created_at"),
-                            "country": applicant_data.get("country"),
-                            "state": applicant_data.get("state"),
-                            "city": applicant_data.get("city"),
-                            "source": applicant_data.get("source"),
-                            "applicant_status": applicant_data.get("applicant_status"),
-                            "job_title": applicant_data.get("job_title"),
-                            "skills": applicant_data.get("skills"),
-                        }
-
-                        applicant_doc = None
-                        if existing_doc_name:
-                            applicant_doc = frappe.get_doc("Applicants", existing_doc_name)
-                            if applicant_doc.docstatus == 1:
-                                skipped_count += 1
-                                print(f"Applicant {applicant_doc.name} already submitted, skipping.")
-                                continue
-                            applicant_doc.update(erpnext_applicant_data)
-                            applicant_doc.save(ignore_permissions=True)
-                            updated_count += 1
-                            print(f"Applicant updated: {applicant_doc.name}")
-                        else:
-                            applicant_doc = frappe.new_doc("Applicants")
-                            applicant_doc.update(erpnext_applicant_data)
-                            applicant_doc.insert(ignore_permissions=True)
-                            created_count += 1
-                            print(f"Applicant created: {applicant_doc.name}")
-
-                        if applicant_doc:
-                            resume_path = applicant_data.get("resume_path")
-                            if resume_path:
-                                download_and_attach_resume(applicant_doc, resume_path, applicant_full_name, token)
-
-                            if applicant_doc.docstatus == 0:
-                                applicant_doc.submit()
-
-                    except Exception as e:
-                        frappe.log_error(f"Failed to process applicant {applicant_data.get('applicant_id')}: {str(e)}", "CEIPAL Applicant Sync")
-
-                frappe.db.commit()
-                time.sleep(1)
-
-            if data.get("next"):
-                page += 1
-            else:
-                has_more = False
-
-        success_message = f"Sync completed. Created: {created_count}, Updated: {updated_count}, Skipped: {skipped_count}."
-        print(success_message)
-        return {"status": "success", "message": success_message, "created": created_count, "updated": updated_count, "skipped": skipped_count}
-
+        response = session.post(CEIPAL_CREATE_APPLICANT_API, headers=headers, json=payload, timeout=120)
+        response.raise_for_status()
+        frappe.logger().info(f"Applicant {applicant_doc.name} posted to CEIPAL successfully")
+        return response.json()
     except Exception as e:
-        frappe.log_error(f"Applicants Sync error: {str(e)}", "CEIPAL Applicants Sync")
-        return {"status": "error", "message": f"Unexpected error: {str(e)}"}
+        frappe.log_error(f"Failed to post applicant {applicant_doc.name}: {str(e)}", "CEIPAL Post Applicant")
+        return None
+
+
+@frappe.whitelist()
+def enqueue_get_applicants(batch_size=50, start_page=1, max_pages=None):
+    """Trigger applicants sync from CEIPAL to ERPNext in background queue."""
+    frappe.enqueue(
+        "qbs_ats.qbs_ats.doctype.applicants.applicants.custom_method",
+        batch_size=batch_size,
+        start_page=start_page,
+        max_pages=max_pages,
+        queue="long"
+    )
+    return {"status": "queued", "message": "Applicants GET job enqueued"}
+
+
+@frappe.whitelist()
+def enqueue_post_applicant(applicant_name):
+    """Trigger posting applicant from ERPNext to CEIPAL in background queue."""
+    token = get_active_token()
+    frappe.enqueue(
+        "qbs_ats.qbs_ats.doctype.applicants.applicants.post_applicant_to_ceipal",
+        applicant_doc=frappe.get_doc("Applicants", applicant_name),
+        token=token,
+        queue="long"
+    )
+    return {"status": "queued", "message": f"Applicant {applicant_name} POST job enqueued"}

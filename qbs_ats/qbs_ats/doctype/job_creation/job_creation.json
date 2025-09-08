@@ -130,6 +130,7 @@
    "options": "\nDate Option\nOpen Until Filled"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "country",
    "fieldtype": "Link",
    "label": "Country",
@@ -447,6 +448,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "job_description",
    "fieldtype": "Text Editor",
    "label": "Job Description"
@@ -573,7 +575,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 11:22:08.506791",
+ "modified": "2025-09-08 14:41:52.074726",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Job Creation",
