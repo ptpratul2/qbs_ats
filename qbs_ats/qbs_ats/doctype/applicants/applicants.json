@@ -16,9 +16,9 @@
   "column_break_uxfj",
   "email_address",
   "section_break_aqvx",
-  "alternate_email_address",
-  "column_break_pyws",
   "mobile_number",
+  "column_break_pyws",
+  "city",
   "column_break_mcnp",
   "work_authorization",
   "column_break_hpoa",
@@ -26,15 +26,16 @@
   "section_break_rvyz",
   "address",
   "column_break_bfox",
-  "city",
-  "column_break_kcdv",
   "country",
+  "alternate_email_address",
+  "column_break_kcdv",
+  "resume",
   "section_break_fhry",
   "state",
   "column_break_zzrf",
   "source",
   "column_break_nytg",
-  "referred_by",
+  "created_on",
   "column_break_lhyh",
   "created_by",
   "experience_section",
@@ -42,12 +43,13 @@
   "column_break_vkwl",
   "months",
   "column_break_iblj",
-  "created_on",
+  "referred_by",
   "column_break_llqr",
   "postal_code",
   "section_break_dfly",
   "applicant_status",
   "column_break_zovq",
+  "skills",
   "ownership",
   "column_break_owpp",
   "job_title",
@@ -58,7 +60,7 @@
   "column_break_rzdh",
   "select_pdjb",
   "section_break_svjr",
-  "skills",
+  "column_break_lzwm",
   "column_break_vpjk",
   "column_break_lxab",
   "additional_comments",
@@ -698,7 +700,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Active\nInactive"
+   "options": "\nActive\nInactive"
   },
   {
    "fieldname": "column_break_ryxy",
@@ -726,7 +728,8 @@
   },
   {
    "fieldname": "data_css",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "First Name"
   },
   {
    "fieldname": "column_break_hpoa",
@@ -763,13 +766,22 @@
    "fieldname": "postal_code",
    "fieldtype": "Data",
    "label": "Postal Code"
+  },
+  {
+   "fieldname": "resume",
+   "fieldtype": "Attach",
+   "label": "Resume"
+  },
+  {
+   "fieldname": "column_break_lzwm",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-04 10:00:02.834097",
+ "modified": "2025-09-08 10:03:19.740503",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Applicants",
