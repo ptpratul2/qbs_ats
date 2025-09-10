@@ -1,8 +1,10 @@
+
+
+
 import frappe
 from frappe.model.document import Document
 import requests
 import re
-import time
 import os
 import urllib.parse
 from requests.adapters import HTTPAdapter
@@ -20,7 +22,6 @@ CEIPAL_CREATE_APPLICANT_API = "https://api.ceipal.com/v1/createApplicant"
 
 class Applicants(Document):
     pass
-
 
 
 def requests_session():
@@ -67,7 +68,9 @@ def get_ceipal_users_map(token):
         return users_map
 
     except Exception as e:
-        frappe.log_error(f"Failed to fetch Ceipal users list: {str(e)}", "CEIPAL Users Sync")
+        frappe.log_error(
+            f"Failed to fetch Ceipal users list: {str(e)}", "CEIPAL Users Sync"
+        )
         return {}
 
 
@@ -138,6 +141,7 @@ def download_and_attach_resume(doc_name, resume_url, applicant_name, token):
             title="CEIPAL Resume Sync",
         )
 
+
 @frappe.whitelist()
 def custom_method(batch_size=50, start_page=1, max_pages=None):
     """Fetch applicants from CEIPAL API and sync into ERPNext."""
@@ -195,13 +199,27 @@ def custom_method(batch_size=50, start_page=1, max_pages=None):
                 applicant_id = applicant_data.get("applicant_id")
                 applicant_full_name = f"{applicant_data.get('firstname', '')} {applicant_data.get('lastname', '')}".strip()
 
+                # --- ✅ Duplicate check ---
                 existing_doc_name = None
+
+                # Skip if already submitted with same email
                 if email:
+                    submitted_doc = frappe.db.get_value(
+                        "Applicants",
+                        {"email_address": email, "docstatus": 1},
+                        "name",
+                    )
+                    if submitted_doc:
+                        skipped_count += 1
+                        continue
+
+                    # Check draft record with same email
                     existing_doc_name = frappe.db.get_value(
                         "Applicants",
                         {"email_address": email, "docstatus": ("!=", 2)},
                         "name",
                     )
+
                 if not existing_doc_name and applicant_id:
                     existing_doc_name = frappe.db.get_value(
                         "Applicants",
@@ -229,15 +247,15 @@ def custom_method(batch_size=50, start_page=1, max_pages=None):
                     "applicant_status": applicant_data.get("applicant_status"),
                     "job_title": applicant_data.get("job_title"),
                     "skills": applicant_data.get("skills"),
-                    "consultant_name": applicant_data.get("consultant_name"),  
-                    "work_authorization_id": applicant_data.get("work_authorization_id"),  
-                    "home_phone_number": applicant_data.get("home_phone_number"),  
+                    "consultant_name": applicant_data.get("consultant_name"),
+                    "work_authorization_id": applicant_data.get("work_authorization_id"),
+                    "home_phone_number": applicant_data.get("home_phone_number"),
                 }
 
                 applicant_doc = None
                 if existing_doc_name:
                     applicant_doc = frappe.get_doc("Applicants", existing_doc_name)
-                    if applicant_doc.docstatus == 1:
+                    if applicant_doc.docstatus == 1:  # already submitted → skip
                         skipped_count += 1
                         continue
                     applicant_doc.update(erpnext_applicant_data)
@@ -249,6 +267,7 @@ def custom_method(batch_size=50, start_page=1, max_pages=None):
                     applicant_doc.insert(ignore_permissions=True)
                     created_count += 1
 
+                # Attach resume if available
                 if applicant_doc:
                     resume_path = applicant_data.get("resume_path")
                     if resume_path:
