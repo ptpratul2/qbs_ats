@@ -54,9 +54,7 @@ def custom_method():
         response.raise_for_status()
         api_data = response.json()
 
-        print("--- Raw API Response Received (first 200 chars) --- ==========================")
-        print("----------------------------------------------------------------------------------")
-
+       
         if not api_data or not api_data.get("results"):
             print("No new talent data found in the API response or 'results' key is missing.")
             return {"status": "success", "message": "No new talent data found."}

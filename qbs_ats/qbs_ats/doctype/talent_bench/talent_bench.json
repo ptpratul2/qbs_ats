@@ -1,25 +1,26 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{data_xfvu}-{#####}",
  "creation": "2025-08-11 22:06:36.114745",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_ljjo",
-  "first_name",
-  "column_break_anro",
   "data_xfvu",
-  "column_break_ovdt",
+  "column_break_anro",
   "last_name",
-  "column_break_ryez",
-  "middle_name",
-  "section_break_buuu",
+  "column_break_ovdt",
   "email_address",
+  "column_break_ryez",
   "home_phone_number",
+  "section_break_buuu",
   "work_phone_number",
   "country",
+  "resume",
+  "column_break_knry",
   "mobile_number",
-  "date_of_birth",
+  "primary_skills",
   "skype_id",
   "facebook_profile_url",
   "video_reference",
@@ -27,8 +28,10 @@
   "zip_code",
   "column_break_ojtd",
   "consultant_name",
+  "middle_name",
   "state",
   "city",
+  "column_break_huld",
   "work_authorization",
   "nick_name",
   "alternate_email_address",
@@ -59,7 +62,6 @@
   "function",
   "resum",
   "column_break_bucg",
-  "primary_skills",
   "notice_period",
   "pancard_number",
   "modified_by1",
@@ -100,20 +102,17 @@
    "label": "Personal Details"
   },
   {
-   "fieldname": "first_name",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "First Name",
-   "options": "Mr\nMrs\nMs"
-  },
-  {
    "fieldname": "column_break_anro",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "data_xfvu",
    "fieldtype": "Data",
-   "label": "First Name"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "First Name",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_ovdt",
@@ -129,32 +128,37 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "last_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Last Name"
+   "in_preview": 1,
+   "label": "Last Name",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "email_address",
    "fieldtype": "Data",
-   "label": "Email Address"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Email Address",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "home_phone_number",
    "fieldtype": "Data",
-   "label": "Phone"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Phone",
+   "print_hide": 1
   },
   {
    "fieldname": "work_phone_number",
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Alternative Phone"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "hidden": 1,
-   "label": "Date Of Birth"
   },
   {
    "fieldname": "skype_id",
@@ -180,10 +184,13 @@
    "label": "Address"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "country",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Country",
-   "options": "\nAfghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+   "print_hide": 1
   },
   {
    "fieldname": "zip_code",
@@ -206,10 +213,13 @@
    "label": "Alternate Email Address"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile Number"
+   "in_preview": 1,
+   "label": "Mobile Number",
+   "print_hide": 1
   },
   {
    "fieldname": "other_phone",
@@ -362,6 +372,7 @@
   {
    "fieldname": "primary_skills",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Primary Skills"
   },
   {
@@ -545,9 +556,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "consultant_name",
    "fieldtype": "Data",
-   "label": "Consultant Name"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Consultant Name",
+   "print_hide": 1
   },
   {
    "fieldname": "modify_date",
@@ -573,9 +588,13 @@
    "label": "Created At"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "work_authorization",
    "fieldtype": "Data",
-   "label": "Work Authorization"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Work Authorization",
+   "print_hide": 1
   },
   {
    "fieldname": "resume_path",
@@ -586,16 +605,34 @@
    "fieldname": "resum",
    "fieldtype": "Attach",
    "label": "Resum"
+  },
+  {
+   "fieldname": "column_break_knry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_huld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "resume",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Resume",
+   "print_hide": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 11:05:32.458163",
+ "modified": "2025-09-10 10:44:00.605306",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Talent Bench",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -173,7 +173,7 @@ def sync_erpnext_document(job_data):
             ERPNEXT_DOCTYPE, {"ceipal_ref": ceipal_unique_id}, "name"
         )
         if existing_doc:
-            return {"status": "skipped"}  # 🚀 Skip already existing job
+            return {"status": "skipped"}  
 
         data_to_sync = {
             "ceipal_ref": ceipal_unique_id,
@@ -191,7 +191,12 @@ def sync_erpnext_document(job_data):
             "apply_job": job_data.get("apply_job", ""),
             "job_category": job_data.get("job_category", ""),
             "apply_job_without_registration": job_data.get("apply_job_without_registration", ""),
-            "tax_terms": job_data.get("tax_terms", ""),
+            "updated": job_data.get("updated", ""),
+            "work_authorization": job_data.get("work_authorization", ""),
+            "industry": job_data.get("industry", ""),
+            "updated": job_data.get("updated", ""),
+            "updated": job_data.get("updated", ""),
+
             "job_description": job_data.get("public_job_desc")
                                or job_data.get("requisition_description")
                                or "",

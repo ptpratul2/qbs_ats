@@ -14,13 +14,11 @@
   "respond_by",
   "country",
   "job_status",
-  "client",
   "client_job_id",
   "priority",
   "additional_details",
   "interview_mode",
   "placement_fee_percentage",
-  "tvop",
   "employment_test_template",
   "postal_code",
   "updated",
@@ -28,11 +26,10 @@
   "column_break_drex",
   "job_title",
   "job_start_date",
-  "remote_job",
   "states",
   "job_type",
   "client_manager",
-  "required_documents",
+  "industry",
   "client_category",
   "work_authorization",
   "application_form",
@@ -48,25 +45,23 @@
   "expenses_paid",
   "location",
   "required_hoursweek",
-  "end_client",
+  "business_unit_id",
   "turnaround_time",
   "duration",
   "ceipal_ref",
   "address",
-  "commercial_model",
   "project_type",
   "assigned_to",
-  "job_modified_on",
-  "job_category",
+  "skills",
   "skills_section",
   "degree",
-  "industry",
   "evaluation_template",
   "languages",
   "column_break_ekkj",
   "experience",
   "column_break_omza",
-  "skills",
+  "skills_copy",
+  "job_category",
   "secondary_skills",
   "organizational_information_section",
   "number_of_positions",
@@ -113,10 +108,13 @@
    "label": "Job Detail"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "job_code",
    "fieldtype": "Autocomplete",
    "in_list_view": 1,
-   "label": "Job Code"
+   "in_preview": 1,
+   "label": "Job Code",
+   "print_hide": 1
   },
   {
    "fieldname": "pay_rate__salary",
@@ -133,19 +131,16 @@
    "allow_on_submit": 1,
    "fieldname": "country",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Country",
-   "options": "Country"
+   "options": "Country",
+   "print_hide": 1
   },
   {
    "fieldname": "job_status",
    "fieldtype": "Data",
    "label": "Job status"
-  },
-  {
-   "fieldname": "client",
-   "fieldtype": "Data",
-   "label": "Client",
-   "options": "Customer"
   },
   {
    "fieldname": "client_job_id",
@@ -171,12 +166,8 @@
   {
    "fieldname": "placement_fee_percentage",
    "fieldtype": "Float",
+   "hidden": 1,
    "label": "Placement Fee Percentage"
-  },
-  {
-   "fieldname": "tvop",
-   "fieldtype": "Data",
-   "label": "TVOP"
   },
   {
    "fieldname": "employment_test_template",
@@ -188,9 +179,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "job_title",
    "fieldtype": "Data",
-   "label": "Job Title"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Job Title",
+   "print_hide": 1
   },
   {
    "fieldname": "job_start_date",
@@ -198,21 +193,19 @@
    "label": "Job Start Date"
   },
   {
-   "fieldname": "remote_job",
-   "fieldtype": "Select",
-   "label": "Remote Job",
-   "options": "\nYes\nNo\nHybrid"
-  },
-  {
    "fieldname": "states",
    "fieldtype": "Data",
    "label": "States"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "job_type",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Job Type",
-   "options": "\nContract\nFull Time\nPart Time"
+   "options": "\n",
+   "print_hide": 1
   },
   {
    "fieldname": "client_manager",
@@ -220,21 +213,18 @@
    "label": "Client Manager"
   },
   {
-   "fieldname": "required_documents",
-   "fieldtype": "Select",
-   "label": "Required Documents",
-   "options": "\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
-  },
-  {
    "fieldname": "client_category",
    "fieldtype": "Select",
    "label": "Client Category"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "work_authorization",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Work Authorization",
-   "options": "\nCitizen\nD&#039;mart\nH1-B\nNot Specified"
+   "print_hide": 1
   },
   {
    "fieldname": "application_form",
@@ -279,19 +269,18 @@
    "options": "\nYes\nNo"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "location",
    "fieldtype": "Data",
-   "label": "Location"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Location",
+   "print_hide": 1
   },
   {
    "fieldname": "required_hoursweek",
    "fieldtype": "Int",
    "label": "Required Hours/Week"
-  },
-  {
-   "fieldname": "end_client",
-   "fieldtype": "Data",
-   "label": "End Client"
   },
   {
    "fieldname": "turnaround_time",
@@ -306,18 +295,13 @@
   {
    "fieldname": "ceipal_ref",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "CEIPAL Ref "
   },
   {
    "fieldname": "address",
    "fieldtype": "Small Text",
    "label": "Address"
-  },
-  {
-   "fieldname": "commercial_model",
-   "fieldtype": "Select",
-   "label": "Commercial Model",
-   "options": "\nRT-Perm Recruitment\nRT-Temp(Fixed Fee)\nRT-Temp(Percentage)\nRT-Temp(Rate Card)"
   },
   {
    "fieldname": "project_type",
@@ -327,12 +311,17 @@
   {
    "fieldname": "skills_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Skills"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "industry",
    "fieldtype": "Data",
-   "label": "Industry"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Industry",
+   "print_hide": 1
   },
   {
    "fieldname": "evaluation_template",
@@ -374,6 +363,7 @@
   {
    "fieldname": "organizational_information_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Organizational Information"
   },
   {
@@ -451,7 +441,10 @@
    "allow_on_submit": 1,
    "fieldname": "job_description",
    "fieldtype": "Text Editor",
-   "label": "Job Description"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Job Description",
+   "print_hide": 1
   },
   {
    "fieldname": "add_public_job_details",
@@ -535,47 +528,80 @@
    "label": "Job Created"
   },
   {
-   "fieldname": "job_modified_on",
-   "fieldtype": "Data",
-   "label": "Job Modified On"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "skills",
    "fieldtype": "Text",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Skills",
-   "placeholder": "Required"
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "postal_code",
    "fieldtype": "Data",
-   "label": "Postal code"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Postal code",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "updated",
    "fieldtype": "Data",
-   "label": "Updated"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Updated",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "apply_job",
-   "fieldtype": "Text",
-   "label": "Apply Job"
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Apply Job",
+   "options": "URL",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "apply_job_without_registration",
-   "fieldtype": "Text",
-   "label": "Apply Job Without Registration"
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Apply Job Without Registration",
+   "options": "URL",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
    "fieldname": "job_category",
    "fieldtype": "Data",
    "label": "Job Category"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "skills_copy",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Skills Copy",
+   "placeholder": "Required",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "business_unit_id",
+   "fieldtype": "Data",
+   "label": "Business Unit Id"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-08 14:41:52.074726",
+ "modified": "2025-09-10 12:08:39.251158",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Job Creation",

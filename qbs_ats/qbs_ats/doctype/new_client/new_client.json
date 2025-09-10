@@ -17,7 +17,6 @@
   "contact_number",
   "child_clients",
   "state",
-  "website",
   "fax",
   "category",
   "client_lead",
@@ -58,6 +57,7 @@
   "column_break_hcrk",
   "client_short_name",
   "accounts_tab",
+  "section_break_phqk",
   "contact_person",
   "email_address",
   "column_break_sjup",
@@ -68,6 +68,7 @@
   "column_break_yimr",
   "data_qkzp",
   "notes_tab",
+  "section_break_ciec",
   "action",
   "column_break_hmxn",
   "notes_priority",
@@ -86,6 +87,7 @@
   "section_break_utbn",
   "description",
   "guidelines_tab",
+  "section_break_krgk",
   "submission_guidelines",
   "submissions_documents_section",
   "select_document",
@@ -93,6 +95,7 @@
   "column_break_suby",
   "document_name",
   "contacts_tab",
+  "section_break_ozkj",
   "first_name",
   "role",
   "primary_holdership",
@@ -125,6 +128,7 @@
   "section_break_klcy",
   "about_the_contact",
   "assignments_tab",
+  "section_break_xurk",
   "configure_assigned_to_users",
   "configure_sales_manager",
   "configure_account_manager",
@@ -160,13 +164,18 @@
    "label": "Business Information"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "primary_business_unit",
    "fieldtype": "Data",
-   "label": "Primary Business Unit"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Primary Business Unit",
+   "print_hide": 1
   },
   {
    "fieldname": "client_visibility_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Client Visibility"
   },
   {
@@ -193,15 +202,22 @@
    "label": "Address"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "client_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Client Name"
+   "in_preview": 1,
+   "label": "Client Name",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "contact_number",
    "fieldtype": "Int",
-   "label": "Contact Number"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Contact Number",
+   "print_hide": 1
   },
   {
    "fieldname": "child_clients",
@@ -211,15 +227,13 @@
    "options": "[Select all]\nAyodha City Developer Pvt Ltd\nCornext Agri Products Pvt Ltd\nDivya Global Pvt Ltd\nIBM Test\ninternal\nPrompt Personnel Pvt Ltd\nPrompt Personnel Pvt Ltd\nPrompt Personnel Pvt Ltd\nPW Test Client\nSirmaxo Chemicals\nSkilldzire Test\nSlack Test\nTCTSL OME"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "state",
    "fieldtype": "Data",
-   "label": "State"
-  },
-  {
-   "fieldname": "website",
-   "fieldtype": "Text",
    "in_list_view": 1,
-   "label": "Website"
+   "in_preview": 1,
+   "label": "State",
+   "print_hide": 1
   },
   {
    "fieldname": "fax",
@@ -227,10 +241,15 @@
    "label": "Fax"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "category",
    "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Category",
-   "options": "Direct\nTier 1"
+   "options": "Direct\nTier 1",
+   "print_hide": 1
   },
   {
    "fieldname": "client_lead",
@@ -268,9 +287,13 @@
    "label": "Notify user if he/she is near by the client location (Mobile Only)"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "City",
+   "print_hide": 1
   },
   {
    "default": "0",
@@ -280,25 +303,32 @@
    "label": "Send Requirement"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "industry",
    "fieldtype": "Data",
-   "label": "Industry"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Industry",
+   "print_hide": 1
   },
   {
    "fieldname": "primary_owner",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Primary Owner",
    "options": "Anjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre\nAll"
   },
   {
    "fieldname": "display_on_job",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Display on job",
    "options": "ON\nOFF"
   },
   {
    "fieldname": "payment_terms",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "payment Terms",
    "options": "Net 10\nNet 15\nNet 30\nNet 45\nNet 60\nNet 7\nNet 90"
   },
@@ -318,15 +348,22 @@
    "label": "Address"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "country",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Country"
+   "in_preview": 1,
+   "label": "Country",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "postal_code",
    "fieldtype": "Int",
-   "label": "Postal Code"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Postal Code",
+   "print_hide": 1
   },
   {
    "default": "0",
@@ -336,21 +373,26 @@
    "label": "Send Hotlist"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_preview": 1,
    "label": "Status",
-   "options": "\nActive\nArchive\nDNC\nInactive\nNegotiation\nNew Lead"
+   "options": "\nActive\nArchive\nDNC\nInactive\nNegotiation\nNew Lead",
+   "print_hide": 1
   },
   {
    "fieldname": "ownership",
    "fieldtype": "Text",
+   "hidden": 1,
    "label": "Ownership"
   },
   {
    "default": "0",
    "fieldname": "allow_access_to_all_users",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Allow access to all users"
   },
   {
@@ -470,7 +512,8 @@
   },
   {
    "fieldname": "section_break_mvih",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "note",
@@ -549,6 +592,7 @@
    "description": "(Please upload any Client specific documents in this section which will be displayed on the Job, when a Job is created for this Client.)\n",
    "fieldname": "submissions_documents_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Submissions Documents"
   },
   {
@@ -648,7 +692,8 @@
   },
   {
    "fieldname": "section_break_lqlg",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "address_1",
@@ -723,7 +768,8 @@
   },
   {
    "fieldname": "section_break_klcy",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "about_the_contact",
@@ -904,14 +950,22 @@
    "label": "Accessible Business Unites"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "created_on",
    "fieldtype": "Data",
-   "label": "Created On"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Created On",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "modified_on",
    "fieldtype": "Data",
-   "label": "Modified On"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Modified On",
+   "print_hide": 1
   },
   {
    "fieldname": "created_by",
@@ -920,21 +974,50 @@
    "label": "Created By"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "created_at",
    "fieldtype": "Data",
-   "label": "Created At"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Created At",
+   "print_hide": 1
   },
   {
    "fieldname": "update_at",
    "fieldtype": "Data",
    "label": "Update At"
+  },
+  {
+   "fieldname": "section_break_phqk",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_ciec",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_krgk",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_ozkj",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_xurk",
+   "fieldtype": "Section Break",
+   "hidden": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 11:49:16.215774",
+ "modified": "2025-09-09 21:05:21.390012",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",
