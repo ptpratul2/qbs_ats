@@ -10,11 +10,8 @@
   "vendor_name",
   "contact_number",
   "country",
-  "zip_code",
-  "primary_owner",
   "technologies",
   "vendor_type",
-  "accessible_business_units",
   "modified_by1",
   "column_break_vzxp",
   "vendor_visibility",
@@ -24,8 +21,8 @@
   "allow_acccess_to_all_users",
   "address",
   "about_vendor",
-  "city",
-  "created_by",
+  "zip_code",
+  "accessible_business_units",
   "column_break_visd",
   "business_unit",
   "website",
@@ -34,7 +31,7 @@
   "vendor_lead",
   "created",
   "modified1",
-  "ownership",
+  "city",
   "accounts_tab",
   "office_number",
   "contact_person",
@@ -144,20 +141,31 @@
    "label": "Business Information"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "primary_business_unit",
    "fieldtype": "Data",
-   "label": "Primary Business Unit"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Primary Business Unit",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "vendor_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Vendor Name"
+   "in_preview": 1,
+   "label": "Vendor Name",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "contact_number",
    "fieldtype": "Data",
-   "label": "Contact Number"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Contact Number",
+   "print_hide": 1
   },
   {
    "fieldname": "country",
@@ -166,15 +174,13 @@
    "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "zip_code",
    "fieldtype": "Int",
-   "label": "Zip Code"
-  },
-  {
-   "fieldname": "primary_owner",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Primary Owner"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Zip Code",
+   "print_hide": 1
   },
   {
    "fieldname": "technologies",
@@ -212,9 +218,13 @@
    "label": "Fax"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "state",
    "fieldtype": "Data",
-   "label": "State"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "State",
+   "print_hide": 1
   },
   {
    "default": "0",
@@ -222,12 +232,6 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Send Requirement "
-  },
-  {
-   "fieldname": "ownership",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Ownership"
   },
   {
    "default": "0",
@@ -252,19 +256,33 @@
    "options": "\nPrompt Personnel Pvt Ltd-Temp\nPrompt Personnel Private Limited-Internal\nPrompt Personnel Pvt Ltd-Perm"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "website",
    "fieldtype": "Data",
-   "label": "Website"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Website",
+   "options": "URL",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "address",
    "fieldtype": "Data",
-   "label": "Address"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Address",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "City",
+   "print_hide": 1
   },
   {
    "default": "0",
@@ -316,6 +334,7 @@
   {
    "fieldname": "office_number",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Office Number"
   },
   {
@@ -385,6 +404,7 @@
    "default": "0",
    "fieldname": "remind_me",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Remind Me"
   },
   {
@@ -395,6 +415,7 @@
   {
    "fieldname": "standard_fields_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Standard Fields"
   },
   {
@@ -452,6 +473,7 @@
   {
    "fieldname": "postal_code",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Postal Code"
   },
   {
@@ -620,6 +642,7 @@
   {
    "fieldname": "upload_documents_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Upload Documents"
   },
   {
@@ -649,7 +672,8 @@
   },
   {
    "fieldname": "section_break_jpvf",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "document_type_1",
@@ -810,15 +834,13 @@
    "label": "Modified By"
   },
   {
-   "fieldname": "created_by",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Created By"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "created",
    "fieldtype": "Data",
-   "label": "Created"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Created",
+   "print_hide": 1
   },
   {
    "fieldname": "modified1",
@@ -830,7 +852,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 11:35:38.570054",
+ "modified": "2025-09-10 09:43:42.354013",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Vendor",

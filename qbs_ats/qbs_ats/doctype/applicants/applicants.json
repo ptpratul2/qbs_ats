@@ -8,51 +8,49 @@
  "field_order": [
   "personal_details_tab",
   "section_break_evoa",
-  "first_name",
-  "column_break_esml",
   "data_css",
-  "column_break_sdpw",
+  "column_break_esml",
   "last_name",
-  "column_break_uxfj",
+  "column_break_sdpw",
   "email_address",
-  "section_break_aqvx",
+  "column_break_uxfj",
   "mobile_number",
-  "column_break_pyws",
+  "section_break_aqvx",
   "city",
+  "column_break_pyws",
+  "state",
   "column_break_mcnp",
-  "work_authorization",
+  "country",
   "column_break_hpoa",
   "applicant_id",
   "section_break_rvyz",
-  "address",
+  "column_break_fskb",
+  "job_title",
   "column_break_bfox",
-  "country",
+  "resume",
   "alternate_email_address",
   "column_break_kcdv",
-  "resume",
-  "section_break_fhry",
-  "state",
-  "column_break_zzrf",
+  "work_authorization",
+  "column_break_jtqy",
+  "consultant_name",
+  "section_break_taqw",
   "source",
-  "column_break_nytg",
+  "home_phone_number",
+  "column_break_obgi",
   "created_on",
-  "column_break_lhyh",
-  "created_by",
-  "experience_section",
-  "years",
-  "column_break_vkwl",
-  "months",
-  "column_break_iblj",
-  "referred_by",
-  "column_break_llqr",
-  "postal_code",
-  "section_break_dfly",
+  "column_break_ghoo",
   "applicant_status",
-  "column_break_zovq",
+  "column_break_ancu",
+  "work_authorization_id",
+  "section_break_zpvi",
   "skills",
+  "column_break_cnti",
+  "address",
+  "section_break_dfly",
+  "column_break_nbgt",
+  "column_break_zovq",
   "ownership",
   "column_break_owpp",
-  "job_title",
   "expected_pay_section",
   "select_znlh",
   "column_break_eekv",
@@ -117,10 +115,6 @@
   "work_experience_section",
   "text_avfz",
   "add_employer_details_tab",
-  "add_employer_details_section",
-  "new",
-  "column_break_vygg",
-  "add_from_existing_vendor_contact_records",
   "section_break_tcge",
   "vendor_contact",
   "employer_name",
@@ -142,14 +136,8 @@
   },
   {
    "fieldname": "section_break_evoa",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "First Name",
-   "options": "Mr\nMrs\nMs"
+   "fieldtype": "Section Break",
+   "label": "Applicants Details"
   },
   {
    "fieldname": "column_break_esml",
@@ -160,20 +148,26 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "last_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Last Name"
+   "in_preview": 1,
+   "label": "Last Name",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_uxfj",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "email_address",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Email Address"
+   "in_preview": 1,
+   "label": "Email Address",
+   "print_hide": 1
   },
   {
    "fieldname": "section_break_aqvx",
@@ -189,10 +183,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Mobile Number"
+   "in_preview": 1,
+   "label": "Mobile Number",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_mcnp",
@@ -201,96 +198,73 @@
   {
    "fieldname": "work_authorization",
    "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Work Authorization",
-   "options": "Citizen\nD&#039;mart\nH1-B\nNot Specified"
+   "print_hide": 1
   },
   {
    "fieldname": "section_break_rvyz",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "address",
-   "fieldtype": "Text",
-   "label": "Address"
-  },
-  {
    "fieldname": "column_break_bfox",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "City",
+   "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "column_break_kcdv",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "country",
    "fieldtype": "Data",
-   "label": "Country"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Country",
+   "print_hide": 1
   },
   {
-   "fieldname": "section_break_fhry",
-   "fieldtype": "Section Break"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "state",
    "fieldtype": "Data",
-   "label": "State"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "State",
+   "print_hide": 1
   },
   {
-   "fieldname": "column_break_zzrf",
-   "fieldtype": "Column Break"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "source",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Source",
-   "options": "Adesh Mishra\nAdzuna\nBusiness Associates\nCampus Portal\nCareer Portal\nCareer Jet\nEmployee Referral\nFacebook\nFlipkart\nGlassdoor\nGmail\nGREYT HR\nIndeed\nInternal Job Posting\nJob Fair\nLinkedin\nMonster\nNaukri\nNeuvoo\nOthers\nOutlook\nPost Job Free\nRahul Jaiswal \nRecruiterNet\nShashank\nShiva Kumar\nSKL\nTushar\nVaibhav\nVaraprasad\nVendor\n"
-  },
-  {
-   "fieldname": "column_break_nytg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "referred_by",
-   "fieldtype": "Data",
-   "label": "Referred By"
-  },
-  {
-   "fieldname": "experience_section",
-   "fieldtype": "Section Break",
-   "label": "Experience"
-  },
-  {
-   "fieldname": "years",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Years",
-   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50"
-  },
-  {
-   "fieldname": "column_break_vkwl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "months",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Months",
-   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11"
+   "print_hide": 1
   },
   {
    "fieldname": "section_break_dfly",
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "applicant_status",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Applicant Status",
-   "options": "Do Not call\nDo Not Submit\nNew lead\nOut Of Market\nPlaced"
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_zovq",
@@ -308,9 +282,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "job_title",
    "fieldtype": "Data",
-   "label": "Job Title"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Job Title",
+   "print_hide": 1
   },
   {
    "fieldname": "expected_pay_section",
@@ -347,9 +325,13 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "skills",
    "fieldtype": "Text",
-   "label": "Skills"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Skills",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_vpjk",
@@ -494,8 +476,9 @@
   {
    "fieldname": "type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Type",
-   "options": "10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
+   "options": "\n10th Mark Sheet\n12th Mark Sheet\nDriving License\nEML File\nFollow Up\nPassport\nResume\nSSN\nTranscripts"
   },
   {
    "fieldname": "column_break_bfzi",
@@ -504,8 +487,9 @@
   {
    "fieldname": "upload_document",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Upload Document",
-   "options": "Local Drive\nDropBox"
+   "options": "\nLocal Drive\nDropBox"
   },
   {
    "fieldname": "section_break_prgh",
@@ -611,8 +595,9 @@
   {
    "fieldname": "language",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Language",
-   "options": "Arabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPrtuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
+   "options": "\nArabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPrtuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
   },
   {
    "fieldname": "column_break_ecuk",
@@ -621,8 +606,9 @@
   {
    "fieldname": "proficiency",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Proficiency",
-   "options": "Read\nSpeak\nWrite"
+   "options": "\nRead\nSpeak\nWrite"
   },
   {
    "fieldname": "work_experience_tab",
@@ -644,25 +630,6 @@
    "label": "Add Employer Details"
   },
   {
-   "fieldname": "add_employer_details_section",
-   "fieldtype": "Section Break",
-   "label": "Add Employer Details"
-  },
-  {
-   "fieldname": "new",
-   "fieldtype": "Button",
-   "label": "New"
-  },
-  {
-   "fieldname": "column_break_vygg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "add_from_existing_vendor_contact_records",
-   "fieldtype": "Button",
-   "label": "Add from existing vendor contact records"
-  },
-  {
    "fieldname": "section_break_tcge",
    "fieldtype": "Section Break"
   },
@@ -680,6 +647,7 @@
   {
    "fieldname": "telephone_number",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Telephone Number"
   },
   {
@@ -727,61 +695,119 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "data_css",
    "fieldtype": "Data",
-   "label": "First Name"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "First Name",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_hpoa",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "applicant_id",
    "fieldtype": "Data",
-   "label": "Applicant ID"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Applicant ID",
+   "print_hide": 1
   },
   {
-   "fieldname": "column_break_lhyh",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "created_by",
-   "fieldtype": "Data",
-   "label": "Created By"
-  },
-  {
-   "fieldname": "column_break_iblj",
-   "fieldtype": "Column Break"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "created_on",
    "fieldtype": "Data",
-   "label": "Created On"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Created On",
+   "print_hide": 1
   },
   {
-   "fieldname": "column_break_llqr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "postal_code",
-   "fieldtype": "Data",
-   "label": "Postal Code"
-  },
-  {
+   "allow_on_submit": 1,
    "fieldname": "resume",
    "fieldtype": "Attach",
-   "label": "Resume"
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Resume",
+   "print_hide": 1
   },
   {
    "fieldname": "column_break_lzwm",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nbgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zpvi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cnti",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_taqw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_obgi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ghoo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fskb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "address",
+   "fieldtype": "Text",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Address",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "home_phone_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Home Phone Number"
+  },
+  {
+   "fieldname": "column_break_jtqy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consultant_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Consultant Name"
+  },
+  {
+   "fieldname": "column_break_ancu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_authorization_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Work Authorization Id"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-08 10:03:19.740503",
+ "modified": "2025-09-10 13:44:04.438806",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Applicants",

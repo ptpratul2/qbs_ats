@@ -229,6 +229,9 @@ def custom_method(batch_size=50, start_page=1, max_pages=None):
                     "applicant_status": applicant_data.get("applicant_status"),
                     "job_title": applicant_data.get("job_title"),
                     "skills": applicant_data.get("skills"),
+                    "consultant_name": applicant_data.get("consultant_name"),  
+                    "work_authorization_id": applicant_data.get("work_authorization_id"),  
+                    "home_phone_number": applicant_data.get("home_phone_number"),  
                 }
 
                 applicant_doc = None
