@@ -522,7 +522,8 @@
   },
   {
    "fieldname": "section_break_vsae",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "notify_these_people",
@@ -1017,7 +1018,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-09 21:05:21.390012",
+ "modified": "2025-09-11 10:32:10.153130",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",
