@@ -53,6 +53,8 @@ function make_phone_clickable(frm, fieldname) {
 }
 
 function beautify_talent_bench_form(frm) {
+    const wrapper = frm.$wrapper; // ✅ sirf Talent Bench form ke andar CSS apply karega
+
     const fields = [
         "data_xfvu",
         "last_name",
@@ -85,7 +87,7 @@ function beautify_talent_bench_form(frm) {
         frm.set_df_property(field, "reqd", 1);
     });
 
-    $(".form-page").css({
+    wrapper.find(".form-page").css({
         "background": "#f9fbff",
         "border-radius": "14px",
         "padding": "30px",
@@ -94,7 +96,7 @@ function beautify_talent_bench_form(frm) {
         "font-family": "'Inter', sans-serif"
     });
 
-    $(".form-label").css({
+    wrapper.find(".form-label").css({
         "font-weight": "600",
         "color": "#34495e",
         "font-size": "14px",
@@ -102,24 +104,13 @@ function beautify_talent_bench_form(frm) {
         "display": "block"
     });
 
-    $(".form-control").css({
-        "border": "1px solid #d6e0f0",
-        "border-radius": "10px",
-        "padding": "12px 14px",
-        "font-size": "14px",
-        "background": "#ffffff",
-        "color": "#2c3e50",
-        "box-shadow": "0 2px 6px rgba(0,0,0,0.03)",
-        "transition": "0.3s ease"
-    });
-
-    $(".form-control").hover(function() {
+    wrapper.find(".form-control").hover(function() {
         $(this).css("border-color", "#5dade2");
     }, function() {
         $(this).css("border-color", "#d6e0f0");
     });
 
-    $(".form-control").focus(function() {
+    wrapper.find(".form-control").focus(function() {
         $(this).css({
             "border-color": "#2980b9",
             "box-shadow": "0 0 6px rgba(41,128,185,0.3)"
@@ -131,7 +122,7 @@ function beautify_talent_bench_form(frm) {
         });
     });
 
-    $(".section-head").css({
+    wrapper.find(".section-head").css({
         "background": "linear-gradient(90deg, #2980b9, #6dd5fa)",
         "color": "white",
         "padding": "12px 16px",
@@ -144,7 +135,7 @@ function beautify_talent_bench_form(frm) {
         "box-shadow": "0 3px 8px rgba(0,0,0,0.08)"
     });
 
-    $(".btn").css({
+    wrapper.find(".btn").css({
         "border-radius": "8px",
         "padding": "10px 18px",
         "font-weight": "600",
@@ -152,7 +143,7 @@ function beautify_talent_bench_form(frm) {
         "transition": "0.3s ease"
     });
 
-    $(".btn-primary").css({
+    wrapper.find(".btn-primary").css({
         "background": "linear-gradient(90deg, #2980b9, #6dd5fa)",
         "border": "none"
     }).hover(function() {
@@ -161,7 +152,7 @@ function beautify_talent_bench_form(frm) {
         $(this).css("opacity", "1");
     });
 
-    $(".btn-default").css({
+    wrapper.find(".btn-default").css({
         "background": "#ecf0f1",
         "border": "none"
     }).hover(function() {
