@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{employee_name}-{#####}",
+ "creation": "2025-09-11 19:22:20.598743",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_iily",
+  "placement_id",
+  "client_name",
+  "job_start_date",
+  "revenue_type",
+  "is_confirmation",
+  "column_break_bock",
+  "employee_name",
+  "employee_number",
+  "job_end_date",
+  "placement_status",
+  "column_break_ollf",
+  "email",
+  "business_unit_id",
+  "created",
+  "modified1",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_iily",
+   "fieldtype": "Section Break",
+   "label": "Placement Information"
+  },
+  {
+   "fieldname": "placement_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Placement ID",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "client_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Client Name",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "job_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Job Start Date",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "revenue_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Revenue Type",
+   "report_hide": 1
+  },
+  {
+   "fieldname": "column_break_bock",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Employee Name",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "employee_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Employee Number",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "job_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Job End Date",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "placement_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Placement Status",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_ollf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Email",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "business_unit_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Business Unit ID",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "created",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Created",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "modified1",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Modified"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "is_confirmation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Is Confirmation",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Placement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-12 10:21:55.598135",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Placement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
