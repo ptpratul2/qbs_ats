@@ -24,8 +24,8 @@
   "zip_code",
   "accessible_business_units",
   "column_break_visd",
-  "business_unit",
   "website",
+  "business_unit",
   "send_requirement",
   "send_hotlist",
   "vendor_lead",
@@ -79,6 +79,7 @@
   "phone_number",
   "province",
   "facebook_profile_url",
+  "column_break_ziur",
   "techniques",
   "section_break_bkds",
   "comment",
@@ -171,7 +172,7 @@
    "fieldname": "country",
    "fieldtype": "Select",
    "label": "Country",
-   "options": "Afghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
+   "options": "\nAfghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
   },
   {
    "allow_on_submit": 1,
@@ -185,13 +186,11 @@
   {
    "fieldname": "technologies",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Technologies"
   },
   {
    "fieldname": "vendor_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Vendor Type",
    "options": "Full Time/Lateral\nContract / Subcon\nRPO"
   },
@@ -208,13 +207,11 @@
   {
    "fieldname": "federal_id",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Federal ID"
   },
   {
    "fieldname": "fax",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Fax"
   },
   {
@@ -230,14 +227,12 @@
    "default": "0",
    "fieldname": "send_requirement",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Send Requirement "
   },
   {
    "default": "0",
    "fieldname": "allow_acccess_to_all_users",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Allow Acccess to All users"
   },
   {
@@ -288,13 +283,11 @@
    "default": "0",
    "fieldname": "send_hotlist",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Send Hotlist"
   },
   {
    "fieldname": "vendor_lead",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Vendor Lead",
    "options": "\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
@@ -334,7 +327,6 @@
   {
    "fieldname": "office_number",
    "fieldtype": "Int",
-   "hidden": 1,
    "label": "Office Number"
   },
   {
@@ -404,7 +396,6 @@
    "default": "0",
    "fieldname": "remind_me",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Remind Me"
   },
   {
@@ -415,7 +406,6 @@
   {
    "fieldname": "standard_fields_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Standard Fields"
   },
   {
@@ -473,7 +463,6 @@
   {
    "fieldname": "postal_code",
    "fieldtype": "Int",
-   "hidden": 1,
    "label": "Postal Code"
   },
   {
@@ -575,7 +564,6 @@
    "default": "0",
    "fieldname": "send_priority_list",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Send Priority list"
   },
   {
@@ -642,13 +630,11 @@
   {
    "fieldname": "upload_documents_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Upload Documents"
   },
   {
    "fieldname": "document_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Document Type",
    "options": "\nMSA"
   },
@@ -672,8 +658,7 @@
   },
   {
    "fieldname": "section_break_jpvf",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "document_type_1",
@@ -747,7 +732,6 @@
   {
    "fieldname": "bank_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Bank Name"
   },
   {
@@ -765,7 +749,6 @@
   {
    "fieldname": "territory",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Territory",
    "options": "\nAfghanistan\nAlbania\nAlgeria\nAndorra\nAngola\nAntigua and Barbuda\nArgentina\nArmenia\nAustralia\nAustria\nAzerbaijan\nBahamas\nBahrain\nBangladesh\nBarbados\nBelarus\nBelgium\nBelize\nBenin\nBhutan\nBolivia\nBosnia and Herzegovina\nBotswana\nBrazil\nBrunei\nBulgaria\nBurkina Faso\nBurundi\nCabo Verde\nCambodia\nCameroon\nCanada\nCentral African Republic\nChad\nChile\nChina\nColombia\nComoros\nCongo (Brazzaville)\nCongo (Kinshasa)\nCosta Rica\nCroatia\nCuba\nCyprus\nCzech Republic\nDenmark\nDjibouti\nDominica\nDominican Republic\nEcuador\nEgypt\nEl Salvador\nEquatorial Guinea\nEritrea\nEstonia\nEswatini\nEthiopia\nFiji\nFinland\nFrance\nGabon\nGambia\nGeorgia\nGermany\nGhana\nGreece\nGrenada\nGuatemala\nGuinea\nGuinea-Bissau\nGuyana\nHaiti\nHonduras\nHungary\nIceland\nIndia\nIndonesia\nIran\nIraq\nIreland\nIsrael\nItaly\nJamaica\nJapan\nJordan\nKazakhstan\nKenya\nKiribati\nKorea (North)\nKorea (South)\nKosovo\nKuwait\nKyrgyzstan\nLaos\nLatvia\nLebanon\nLesotho\nLiberia\nLibya\nLiechtenstein\nLithuania\nLuxembourg\nMadagascar\nMalawi\nMalaysia\nMaldives\nMali\nMalta\nMarshall Islands\nMauritania\nMauritius\nMexico\nMicronesia\nMoldova\nMonaco\nMongolia\nMontenegro\nMorocco\nMozambique\nMyanmar\nNamibia\nNauru\nNepal\nNetherlands\nNew Zealand\nNicaragua\nNiger\nNigeria\nNorth Macedonia\nNorway\nOman\nPakistan\nPalau\nPalestine\nPanama\nPapua New Guinea\nParaguay\nPeru\nPhilippines\nPoland\nPortugal\nQatar\nRomania\nRussia\nRwanda\nSaint Kitts and Nevis\nSaint Lucia\nSaint Vincent and the Grenadines\nSamoa\nSan Marino\nSao Tome and Principe\nSaudi Arabia\nSenegal\nSerbia\nSeychelles\nSierra Leone\nSingapore\nSlovakia\nSlovenia\nSolomon Islands\nSomalia\nSouth Africa\nSouth Sudan\nSpain\nSri Lanka\nSudan\nSuriname\nSweden\nSwitzerland\nSyria\nTajikistan\nTanzania\nThailand\nTimor-Leste\nTogo\nTonga\nTrinidad and Tobago\nTunisia\nTurkey\nTurkmenistan\nTuvalu\nUganda\nUkraine\nUnited Arab Emirates\nUnited Kingdom\nUnited States of America\nUruguay\nUzbekistan\nVanuatu\nVatican City (Holy See)\nVenezuela\nVietnam\nYemen\nZambia\nZimbabwe"
   },
@@ -782,14 +765,12 @@
   {
    "fieldname": "account_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Account Type",
    "options": "\nSavings\nChecking\nCurrent"
   },
   {
    "fieldname": "deposit_amount",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Deposit Amount",
    "options": "\nFull\nPartial %\nRemaining"
   },
@@ -802,14 +783,12 @@
   {
    "fieldname": "zone",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Zone",
    "options": "\nAlabama\nAlaska\nArizona\nArkansas\nCalifornia\nColorado\nConnecticut\nDelaware\nFlorida\nGeorgia\nHawaii\nIdaho\nIllinois\nIndiana\nIowa\nKansas\nKentucky\nLouisiana\nMaine\nMaryland\nMassachusetts\nMichigan\nMinnesota\nMississippi\nMissouri\nMontana\nNebraska\nNevada\nNew Hampshire\nNew Jersey\nNew Mexico\nNew York\nNorth Carolina\nNorth Dakota\nOhio\nOklahoma\nOregon\nPennsylvania\nRhode Island\nSouth Carolina\nSouth Dakota\nTennessee\nTexas\nUtah\nVermont\nVirginia\nWashington\nWest Virginia\nWisconsin\nWyoming"
   },
   {
    "fieldname": "record_status",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Record Status",
    "options": "\nActive\nInactive"
   },
@@ -831,6 +810,7 @@
   {
    "fieldname": "modified_by1",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Modified By"
   },
   {
@@ -846,13 +826,17 @@
    "fieldname": "modified1",
    "fieldtype": "Data",
    "label": "Modified"
+  },
+  {
+   "fieldname": "column_break_ziur",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-10 09:43:42.354013",
+ "modified": "2025-09-12 17:09:45.566543",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Vendor",

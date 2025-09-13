@@ -22,6 +22,9 @@
   "client_lead",
   "recuired_documents",
   "modified_by1",
+  "payment_terms",
+  "display_on_job",
+  "practice",
   "column_break_wway",
   "vms_client_name",
   "email_id",
@@ -30,11 +33,10 @@
   "send_requirement",
   "industry",
   "primary_owner",
-  "display_on_job",
-  "payment_terms",
   "accessible_business_unites",
   "created_on",
   "modified_on",
+  "created_by",
   "column_break_cwaq",
   "federal_id",
   "address",
@@ -44,10 +46,8 @@
   "status",
   "ownership",
   "allow_access_to_all_users",
-  "practice",
-  "created_by",
-  "created_at",
   "update_at",
+  "created_at",
   "section_break_hjjj",
   "about_company",
   "section_break_tvxq",
@@ -512,8 +512,7 @@
   },
   {
    "fieldname": "section_break_mvih",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "note",
@@ -522,14 +521,13 @@
   },
   {
    "fieldname": "section_break_vsae",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "notify_these_people",
    "fieldtype": "Select",
    "label": "Notify these people",
-   "options": "\n[Select all]\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
+   "options": "\nAnjali Digankar\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nYogiraj Bhamre"
   },
   {
    "fieldname": "column_break_fugq",
@@ -593,14 +591,13 @@
    "description": "(Please upload any Client specific documents in this section which will be displayed on the Job, when a Job is created for this Client.)\n",
    "fieldname": "submissions_documents_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Submissions Documents"
   },
   {
    "fieldname": "select_document",
    "fieldtype": "Select",
    "label": "Select Document",
-   "options": "Local Drive\nDropBox\nBox"
+   "options": "\nLocal Drive\nDropBox\nBox"
   },
   {
    "fieldname": "explanation",
@@ -693,8 +690,7 @@
   },
   {
    "fieldname": "section_break_lqlg",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "address_1",
@@ -769,8 +765,7 @@
   },
   {
    "fieldname": "section_break_klcy",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "about_the_contact",
@@ -787,7 +782,7 @@
    "fieldname": "configure_assigned_to_users",
    "fieldtype": "Select",
    "label": "Configure 'Assigned To' Users",
-   "options": "\n[Select all]\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nYogiraj Bhamre"
+   "options": "\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nYogiraj Bhamre"
   },
   {
    "description": "(User selected here will be auto-populated in the 'Sales Manager' field while posting the Job.)",
@@ -990,35 +985,30 @@
   },
   {
    "fieldname": "section_break_phqk",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_ciec",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_krgk",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_ozkj",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_xurk",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-11 10:32:10.153130",
+ "modified": "2025-09-13 07:03:24.926604",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",

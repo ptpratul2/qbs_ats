@@ -157,25 +157,21 @@
   {
    "fieldname": "work_phone_number",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Alternative Phone"
   },
   {
    "fieldname": "skype_id",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Skype ID"
   },
   {
    "fieldname": "facebook_profile_url",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Facebook Profile URL"
   },
   {
    "fieldname": "video_reference",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Video Reference"
   },
   {
@@ -195,7 +191,6 @@
   {
    "fieldname": "zip_code",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Zip Code"
   },
   {
@@ -229,25 +224,21 @@
   {
    "fieldname": "ssn",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "SSN"
   },
   {
    "fieldname": "linkedin_profile_url",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "LinkedIn Profile URL"
   },
   {
    "fieldname": "twitter_profile_url",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Twitter Profile URL"
   },
   {
    "fieldname": "clearance",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Clearance",
    "options": "\nYES\nNO"
   },
@@ -274,7 +265,6 @@
   {
    "fieldname": "experience",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Experience",
    "options": "\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50",
    "placeholder": "Years"
@@ -282,13 +272,11 @@
   {
    "fieldname": "referred_by",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Referred By"
   },
   {
    "fieldname": "ownership",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Ownership",
    "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
@@ -299,20 +287,17 @@
   {
    "fieldname": "select_awmy",
    "fieldtype": "Select",
-   "hidden": 1,
-   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
+   "options": "\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
    "placeholder": "Months"
   },
   {
    "fieldname": "applicant_group",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Applicant Group"
   },
   {
    "fieldname": "job_title",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Job Title"
   },
   {
@@ -322,7 +307,6 @@
   {
    "fieldname": "expected_pay",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Expected Pay",
    "options": "\nINR\nUSD\nEUR\nJPY\nGBP\nCAD\nAUD\nCHF\nCNY\nZAR\nSAR\nAED\nPKR\nBDT\nNPR\nMYR\nSGD\nTHB\nVND"
   },
@@ -332,8 +316,7 @@
   },
   {
    "fieldname": "data_jmol",
-   "fieldtype": "Data",
-   "hidden": 1
+   "fieldtype": "Data"
   },
   {
    "fieldname": "column_break_eubc",
@@ -342,7 +325,6 @@
   {
    "fieldname": "select_grkb",
    "fieldtype": "Select",
-   "hidden": 1,
    "options": "\nHourly\nDaily\nWeekly\nMonthly\nYearly\nBi-Weekly"
   },
   {
@@ -363,7 +345,7 @@
    "fieldname": "function",
    "fieldtype": "Select",
    "label": "Function",
-   "options": "\n[Select all]\nArts and Design\nBusiness Development\nConsulting\nEducation\nEngineering\nFinance\nHuman Resources\nInformation Technology\nMarketing\nMedia and Communication\nOperations\nProduct Management\nProgram and Project Management\nResearch\nSales"
+   "options": "\nArts and Design\nBusiness Development\nConsulting\nEducation\nEngineering\nFinance\nHuman Resources\nInformation Technology\nMarketing\nMedia and Communication\nOperations\nProduct Management\nProgram and Project Management\nResearch\nSales"
   },
   {
    "fieldname": "column_break_bucg",
@@ -372,20 +354,17 @@
   {
    "fieldname": "primary_skills",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Primary Skills"
   },
   {
    "fieldname": "notice_period",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Notice Period",
-   "options": "15 days Or less\n1 month\n2 month\n3 month\nMore than 3 months\nCurrently Serving Notice Period\n7 Days\n45 Days\nAny\nImmediate Joiner"
+   "options": "\n15 days Or less\n1 month\n2 month\n3 month\nMore than 3 months\nCurrently Serving Notice Period\n7 Days\n45 Days\nAny\nImmediate Joiner"
   },
   {
    "fieldname": "pancard_number",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "PanCard Number"
   },
   {
@@ -396,48 +375,41 @@
   {
    "fieldname": "bench_start_date",
    "fieldtype": "Date",
-   "hidden": 1,
    "label": "Bench Start Date"
   },
   {
    "fieldname": "sales_team_member",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Sales Team Member",
-   "options": "\n[Select all]\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
+   "options": "\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
   },
   {
    "fieldname": "consultant_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Consultant Type",
    "options": "\nH1 Transfer\nW2"
   },
   {
    "fieldname": "bench_status",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Bench Status",
    "options": "\nActive Bench\nActive / On Demand Bench\nInactive Bench"
   },
   {
    "fieldname": "priority",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Priority",
    "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
    "fieldname": "pay_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Pay Type",
    "options": "\nHourly\nPercentage\nSalary"
   },
   {
    "fieldname": "lead_type",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Lead Type",
    "options": "\nH1 Transfer\nOPT/CPT\nIndependent W-2\nTN Visa"
   },
@@ -453,41 +425,35 @@
   {
    "fieldname": "desired_sell_rate",
    "fieldtype": "Float",
-   "hidden": 1,
    "label": "Desired Sell Rate"
   },
   {
    "fieldname": "location_preference",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Location Preference"
   },
   {
    "fieldname": "availability",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Availability",
    "options": "\n1 Week\n2 Week\nimmediate"
   },
   {
    "fieldname": "account_manager",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Account Manager",
-   "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
+   "options": "\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
   {
    "fieldname": "employee_percentage",
    "fieldtype": "Percent",
-   "hidden": 1,
    "label": "Employee Percentage"
   },
   {
    "fieldname": "lead_generated_by",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Lead Generated By",
-   "options": "\n[Select all]\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
+   "options": "\nAnjali\nAnjali Digankar\nChandrasekhar B\nGauri Mestry\nIshita Mepani\nKajal Rampariya\nNidhi Pandey\nPraveen Sharma\nRatul Ganguly\nSandhyarani Pawar\nSheetal picholiya\nSrabanti Dhara\nYogiraj Bhamre"
   },
   {
    "fieldname": "section_break_utnr",
@@ -501,9 +467,8 @@
   {
    "fieldname": "additional_notifiers",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Additional Notifiers",
-   "options": "[Select all]\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
+   "options": "\nAnjali (User)\nAnjali Digankar (User)\nChandrasekhar B (User)\nGauri Mestry (User)\nIshita Mepani (User)\nKajal Rampariya (User)\nNidhi Pandey (User)\nPraveen Sharma (User)\nRatul Ganguly (User)\nSandhyarani Pawar (User)\nSheetal picholiya (User)\nSrabanti Dhara (User)\nYogiraj Bhamre (User)\nAdministrators (Group)\nHiring Managers (Group)\nHR Managers (Group)\nTechnical Recruiters (Group)"
   },
   {
    "fieldname": "eeo_details_section",
@@ -513,7 +478,6 @@
   {
    "fieldname": "gender",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Gender",
    "options": "\nMale\nFemale\nDecline to self identify\nothers"
   },
@@ -530,14 +494,12 @@
   {
    "fieldname": "raceethnicity",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Race/Ethnicity",
    "options": "\nAmerican Indian / Alaska Native\nAsian / Pacific Islander\nBlack / American African\nDecline to Designate\nHispanic\nNative Hawaiian\nWhite"
   },
   {
    "fieldname": "disability",
    "fieldtype": "Select",
-   "hidden": 1,
    "label": "Disability",
    "options": "\nYes, I have a disability or have a history / record of having a disability\nNo, I don't have a disability or a history / record of having a disability\nI don't wish to answer"
   },
@@ -567,19 +529,16 @@
   {
    "fieldname": "modify_date",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Modify Date"
   },
   {
    "fieldname": "modified_by1",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Modified By"
   },
   {
    "fieldname": "created_by",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Created By"
   },
   {
@@ -628,7 +587,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-10 10:44:00.605306",
+ "modified": "2025-09-13 07:27:00.134214",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Talent Bench",

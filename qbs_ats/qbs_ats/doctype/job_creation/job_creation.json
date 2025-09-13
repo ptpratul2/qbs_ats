@@ -59,6 +59,7 @@
   "languages",
   "column_break_ekkj",
   "experience",
+  "experience_copy",
   "column_break_omza",
   "skills_copy",
   "job_category",
@@ -118,7 +119,7 @@
   },
   {
    "fieldname": "pay_rate__salary",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Pay Rate / Salary"
   },
   {
@@ -254,7 +255,7 @@
   },
   {
    "fieldname": "client_bill_rate__salary",
-   "fieldtype": "Currency",
+   "fieldtype": "Data",
    "label": "Client Bill Rate / Salary"
   },
   {
@@ -295,7 +296,6 @@
   {
    "fieldname": "ceipal_ref",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "CEIPAL Ref "
   },
   {
@@ -311,13 +311,12 @@
   {
    "fieldname": "skills_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Skills"
   },
   {
    "allow_on_submit": 1,
    "fieldname": "industry",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Industry",
@@ -351,7 +350,7 @@
   },
   {
    "fieldname": "experience",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Experience"
   },
   {
@@ -363,7 +362,6 @@
   {
    "fieldname": "organizational_information_section",
    "fieldtype": "Section Break",
-   "hidden": 1,
    "label": "Organizational Information"
   },
   {
@@ -582,26 +580,27 @@
    "label": "Job Category"
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "skills_copy",
    "fieldtype": "Text",
-   "in_list_view": 1,
-   "in_preview": 1,
    "label": "Skills Copy",
-   "placeholder": "Required",
-   "print_hide": 1
+   "placeholder": "Required"
   },
   {
    "fieldname": "business_unit_id",
    "fieldtype": "Data",
    "label": "Business Unit Id"
+  },
+  {
+   "fieldname": "experience_copy",
+   "fieldtype": "Data",
+   "label": "Experience Copy"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-10 12:08:39.251158",
+ "modified": "2025-09-13 07:19:49.899116",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Job Creation",

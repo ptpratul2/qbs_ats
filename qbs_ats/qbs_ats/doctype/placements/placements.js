@@ -1,41 +1,72 @@
 // Copyright (c) 2025
-// Custom Script for Applicants Doctype
+// Custom Script for Placements Doctype
 
-frappe.ui.form.on("Applicants", {
+frappe.ui.form.on("Placements", {
     refresh: function(frm) {
-        beautify_applicants_form(frm);
+        beautify_placement_form(frm);
+        make_email_clickable(frm, "email");
+        make_phone_clickable(frm, "employee_number");
     },
     onload_post_render: function(frm) {
-        beautify_applicants_form(frm);
+        beautify_placement_form(frm);
     },
     after_save: function(frm) {
-        beautify_applicants_form(frm);
+        beautify_placement_form(frm);
     },
     on_submit: function(frm) {
-        beautify_applicants_form(frm);
+        beautify_placement_form(frm);
     }
 });
 
-function beautify_applicants_form(frm) {
-    let wrapper = frm.$wrapper;
+function make_email_clickable(frm, fieldname) {
+    const value = frm.doc[fieldname];
+    if (!value) return;
 
-    // --- Fields reset ---
+    const $wrapper = $(frm.fields_dict[fieldname].wrapper);
+    if ($wrapper.find(".control-value").length) {
+        $wrapper.find(".control-value").html(
+            `<a href="mailto:${value}" 
+                style="font-size:12px; color:#0d6efd; text-decoration:underline;">
+                ${value}
+            </a>`
+        );
+    }
+}
+
+function make_phone_clickable(frm, fieldname) {
+    const value = frm.doc[fieldname];
+    if (!value) return;
+
+    const $wrapper = $(frm.fields_dict[fieldname].wrapper);
+    if ($wrapper.find(".control-value").length) {
+        $wrapper.find(".control-value").html(
+            `<a href="tel:${value}" 
+                style="font-size:12px; color:#16a085; text-decoration:underline;">
+                ${value}
+            </a>`
+        );
+    }
+}
+
+function beautify_placement_form(frm) {
+    const wrapper = frm.$wrapper;
+
     const fields = [
-        "applicant_id",
-        "last_name",
-        "email_address",
-        "mobile_number",
-        "work_authorization",
-        "address",
+        "placement_id",
+        "client_name",
+        "job_start_date",
+        "job_end_date",
+        "revenue_type",
+        "employee_name",
+        "employee_number",
+        "email",
+        "placement_status",
+        "created",
+        "modified1",
+        "is_confirmation",
+        "business_unit_id",
         "created_by",
-        "created_on",
-        "country",
-        "state",
-        "city",
-        "source",
-        "applicant_status",
-        "job_title",
-        "skills"
+        "modified_by"
     ];
 
     fields.forEach(field => {
@@ -45,12 +76,12 @@ function beautify_applicants_form(frm) {
         frm.set_df_property(field, "description", "");
     });
 
-    ["applicant_id", "last_name", "email_address", "mobile_number"].forEach(field => {
+    ["placement_id", "client_name", "employee_name", "email"].forEach(field => {
         frm.set_df_property(field, "reqd", 1);
     });
 
-    // --- Fix CSS Apply ---
-    wrapper.find(".form-page, .form-layout").css({
+    // --- Form Styling ---
+    wrapper.find(".form-page").css({
         "background": "#f9fbff",
         "border-radius": "14px",
         "padding": "30px",
@@ -61,31 +92,19 @@ function beautify_applicants_form(frm) {
 
     wrapper.find(".form-label").css({
         "font-weight": "600",
-        "color": "#34495e",
+        "color": "#2c3e50",
         "font-size": "14px",
         "margin-bottom": "6px",
         "display": "block"
     });
 
-    // Input fields
-    wrapper.find(".input-with-feedback, .form-control").css({
-        "border": "1px solid #d6e0f0",
-        "border-radius": "10px",
-        "padding": "12px 14px",
-        "font-size": "14px",
-        "background": "#ffffff",
-        "color": "#2c3e50",
-        "box-shadow": "0 2px 6px rgba(0,0,0,0.03)",
-        "transition": "0.3s ease"
-    });
-
-    wrapper.find(".input-with-feedback, .form-control").hover(function() {
+    wrapper.find(".form-control").hover(function() {
         $(this).css("border-color", "#5dade2");
     }, function() {
         $(this).css("border-color", "#d6e0f0");
     });
 
-    wrapper.find(".input-with-feedback, .form-control").focus(function() {
+    wrapper.find(".form-control").focus(function() {
         $(this).css({
             "border-color": "#2980b9",
             "box-shadow": "0 0 6px rgba(41,128,185,0.3)"
@@ -97,8 +116,7 @@ function beautify_applicants_form(frm) {
         });
     });
 
-    // Section heading
-    wrapper.find(".section-head, .form-section .form-section-heading").css({
+    wrapper.find(".section-head").css({
         "background": "linear-gradient(90deg, #2980b9, #6dd5fa)",
         "color": "white",
         "padding": "12px 16px",
@@ -111,7 +129,6 @@ function beautify_applicants_form(frm) {
         "box-shadow": "0 3px 8px rgba(0,0,0,0.08)"
     });
 
-    // Buttons
     wrapper.find(".btn").css({
         "border-radius": "8px",
         "padding": "10px 18px",
@@ -136,5 +153,5 @@ function beautify_applicants_form(frm) {
         $(this).css("background", "#d0d7de");
     }, function() {
         $(this).css("background", "#ecf0f1");
-    });
+    });
 }
