@@ -56,6 +56,8 @@
   "make_this_address_as_a_default_for_the_jobs",
   "column_break_hcrk",
   "client_short_name",
+  "section_break_pbih",
+  "contact_details",
   "accounts_tab",
   "section_break_phqk",
   "contact_person",
@@ -1002,13 +1004,25 @@
   {
    "fieldname": "section_break_xurk",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_pbih",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contact_details",
+   "fieldtype": "Table",
+   "label": "Contact Details",
+   "options": "Contact Client"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-13 07:03:24.926604",
+ "modified": "2025-09-15 17:39:06.737353",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",
