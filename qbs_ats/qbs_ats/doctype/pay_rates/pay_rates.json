@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-19 12:58:31.504053",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "pay_rates_details_section",
+  "pay_rate_currency",
+  "pay_rate",
+  "pay_rate_pay_frequency_type",
+  "min_pay_rate",
+  "max_pay_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "pay_rates_details_section",
+   "fieldtype": "Section Break",
+   "label": "Pay Rates Details"
+  },
+  {
+   "fieldname": "pay_rate_currency",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pay Rate Currency"
+  },
+  {
+   "fieldname": "pay_rate",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pay Rate"
+  },
+  {
+   "fieldname": "pay_rate_pay_frequency_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pay Rate Pay Frequency Type"
+  },
+  {
+   "fieldname": "min_pay_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Min Pay Rate"
+  },
+  {
+   "fieldname": "max_pay_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Max Pay Rate"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-19 14:17:16.985996",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Pay Rates",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

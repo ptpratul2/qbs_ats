@@ -37,6 +37,7 @@
   "created_on",
   "modified_on",
   "created_by",
+  "ceipal_client_id",
   "column_break_cwaq",
   "federal_id",
   "address",
@@ -169,7 +170,6 @@
    "allow_on_submit": 1,
    "fieldname": "primary_business_unit",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "in_preview": 1,
    "label": "Primary Business Unit",
    "print_hide": 1
@@ -216,7 +216,6 @@
    "allow_on_submit": 1,
    "fieldname": "contact_number",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "in_preview": 1,
    "label": "Contact Number",
    "print_hide": 1
@@ -1016,13 +1015,19 @@
    "fieldtype": "Table",
    "label": "Contact Details",
    "options": "Contact Client"
+  },
+  {
+   "fieldname": "ceipal_client_id",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Ceipal Client Id"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-15 17:39:06.737353",
+ "modified": "2025-09-23 11:57:06.134795",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",

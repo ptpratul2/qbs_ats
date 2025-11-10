@@ -4,6 +4,8 @@
 frappe.ui.form.on("Applicants", {
     refresh: function(frm) {
         beautify_applicants_form(frm);
+        make_email_clickable(frm, "email_address");
+        make_phone_clickable(frm, "mobile_number");
     },
     onload_post_render: function(frm) {
         beautify_applicants_form(frm);
@@ -16,10 +18,39 @@ frappe.ui.form.on("Applicants", {
     }
 });
 
-function beautify_applicants_form(frm) {
-    let wrapper = frm.$wrapper;
+function make_email_clickable(frm, fieldname) {
+    const value = frm.doc[fieldname];
+    if (!value) return;
 
-    // --- Fields reset ---
+    const $wrapper = $(frm.fields_dict[fieldname].wrapper);
+    if ($wrapper.find(".control-value").length) {
+        $wrapper.find(".control-value").html(
+            `<a href="mailto:${value}" 
+                style="font-size:12px; color:#0d6efd; text-decoration:underline;">
+                ${value}
+            </a>`
+        );
+    }
+}
+
+function make_phone_clickable(frm, fieldname) {
+    const value = frm.doc[fieldname];
+    if (!value) return;
+
+    const $wrapper = $(frm.fields_dict[fieldname].wrapper);
+    if ($wrapper.find(".control-value").length) {
+        $wrapper.find(".control-value").html(
+            `<a href="tel:${value}" 
+                style="font-size:12px; color:#16a085; text-decoration:underline;">
+                ${value}
+            </a>`
+        );
+    }
+}
+
+function beautify_applicants_form(frm) {
+    const wrapper = frm.$wrapper;
+
     const fields = [
         "applicant_id",
         "last_name",
@@ -49,8 +80,7 @@ function beautify_applicants_form(frm) {
         frm.set_df_property(field, "reqd", 1);
     });
 
-    // --- Fix CSS Apply ---
-    wrapper.find(".form-page, .form-layout").css({
+    wrapper.find(".form-page").css({
         "background": "#f9fbff",
         "border-radius": "14px",
         "padding": "30px",
@@ -61,7 +91,7 @@ function beautify_applicants_form(frm) {
 
     wrapper.find(".form-label").css({
         "font-weight": "600",
-        "color": "#34495e",
+        "color": "#2c3e50",
         "font-size": "14px",
         "margin-bottom": "6px",
         "display": "block"
@@ -97,7 +127,7 @@ function beautify_applicants_form(frm) {
         });
     });
 
-    // Section heading
+    // Section headings
     wrapper.find(".section-head, .form-section .form-section-heading").css({
         "background": "linear-gradient(90deg, #2980b9, #6dd5fa)",
         "color": "white",
@@ -111,13 +141,13 @@ function beautify_applicants_form(frm) {
         "box-shadow": "0 3px 8px rgba(0,0,0,0.08)"
     });
 
-    // Buttons
     wrapper.find(".btn").css({
         "border-radius": "8px",
         "padding": "10px 18px",
         "font-weight": "600",
         "box-shadow": "0 3px 8px rgba(0,0,0,0.1)",
-        "transition": "0.3s ease"
+        "transition": "0.3s ease",
+        "width": "100%"
     });
 
     wrapper.find(".btn-primary").css({
