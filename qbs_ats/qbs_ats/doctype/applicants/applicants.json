@@ -249,7 +249,7 @@
   {
    "allow_on_submit": 1,
    "fieldname": "applicant_status",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Applicant Status",
@@ -290,6 +290,7 @@
   {
    "fieldname": "select_pdjb",
    "fieldtype": "Select",
+   "label": "Custom Ui Html",
    "options": "\nWeekly\nDaily\nHourly\nBi-Weekly\nMonthly\nYearly"
   },
   {
@@ -742,7 +743,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-12 16:41:07.814353",
+ "modified": "2025-09-21 07:57:17.094089",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Applicants",

@@ -1,5 +1,3 @@
-# Copyright (c) 2025, Prompt Personnel and contributors
-# For license information, please see license.txt
 
 import frappe
 import requests
@@ -10,131 +8,111 @@ class Vendor(Document):
     pass
 
 CEIPAL_VENDORS_API = "https://api.ceipal.com/v1/getVendorsList?"
+CEIPAL_VENDOR_DETAIL_API = "https://api.ceipal.com/v1/getVendorDetails/?vendor_id="
 
 @frappe.whitelist()
 def custom_method():
     """
-    Fetches vendor data from the CEIPAL API and creates new Vendor documents in ERPNext.
+    Fetches vendor data from CEIPAL API and maps contact details to Vendor Contact Details child table.
     """
-    print("Starting CEIPAL Vendor Sync Process...")
+    print(" Starting CEIPAL Vendor Sync Process...")
 
     token = get_active_token()
     if not token:
-        print("No active token found. Generating a new CEIPAL token...")
         token_data = generate_ceipal_token()
         if not token_data or not token_data.get("access_token"):
-            message = "Error: Could not generate a new CEIPAL token. Stopping sync."
+            message = " Could not generate CEIPAL token. Stopping sync."
             frappe.log_error(message, "CEIPAL Vendor Sync")
             return {"status": "error", "message": message}
         token = token_data.get("access_token")
-        print("Successfully generated new token.")
 
-    headers = {
-        "Authorization": f"Bearer {token}",
-    }
+    headers = {"Authorization": f"Bearer {token}"}
+
+    created_count = 0
+    skipped_count = 0
 
     try:
-        print(f"Fetching vendors from CEIPAL API: {CEIPAL_VENDORS_API}")
-        response = requests.get(CEIPAL_VENDORS_API, headers=headers)
+        response = requests.get(CEIPAL_VENDORS_API, headers=headers, timeout=30)
 
         if response.status_code == 401:
-            print("Token expired. Regenerating...")
             token_data = generate_ceipal_token()
-            if not token_data or not token_data.get("access_token"):
-                message = "Error: Could not regenerate CEIPAL token after expiry."
-                frappe.log_error(message, "CEIPAL Vendor Sync")
-                return {"status": "error", "message": message}
             token = token_data.get("access_token")
             headers["Authorization"] = f"Bearer {token}"
-            response = requests.get(CEIPAL_VENDORS_API, headers=headers)
+            response = requests.get(CEIPAL_VENDORS_API, headers=headers, timeout=30)
 
         response.raise_for_status()
-        api_data = response.json()
+        vendors_from_api = response.json().get("results", [])
 
-        print("--- Raw API Response Received ---")
-        print(api_data)
-        print("---------------------------------")
-        
-        vendors_from_api = api_data.get('results', [])
         if not vendors_from_api:
-            print("No vendor data found in the API response.")
             return {"status": "success", "message": "No vendors to sync."}
-            
-        created_count = 0
-        skipped_count = 0
 
         for vendor_data in vendors_from_api:
-            vendor_name = vendor_data.get('vendor_name')
-            if not vendor_name:
-                print(f"Skipping record due to missing vendor name. Data: {vendor_data}")
+            vendor_id = vendor_data.get("id")
+            vendor_name = vendor_data.get("vendor_name")
+
+            if not vendor_id or not vendor_name:
                 continue
 
-            print(f"\nProcessing Vendor: '{vendor_name}'")
+            print(f"\n Vendor: {vendor_name} | ID: {vendor_id}")
 
             if frappe.db.exists("Vendor", {"vendor_name": vendor_name}):
                 print(f"Vendor '{vendor_name}' already exists. Skipping.")
                 skipped_count += 1
                 continue
 
-            try:
-                new_vendor = {
-                    "doctype": "Vendor",
-                    "vendor_name": vendor_name,
-                    "contact_number": vendor_data.get('contact_number'),
-                    "website": vendor_data.get('website'),
-                    "address": vendor_data.get('address'),
-                    "country": vendor_data.get('country'),
-                    "state": vendor_data.get('state'),
-                    "city": vendor_data.get('city'),
-                    "zip_code": vendor_data.get('zipcode'),
-                    "created": vendor_data.get('created'),
-                    "modified": vendor_data.get('modified'),
-                    "primary_business_unit": vendor_data.get('primary_business_unit'),
-                    "accessible_business_units": vendor_data.get('accessible_business_units'),
-                    "primary_owner": vendor_data.get('primary_owner'),
-                    "ownership": vendor_data.get('ownership'),
-                    "created_by": vendor_data.get('created_by'),
-                    "modified_by": vendor_data.get('modified_by')
-                }
+            detail_url = f"{CEIPAL_VENDOR_DETAIL_API}{vendor_id}"
+            detail_res = requests.get(detail_url, headers=headers, timeout=30)
+            detail_res.raise_for_status()
+            detail_data = detail_res.json()
 
-                print(f"Preparing to create new vendor with data: {new_vendor}")
+            vendor_doc = frappe.get_doc({
+                "doctype": "Vendor",
+                "vendor_name": vendor_name,
+                "contact_number": vendor_data.get("contact_number"),
+                "website": vendor_data.get("website"),
+                "country": vendor_data.get("country"),
+                "state": vendor_data.get("state"),
+                "city": vendor_data.get("city"),
+                "zip_code": vendor_data.get("zipcode"),
+                "primary_business_unit": vendor_data.get("primary_business_unit"),
+                "accessible_business_units": vendor_data.get("accessible_business_units"),
+            })
 
-                vendor_doc = frappe.get_doc(new_vendor)
-                vendor_doc.insert(ignore_permissions=True)
-                vendor_doc.submit()  
+            for c in detail_data.get("contacts", []):
+                vendor_doc.append("vendor_contact_details", {
+                    "first_name": c.get("first_name"),
+                    "last_name": c.get("last_name"),
+                    "designation": c.get("designation"),
+                    "primary_owner": c.get("primary_owner"),
+                    "work_phone": c.get("work_phone"),
+                    "mobile": c.get("mobile"),
+                    "eamil": c.get("email"),  
+                    "address1": c.get("address1"),
+                    "address2": c.get("address2"),
+                    "country": c.get("country"),
+                    "state": c.get("state"),
+                    "city": c.get("city"),
+                    "zip_code": c.get("zip_code"),
+                    "vendor_contact_status": c.get("vendor_contact_status")
+                })
 
-                created_count += 1
-                print(f"Successfully created Vendor: '{vendor_name}'")
-
-            except Exception as e:
-                # Log any error that occurs during the document creation
-                print(f"Error creating vendor '{vendor_name}'. Error: {e}")
-                frappe.log_error(
-                    f"Failed to create vendor: {vendor_name}\nData: {vendor_data}\nError: {e}",
-                    "CEIPAL Vendor Sync"
-                )
+            vendor_doc.insert(ignore_permissions=True)
+            vendor_doc.submit()
+            created_count += 1
+            print(f" Vendor '{vendor_name}' created with {len(vendor_doc.vendor_contact_details)} contacts.")
 
         frappe.db.commit()
-        print("\n---------------------------------")
-        print("CEIPAL Vendor Sync Finished.")
-        final_message = f"Sync complete. Created: {created_count} vendors. Skipped: {skipped_count} (already existed)."
-        print(final_message)
-        print("---------------------------------")
-        
-        return {
-            "status": "success", 
-            "message": final_message,
-            "created": created_count,
-            "skipped": skipped_count
-        }
+        print(f"\n CEIPAL Vendor Sync Completed. Created: {created_count}, Skipped: {skipped_count}")
+        return {"status": "success", "created": created_count, "skipped": skipped_count}
 
     except requests.exceptions.RequestException as e:
-        error_message = f"API request failed: {str(e)}"
-        print(error_message)
-        frappe.log_error(error_message, "CEIPAL Vendor Sync")
-        return {"status": "error", "message": error_message}
+        error_title = f"CEIPAL Vendor Sync Request Error: {str(e)[:120]}"
+        error_message = f"Full exception: {str(e)}"
+        frappe.log_error(title=error_title, message=error_message)
+        return {"status": "error", "message": str(e)}
+
     except Exception as e:
-        error_message = f"An unexpected error occurred: {str(e)}"
-        print(error_message)
-        frappe.log_error(error_message, "CEIPAL Vendor Sync")
-        return {"status": "error", "message": error_message}
+        error_title = f"CEIPAL Vendor Sync Error: {str(e)[:120]}"
+        error_message = f"Full exception: {str(e)}"
+        frappe.log_error(title=error_title, message=error_message)
+        return {"status": "error", "message": str(e)}
