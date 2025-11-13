@@ -1,0 +1,233 @@
+
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{client_name}-{#####}",
+ "creation": "2025-09-22 11:10:21.938803",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uuff",
+  "placement_id",
+  "client_name",
+  "job_start_date",
+  "revenue_type",
+  "is_confirmation",
+  "column_break_awcv",
+  "employee_name",
+  "employee_number",
+  "job_end_date",
+  "placement_status",
+  "column_break_tivy",
+  "email",
+  "business_unit_id",
+  "created",
+  "modified1",
+  "amended_from",
+  "payment_details_section",
+  "payment_details",
+  "client_details_section",
+  "client_details",
+  "supplier_details_section",
+  "supplier_details",
+  "work_location_section",
+  "work_location",
+  "placement_details_section",
+  "placement_details",
+  "master_placement_sheet_tab",
+  "cunsultant_details_section",
+  "full_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_uuff",
+   "fieldtype": "Section Break",
+   "label": "Placements Details"
+  },
+  {
+   "fieldname": "placement_id",
+   "fieldtype": "Data",
+   "label": "Placement ID"
+  },
+  {
+   "fieldname": "client_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Client Name"
+  },
+  {
+   "fieldname": "job_start_date",
+   "fieldtype": "Date",
+   "label": "Job Start Date"
+  },
+  {
+   "fieldname": "revenue_type",
+   "fieldtype": "Data",
+   "label": "Revenue Type"
+  },
+  {
+   "fieldname": "is_confirmation",
+   "fieldtype": "Data",
+   "label": "Is Confirmation"
+  },
+  {
+   "fieldname": "column_break_awcv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "employee_number",
+   "fieldtype": "Data",
+   "label": "Employee Number"
+  },
+  {
+   "fieldname": "job_end_date",
+   "fieldtype": "Date",
+   "label": "Job End Date"
+  },
+  {
+   "fieldname": "placement_status",
+   "fieldtype": "Data",
+   "label": "Placement Status"
+  },
+  {
+   "fieldname": "column_break_tivy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email"
+  },
+  {
+   "fieldname": "business_unit_id",
+   "fieldtype": "Data",
+   "label": "Business Unit ID"
+  },
+  {
+   "fieldname": "created",
+   "fieldtype": "Data",
+   "label": "Created"
+  },
+  {
+   "fieldname": "modified1",
+   "fieldtype": "Data",
+   "label": "Modified"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "New Placements",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "master_placement_sheet_tab",
+   "fieldtype": "Tab Break",
+   "label": "Master Placement Sheet"
+  },
+  {
+   "fieldname": "cunsultant_details_section",
+   "fieldtype": "Section Break",
+   "label": "Cunsultant Details"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "payment_details",
+   "fieldtype": "Table",
+   "label": "Payment Details",
+   "options": "Payment Details"
+  },
+  {
+   "fieldname": "client_details_section",
+   "fieldtype": "Section Break",
+   "label": "Client Details"
+  },
+  {
+   "fieldname": "client_details",
+   "fieldtype": "Table",
+   "label": "Client Details",
+   "options": "Client Details"
+  },
+  {
+   "fieldname": "supplier_details_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Details"
+  },
+  {
+   "fieldname": "work_location_section",
+   "fieldtype": "Section Break",
+   "label": "Work Location"
+  },
+  {
+   "fieldname": "work_location",
+   "fieldtype": "Table",
+   "label": "Work Location",
+   "options": "Work Location"
+  },
+  {
+   "fieldname": "placement_details_section",
+   "fieldtype": "Section Break",
+   "label": "Placement Details"
+  },
+  {
+   "fieldname": "placement_details",
+   "fieldtype": "Table",
+   "label": "Placement Details",
+   "options": "Placement Details"
+  },
+  {
+   "fieldname": "supplier_details",
+   "fieldtype": "Table",
+   "label": "Supplier Details",
+   "options": "Supplier Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-23 09:45:17.361974",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "New Placements",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

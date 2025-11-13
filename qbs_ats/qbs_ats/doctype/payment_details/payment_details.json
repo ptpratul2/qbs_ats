@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 12:26:22.319635",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_details_section",
+  "employee_type",
+  "payment_terms",
+  "gross_salary_annum",
+  "free_type",
+  "placement_fees",
+  "revenue_type",
+  "purchase_order",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "employee_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Type"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "gross_salary_annum",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Gross Salary Annum"
+  },
+  {
+   "fieldname": "free_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Free Type"
+  },
+  {
+   "fieldname": "placement_fees",
+   "fieldtype": "Float",
+   "label": "Placement Fees"
+  },
+  {
+   "fieldname": "revenue_type",
+   "fieldtype": "Data",
+   "label": "Revenue Type"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Data",
+   "label": "Purchase Order"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-22 12:33:45.868760",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Payment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

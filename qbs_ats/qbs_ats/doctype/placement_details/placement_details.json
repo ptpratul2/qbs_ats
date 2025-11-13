@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 12:43:34.530091",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "estimated_start_date",
+  "job_start_date",
+  "job_scheduled_end_date",
+  "job_end_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "estimated_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Estimated Start Date"
+  },
+  {
+   "fieldname": "job_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Job Start Date"
+  },
+  {
+   "fieldname": "job_scheduled_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Job Scheduled End Date"
+  },
+  {
+   "fieldname": "job_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Job End Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-22 17:27:43.079395",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Placement Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
