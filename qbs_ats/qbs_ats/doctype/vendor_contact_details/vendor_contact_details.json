@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 09:35:24.605024",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_contact_details_section",
+  "first_name",
+  "last_name",
+  "designation",
+  "work_phone",
+  "mobile",
+  "eamil",
+  "address1",
+  "address2",
+  "country",
+  "state",
+  "city",
+  "zip_code",
+  "vendor_contact_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Contact Details"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Designation"
+  },
+  {
+   "fieldname": "work_phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Work Phone"
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "eamil",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Eamil"
+  },
+  {
+   "fieldname": "address1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address1"
+  },
+  {
+   "fieldname": "address2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address2"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "zip_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zip Code"
+  },
+  {
+   "fieldname": "vendor_contact_status",
+   "fieldtype": "Data",
+   "label": "Vendor Contact Status"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-14 09:54:20.496395",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Vendor Contact Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
