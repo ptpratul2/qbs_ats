@@ -10,6 +10,7 @@ import time
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
+
 from qbs_ats.qbs_ats.doctype.job_creation.job_creation import (
     get_active_token,
     generate_ceipal_token,
