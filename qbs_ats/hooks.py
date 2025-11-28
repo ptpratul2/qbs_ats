@@ -150,11 +150,11 @@ app_include_js = "qbs_ats/public/js/job_creation_list.js"
 # 	}
 # }
 
-doc_events = {
-    "Opportunity": {
-        "on_update": "qbs_ats.qbs_ats.custom_New_client.create_client_on_opportunity"
-    }
-}
+# doc_events = {
+#     "Opportunity": {
+#         "on_update": "qbs_ats.qbs_ats.custom_New_client.create_client_on_opportunity"
+#     }
+# }
 
 # Scheduled Tasks
 # ---------------
