@@ -206,16 +206,17 @@
   {
    "allow_on_submit": 1,
    "fieldname": "client_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Client Name",
+   "options": "Customer",
    "print_hide": 1
   },
   {
    "allow_on_submit": 1,
    "fieldname": "contact_number",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_preview": 1,
    "label": "Contact Number",
    "print_hide": 1
@@ -464,7 +465,7 @@
   },
   {
    "fieldname": "mobile_number",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Mobile Number"
   },
   {
@@ -1027,7 +1028,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-23 11:57:06.134795",
+ "modified": "2025-11-29 11:05:41.866772",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "New Client",

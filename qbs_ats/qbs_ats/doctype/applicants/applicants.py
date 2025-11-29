@@ -152,7 +152,7 @@ def download_and_attach_resume(doc_name, resume_url, applicant_name, token):
 
 
 @frappe.whitelist()
-def custom_method(batch_size=50, start_page=1387, max_pages=3000):
+def custom_method(batch_size=50, start_page=1607, max_pages=3000):
     log_debug(f"Starting Sync from Page {start_page}...")
 
     # --- TOKEN SETUP ---
