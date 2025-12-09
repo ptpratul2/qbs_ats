@@ -26,6 +26,7 @@
   "section_break_rvyz",
   "column_break_fskb",
   "job_title",
+  "vertical",
   "column_break_bfox",
   "resume",
   "alternate_email_address",
@@ -83,7 +84,6 @@
   "upload_document",
   "section_break_prgh",
   "comments",
-  "education_details_tab",
   "add_education_details_section",
   "school_name",
   "gpa",
@@ -92,7 +92,6 @@
   "column_break_hxyk",
   "year_completed",
   "higher_education",
-  "tab_4_tab",
   "add_certification_section",
   "certification",
   "column_break_wypr",
@@ -100,9 +99,8 @@
   "description",
   "languages_tab",
   "add_languges_section",
+  "column_break_jgrd",
   "language",
-  "column_break_ecuk",
-  "proficiency",
   "work_experience_tab",
   "work_experience_section",
   "text_avfz",
@@ -240,20 +238,21 @@
   {
    "allow_on_submit": 1,
    "fieldname": "source",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Source",
+   "options": "\nAdesh Mishra\nAdzuna\nBusiness Associates\nCampus Portal\nCareer Builder\nCareer Portal\nCareerJet\nCraiglist\nDice\nEmployee Referral\nFacebook\nFlipkart\nGlassdoor\nGmail\nGREYT HR\nIndeed\nInternal Job Posting\nJob Fair\nLinkedIn\nMonster\nNaukri\nNeuvoo\nOffice 365\nOthers\nOutlook\nPost Job Free\nRahul Jaiswal\nRecruiterNet\nReferral Portal\nResume Inbox\nShashank\nShiva Kumar\nSKL\nStack Overflow\nTech Fetch\nTemp_Recruitment_Field\nTushar\nTwitter\nUser Referral\nVaibhav\nVaraprasad\nVendor\nWalk In\nWindows Plugin",
    "print_hide": 1
   },
   {
    "allow_on_submit": 1,
    "fieldname": "applicant_status",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Applicant Status",
-   "options": "\nNew lead\nScreening\nShortlisted\nInterview Scheduled\nInterviewed\nSelected\nOffered\nHired\nRejected\nOn Hold\nWithdrawn",
+   "options": "\nDo Not Submit\nNew Lead\nPlaced",
    "print_hide": 1
   },
   {
@@ -450,11 +449,6 @@
    "label": "Comments"
   },
   {
-   "fieldname": "education_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Education Details"
-  },
-  {
    "fieldname": "add_education_details_section",
    "fieldtype": "Section Break",
    "label": "Add Education Details"
@@ -495,11 +489,6 @@
    "options": "\nON\nOFF"
   },
   {
-   "fieldname": "tab_4_tab",
-   "fieldtype": "Tab Break",
-   "label": "Certifications"
-  },
-  {
    "fieldname": "add_certification_section",
    "fieldtype": "Section Break",
    "label": "Add Certification"
@@ -526,28 +515,13 @@
   {
    "fieldname": "languages_tab",
    "fieldtype": "Tab Break",
-   "label": "Languages"
+   "label": "Languages",
+   "options": "Langauges\n"
   },
   {
    "fieldname": "add_languges_section",
    "fieldtype": "Section Break",
    "label": "Add Languges"
-  },
-  {
-   "fieldname": "language",
-   "fieldtype": "Select",
-   "label": "Language",
-   "options": "\nArabic\nChinese\nEnglish\nFrench\nGerman\nHindi\nItalian\nJapanese\nKorean\nMandarin\nPersian\nPrtuguese\nRussain\nSpanish\nSwedish\nTrukish\nVietnamese"
-  },
-  {
-   "fieldname": "column_break_ecuk",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "proficiency",
-   "fieldtype": "Select",
-   "label": "Proficiency",
-   "options": "\nRead\nSpeak\nWrite"
   },
   {
    "fieldname": "work_experience_tab",
@@ -737,13 +711,29 @@
    "fieldtype": "Select",
    "label": "Experience",
    "options": "\n0 - 1 Year\n1 - 3 Years\n3 - 5 Years\n5 - 7 Years\n7 - 10 Years\n10+ Years"
+  },
+  {
+   "fieldname": "column_break_jgrd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Table",
+   "label": "Language",
+   "options": "langauges Name"
+  },
+  {
+   "fieldname": "vertical",
+   "fieldtype": "Select",
+   "label": "Vertical",
+   "options": "\nPermanent Staffing\nTemporary Staffing"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-28 10:34:49.992466",
+ "modified": "2025-12-09 12:25:57.100580",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Applicants",
