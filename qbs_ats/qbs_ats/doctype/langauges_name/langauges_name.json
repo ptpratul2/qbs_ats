@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-08 11:17:06.791013",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "languages_section",
+  "language",
+  "column_break_zdqm",
+  "read",
+  "write",
+  "speak"
+ ],
+ "fields": [
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Language",
+   "options": "Langauges"
+  },
+  {
+   "fieldname": "column_break_zdqm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "read",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Read"
+  },
+  {
+   "default": "0",
+   "fieldname": "write",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Write"
+  },
+  {
+   "default": "0",
+   "fieldname": "speak",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Speak"
+  },
+  {
+   "fieldname": "languages_section",
+   "fieldtype": "Section Break",
+   "label": "Languages"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-10 09:06:14.773733",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "langauges Name",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -18,6 +18,7 @@ frappe.ui.form.on("Applicants", {
     }
 });
 
+// Make Email Clickable
 function make_email_clickable(frm, fieldname) {
     const value = frm.doc[fieldname];
     if (!value) return;
@@ -33,6 +34,7 @@ function make_email_clickable(frm, fieldname) {
     }
 }
 
+// Make Phone Clickable
 function make_phone_clickable(frm, fieldname) {
     const value = frm.doc[fieldname];
     if (!value) return;
@@ -48,9 +50,11 @@ function make_phone_clickable(frm, fieldname) {
     }
 }
 
+// Beautify Form
 function beautify_applicants_form(frm) {
     const wrapper = frm.$wrapper;
 
+    // Fields to apply properties (skip select fields)
     const fields = [
         "applicant_id",
         "last_name",
@@ -69,6 +73,7 @@ function beautify_applicants_form(frm) {
         "skills"
     ];
 
+    // Apply properties only on input/text fields
     fields.forEach(field => {
         frm.set_df_property(field, "hidden", 0);
         frm.set_df_property(field, "read_only", 0);
@@ -76,10 +81,12 @@ function beautify_applicants_form(frm) {
         frm.set_df_property(field, "description", "");
     });
 
+    // Make required fields
     ["applicant_id", "last_name", "email_address", "mobile_number"].forEach(field => {
         frm.set_df_property(field, "reqd", 1);
     });
 
+    // Form page styling
     wrapper.find(".form-page").css({
         "background": "#f9fbff",
         "border-radius": "14px",
@@ -89,6 +96,7 @@ function beautify_applicants_form(frm) {
         "font-family": "'Inter', sans-serif"
     });
 
+    // Labels styling
     wrapper.find(".form-label").css({
         "font-weight": "600",
         "color": "#2c3e50",
@@ -97,8 +105,8 @@ function beautify_applicants_form(frm) {
         "display": "block"
     });
 
-    // Input fields
-    wrapper.find(".input-with-feedback, .form-control").css({
+    // Input and Textarea fields styling (exclude select)
+    wrapper.find("input.input-with-feedback, textarea.form-control").css({
         "border": "1px solid #d6e0f0",
         "border-radius": "10px",
         "padding": "12px 14px",
@@ -109,13 +117,13 @@ function beautify_applicants_form(frm) {
         "transition": "0.3s ease"
     });
 
-    wrapper.find(".input-with-feedback, .form-control").hover(function() {
+    wrapper.find("input.input-with-feedback, textarea.form-control").hover(function() {
         $(this).css("border-color", "#5dade2");
     }, function() {
         $(this).css("border-color", "#d6e0f0");
     });
 
-    wrapper.find(".input-with-feedback, .form-control").focus(function() {
+    wrapper.find("input.input-with-feedback, textarea.form-control").focus(function() {
         $(this).css({
             "border-color": "#2980b9",
             "box-shadow": "0 0 6px rgba(41,128,185,0.3)"
@@ -127,7 +135,7 @@ function beautify_applicants_form(frm) {
         });
     });
 
-    // Section headings
+    // Section headings styling
     wrapper.find(".section-head, .form-section .form-section-heading").css({
         "background": "linear-gradient(90deg, #2980b9, #6dd5fa)",
         "color": "white",
@@ -141,6 +149,7 @@ function beautify_applicants_form(frm) {
         "box-shadow": "0 3px 8px rgba(0,0,0,0.08)"
     });
 
+    // Buttons styling
     wrapper.find(".btn").css({
         "border-radius": "8px",
         "padding": "10px 18px",
