@@ -18,13 +18,14 @@
   {
    "fieldname": "language",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Language"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-08 11:20:00.279737",
+ "modified": "2025-12-10 09:05:45.403581",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Langauges",
