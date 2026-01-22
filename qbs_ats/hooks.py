@@ -24,17 +24,19 @@ app_license = "mit"
 # Includes in <head>
 # ------------------
 
+
 # include js, css files in header of desk.html
-# app_include_css = "/assets/qbs_ats/css/qbs_ats.css"
-# app_include_js = "/assets/qbs_ats/js/job_creation_list.js"
-app_include_js = "qbs_ats/public/js/job_creation_list.js"
+app_include_css = "/assets/qbs_ats/css/theme.css"
+app_include_js = ["/assets/qbs_ats/js/custom_lead_sidebar.js",
+                   "qbs_ats/public/js/job_creation_list.js"
+]
 
 
 
 
 
 # include js, css files in header of web template
-# web_include_css = "/assets/qbs_ats/css/qbs_ats.css"
+web_include_css = "/assets/qbs_ats/css/theme.css"
 # web_include_js = "/assets/qbs_ats/js/qbs_ats.js"
 
 # include custom scss in every website theme (without file extension ".scss")
@@ -48,7 +50,7 @@ app_include_js = "qbs_ats/public/js/job_creation_list.js"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"opportunity" : "public/js/custom_opportunity.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

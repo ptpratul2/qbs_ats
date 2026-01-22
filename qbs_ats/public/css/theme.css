@@ -1,0 +1,67 @@
+body>div.main-section>div.sticky-top>header>div.container {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.navbar {
+    background-color: #214695 !important;
+    color: #f3f3f3 !important;
+}
+
+.navbar-expand {
+    flex-flow: wrap;
+    /* justify-content: center; */
+}
+.navbar{
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+
+}
+
+#navbar-breadcrumbs>li>a::before {
+    color: white !important;
+    content: "> ";
+
+
+}
+
+use.like-icon,
+#icon-close {
+    fill: white !important;
+    stroke: white !important;
+}
+
+.navbar .nav-item .nav-link {
+    color: #f3f3f3 !important;
+}
+
+#navbar-breadcrumbs > li > a {
+    color: #f3f3f3 !important;
+}
+
+body > div.main-section > div.sticky-top > header > div.container > div > ul > li.nav-item.dropdown.dropdown-notifications.dropdown-mobile > button > span.notifications-seen > svg > use, body > div.main-section > div.sticky-top > header > div.container > div > ul > li.nav-item.dropdown.dropdown-help.dropdown-mobile.d-none.d-lg-block > button > span > svg > use {
+    fill: white !important;
+    stroke: white !important;
+}
+button.btn.btn-primary.btn-sm.primary-action, button.btn.btn-primary.btn-sm.btn-modal-primary,
+div.modal-body.ui-front > div > div > div > button
+{
+    background-color: #214695 !important;
+    border-color: #214695 !important;
+}
+
+body, .page-content, .form-layout, .form-page, .frappe-card {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+footer{
+    background-color: #214695 !important;
+    color: #f3f3f3 !important;
+    padding: 10px 0;
+    text-align: center;
+}
