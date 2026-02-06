@@ -28,7 +28,6 @@ app_license = "mit"
 # include js, css files in header of desk.html
 app_include_css = "/assets/qbs_ats/css/theme.css"
 app_include_js = ["/assets/qbs_ats/js/custom_lead_sidebar.js",
-                   "qbs_ats/public/js/job_creation_list.js"
 ]
 
 
