@@ -61,7 +61,9 @@ prompt_crm_navbar.initNavbar = function () {
             { label: "Interview", route: ["List", "Interview"], icon: "building" },
             { label: "Job Offer", route: ["List", "Job Offer"], icon: "address-card" },
             { label: "Dashboard", route: ["Dashboard-view", "ATS"], icon: "file-alt" },
-            { label: "Report", route: ["List", "Report"], icon: "file-alt" }
+            { label: "Report", route: ["List", "Report"], icon: "file-alt" },
+            { label: "Insights", route: ["List", "Insights"], icon: "file-alt" }
+
 
         ];
 
