@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2026-02-16 12:00:40.931614",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "client_details_section",
+  "vertical",
+  "primary_services",
+  "customer",
+  "column_break_tweu",
+  "opportunity_owner",
+  "opportunity_from",
+  "source",
+  "column_break_ojme",
+  "opportunity_name",
+  "expected_close_date",
+  "client_status",
+  "column_break_dmha",
+  "industry",
+  "expected_revenue_yearly",
+  "location_to_be_serviced_section",
+  "country",
+  "column_break_xzuz",
+  "state",
+  "column_break_mqgx",
+  "city",
+  "requirements_details_section",
+  "actual_revenue",
+  "closed_mandates",
+  "column_break_pqkk",
+  "open_mandates",
+  "delivery_manager",
+  "column_break_uyul",
+  "requirements_details",
+  "salary_range",
+  "column_break_dnrr",
+  "qualification"
+ ],
+ "fields": [
+  {
+   "fieldname": "client_details_section",
+   "fieldtype": "Section Break",
+   "label": "Client Details"
+  },
+  {
+   "fieldname": "vertical",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vertical"
+  },
+  {
+   "fieldname": "primary_services",
+   "fieldtype": "Data",
+   "label": "Primary Services"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "column_break_tweu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "opportunity_owner",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Opportunity Owner"
+  },
+  {
+   "fieldname": "opportunity_from",
+   "fieldtype": "Data",
+   "label": "Opportunity From"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "column_break_ojme",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "opportunity_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Opportunity Name"
+  },
+  {
+   "fieldname": "expected_close_date",
+   "fieldtype": "Data",
+   "label": "Expected Close Date"
+  },
+  {
+   "fieldname": "client_status",
+   "fieldtype": "Data",
+   "label": "Client Status"
+  },
+  {
+   "fieldname": "column_break_dmha",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Industry"
+  },
+  {
+   "fieldname": "expected_revenue_yearly",
+   "fieldtype": "Data",
+   "label": "Expected Revenue (Yearly)"
+  },
+  {
+   "fieldname": "location_to_be_serviced_section",
+   "fieldtype": "Section Break",
+   "label": "Location To Be Serviced"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "column_break_xzuz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "column_break_mqgx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "requirements_details_section",
+   "fieldtype": "Section Break",
+   "label": "Requirements Details"
+  },
+  {
+   "fieldname": "actual_revenue",
+   "fieldtype": "Data",
+   "label": "Actual Revenue"
+  },
+  {
+   "fieldname": "closed_mandates",
+   "fieldtype": "Data",
+   "label": "Closed Mandates"
+  },
+  {
+   "fieldname": "column_break_pqkk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "open_mandates",
+   "fieldtype": "Data",
+   "label": "Open Mandates"
+  },
+  {
+   "fieldname": "delivery_manager",
+   "fieldtype": "Data",
+   "label": "Delivery Manager"
+  },
+  {
+   "fieldname": "column_break_uyul",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requirements_details",
+   "fieldtype": "Data",
+   "label": "Requirements Details"
+  },
+  {
+   "fieldname": "salary_range",
+   "fieldtype": "Data",
+   "label": "Salary Range"
+  },
+  {
+   "fieldname": "column_break_dnrr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "label": "Qualification"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-02-18 13:55:12.097611",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Client",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
