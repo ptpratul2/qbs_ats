@@ -164,19 +164,26 @@ scheduler_events = {
 # 	"all": [
 # 		"qbs_ats.tasks.all"
 # 	],
-# 	"daily": [
-# 		"qbs_ats.tasks.daily"
-# 	],
+	# "daily": [
+	# 	"qbs_ats.qbs_ats.fetch_customer.daily_fetch_crm_customers_and_sync"
+	# ],
 	"hourly": [
-		"qbs_ats.qbs_ats.doctype.job_creation.job_creation.generate_ceipal_token"
+		"qbs_ats.qbs_ats.doctype.job_creation.job_creation.generate_ceipal_token",
 
 	],
+	"cron": {
+		"* * * * *": [
+			"qbs_ats.qbs_ats.fetch_customer.daily_fetch_crm_customers_and_sync",
+             "qbs_ats.qbs_ats.fetch_customer.daily_fetch_crm_opportunities_and_sync"
+		]
+	}
 # 	"weekly": [
 # 		"qbs_ats.tasks.weekly"
 # 	],
 # 	"monthly": [
 # 		"qbs_ats.tasks.monthly"
 # 	],
+
 }
 
 # Testing
@@ -255,3 +262,13 @@ scheduler_events = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            ["dt", "=", "Job Opening"]
+        ]
+    }
+]

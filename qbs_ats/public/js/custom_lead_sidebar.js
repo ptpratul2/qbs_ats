@@ -55,7 +55,10 @@ prompt_crm_navbar.initNavbar = function () {
         `);
 
         const items = [
-             { label: "Job Requisition", route: ["List", "Job Requisition"], icon: "dashboard" },
+
+
+            { label: "Client", route: ["List", "Client"], icon: "dashboard" },
+
             { label: "Job Opening", route: ["List", "Job Opening"], icon: "user-plus" },
             { label: "Job Applicant", route: ["List", "Job Applicant"], icon: "briefcase" },
             { label: "Interview", route: ["List", "Interview"], icon: "building" },
