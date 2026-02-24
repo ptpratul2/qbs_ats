@@ -141,7 +141,290 @@ def daily_fetch_crm_opportunities_and_sync():
 
 
 
+# import frappe
+# import requests
+# import json
 
+
+# def daily_fetch_crm_customers_and_sync():
+
+#     allowed_verticals = ["Permanent Staffing", "Temporary Staffing"]
+
+#     customer_url = "https://crm.promptpersonnel.com/api/resource/Customer"
+#     contact_url = "https://crm.promptpersonnel.com/api/resource/Contact"
+#     opportunity_url = "https://crm.promptpersonnel.com/api/resource/Opportunity"
+
+#     headers = {
+#         "Authorization": f"token {frappe.conf.crm_api_key}:{frappe.conf.crm_api_secret}",
+#         "Content-Type": "application/json"
+#     }
+
+#     page_length = 100
+#     start = 0
+
+#     total_customers_created = 0
+#     total_contacts_created = 0
+#     total_errors = 0
+
+#     while True:
+
+#         # ==============================
+#         # STEP 1: FETCH CUSTOMERS
+#         # ==============================
+
+#         customer_fields = [
+#             "name",
+#             "customer_name",
+#             "email_id",
+#             "mobile_no",
+#             "custom_vertical",
+#             "custom_company_type",
+#             "custom_lead_source",
+#             "custom_rating",
+#             "custom_turnover_in_inr",
+#             "lead_name"
+#         ]
+
+#         params = {
+#             "fields": json.dumps(customer_fields),
+#             "limit_start": start,
+#             "limit_page_length": page_length
+#         }
+
+#         try:
+#             cust_resp = requests.get(customer_url, headers=headers, params=params, timeout=30)
+
+#             if cust_resp.status_code != 200:
+#                 frappe.log_error(cust_resp.text, "CRM Customer Fetch Error")
+#                 break
+
+#             customers = cust_resp.json().get("data", [])
+#             if not customers:
+#                 break
+
+#             print(f"\nFetched Customers Batch: {len(customers)}")
+
+#         except Exception:
+#             total_errors += 1
+#             frappe.log_error(frappe.get_traceback(), "CRM Customer Fetch Exception")
+#             break
+
+#         # ==============================
+#         # STEP 2: PROCESS CUSTOMERS
+#         # ==============================
+
+#         for cust in customers:
+
+#             crm_customer_id = cust.get("name")
+#             if not crm_customer_id:
+#                 continue
+
+#             print("\n==============================")
+#             print("Processing CRM Customer:", crm_customer_id)
+
+#             try:
+
+#                 # -------------------------
+#                 # 1️⃣ Already Exists Check
+#                 # -------------------------
+#                 ats_customer_name = frappe.db.get_value(
+#                     "Customer",
+#                     {"custom_id": crm_customer_id},
+#                     "name"
+#                 )
+
+#                 if ats_customer_name:
+#                     print("Already exists, skipping")
+#                     continue
+
+#                 # -------------------------
+#                 # 2️⃣ Vertical Check
+#                 # -------------------------
+#                 vertical = cust.get("custom_vertical")
+
+#                 if not vertical:
+#                     print("Vertical missing, skipping")
+#                     continue
+
+#                 vertical = vertical.strip()
+
+#                 if vertical not in allowed_verticals:
+#                     print("Vertical not allowed:", vertical)
+#                     continue
+
+#                 # -------------------------
+#                 # 3️⃣ Lead ID Check
+#                 # -------------------------
+#                 lead_id = cust.get("lead_name")
+
+#                 if not lead_id:
+#                     print("lead_name missing, skipping")
+#                     continue
+
+#                 lead_id = lead_id.strip()
+#                 print("Lead ID:", lead_id)
+
+#                 # -------------------------
+#                 # 4️⃣ Opportunity Check
+#                 # -------------------------
+#                 opp_params = {
+#                     "fields": json.dumps(["name", "status"]),
+#                     "filters": json.dumps([
+#                         ["party_name", "=", lead_id],
+#                         ["status", "in", ["Closed Won", "Closed Lost"]]
+#                     ])
+#                 }
+
+#                 opp_resp = requests.get(
+#                     opportunity_url,
+#                     headers=headers,
+#                     params=opp_params,
+#                     timeout=20
+#                 )
+
+#                 if opp_resp.status_code != 200:
+#                     print("Opportunity Fetch Failed")
+#                     continue
+
+#                 opportunities = opp_resp.json().get("data", [])
+
+#                 if not opportunities:
+#                     print("No Closed Opportunity Found, skipping")
+#                     continue
+
+#                 print("Matched Opportunities:", len(opportunities))
+
+#                 # -------------------------
+#                 # 5️⃣ CREATE CUSTOMER
+#                 # -------------------------
+
+#                 doc = frappe.new_doc("Customer")
+
+#                 doc.customer_name = cust.get("customer_name") or crm_customer_id
+#                 doc.customer_group = "All Customer Groups"
+#                 doc.territory = "All Territories"
+
+#                 doc.custom_id = crm_customer_id
+#                 doc.email_id = cust.get("email_id")
+#                 doc.mobile_no = cust.get("mobile_no")
+#                 doc.custom_vertical = vertical
+#                 doc.custom_rating = cust.get("custom_rating")
+#                 doc.custom_lead_source = cust.get("custom_lead_source")
+#                 doc.custom_company_type = cust.get("custom_company_type")
+#                 doc.custom_turnover_in_inr = cust.get("custom_turnover_in_inr")
+#                 doc.lead_name = lead_id
+
+#                 doc.insert(ignore_permissions=True)
+
+#                 ats_customer_name = doc.name
+#                 total_customers_created += 1
+
+#                 print("Customer Created:", ats_customer_name)
+
+#                 # ==============================
+#                 # STEP 6: FETCH CONTACTS
+#                 # ==============================
+
+#                 contact_start = 0
+
+#                 while True:
+
+#                     contact_fields = [
+#                         "name",
+#                         "first_name",
+#                         "last_name",
+#                         "email_id",
+#                         "mobile_no"
+#                     ]
+
+#                     contact_params = {
+#                         "fields": json.dumps(contact_fields),
+#                         "filters": json.dumps([
+#                             ["Dynamic Link", "link_doctype", "=", "Customer"],
+#                             ["Dynamic Link", "link_name", "=", crm_customer_id]
+#                         ]),
+#                         "limit_start": contact_start,
+#                         "limit_page_length": 100
+#                     }
+
+#                     contact_resp = requests.get(
+#                         contact_url,
+#                         headers=headers,
+#                         params=contact_params,
+#                         timeout=30
+#                     )
+
+#                     if contact_resp.status_code != 200:
+#                         break
+
+#                     contacts = contact_resp.json().get("data", [])
+#                     if not contacts:
+#                         break
+
+#                     for cont in contacts:
+
+#                         crm_contact_id = cont.get("name")
+#                         if not crm_contact_id:
+#                             continue
+
+#                         if frappe.db.exists("Contact", {"custom_id": crm_contact_id}):
+#                             continue
+
+#                         contact_doc = frappe.new_doc("Contact")
+
+#                         contact_doc.first_name = cont.get("first_name") or crm_contact_id
+#                         contact_doc.last_name = cont.get("last_name")
+#                         contact_doc.custom_id = crm_contact_id
+
+#                         if cont.get("email_id"):
+#                             contact_doc.append("email_ids", {
+#                                 "email_id": cont.get("email_id"),
+#                                 "is_primary": 1
+#                             })
+
+#                         if cont.get("mobile_no"):
+#                             contact_doc.append("phone_nos", {
+#                                 "phone": cont.get("mobile_no"),
+#                                 "is_primary_mobile_no": 1
+#                             })
+
+#                         contact_doc.append("links", {
+#                             "link_doctype": "Customer",
+#                             "link_name": ats_customer_name
+#                         })
+
+#                         contact_doc.insert(ignore_permissions=True)
+#                         total_contacts_created += 1
+
+#                         print("   ➜ Contact Created:", contact_doc.name)
+
+#                     frappe.db.commit()
+#                     contact_start += 100
+
+#             except Exception:
+#                 total_errors += 1
+#                 frappe.log_error(
+#                     frappe.get_traceback(),
+#                     f"Customer Processing Error {crm_customer_id}"
+#                 )
+
+#         frappe.db.commit()
+#         start += page_length
+
+
+#     print("\n========== FULL CRM SYNC SUMMARY ==========")
+#     print("Customers Created :", total_customers_created)
+#     print("Contacts Created  :", total_contacts_created)
+#     print("Total Errors      :", total_errors)
+#     print("===========================================\n")
+
+
+
+
+
+import frappe
+import requests
+import json
 
 def daily_fetch_crm_customers_and_sync():
 
@@ -165,7 +448,6 @@ def daily_fetch_crm_customers_and_sync():
     while True:
 
         # STEP 1: FETCH CUSTOMERS
-
         customer_fields = [
             "name",
             "customer_name",
@@ -203,31 +485,29 @@ def daily_fetch_crm_customers_and_sync():
             break
 
         # STEP 2: CREATE CUSTOMER + FETCH CONTACTS
-
         for cust in customers:
 
-            crm_customer_id = cust.get("name")
+            crm_customer_id = cust.get("name") # This is the source ID (e.g., CUST-2024-001)
             if not crm_customer_id:
                 continue
 
             try:
-
-                #  Check if exists
+                # Validation: Check if exists using custom_customer_id
                 ats_customer_name = frappe.db.get_value(
                     "Customer",
-                    {"custom_id": crm_customer_id},
+                    {"custom_customer_id": crm_customer_id},
                     "name"
                 )
 
-                #  If not exists, create
+                # If not exists, create
                 if not ats_customer_name:
-
                     doc = frappe.new_doc("Customer")
                     doc.customer_name = cust.get("customer_name") or crm_customer_id
                     doc.customer_group = "All Customer Groups"
                     doc.territory = "All Territories"
 
-                    doc.custom_id = crm_customer_id
+                    # Save source 'name' into custom_customer_id
+                    doc.custom_customer_id = crm_customer_id 
                     doc.email_id = cust.get("email_id")
                     doc.mobile_no = cust.get("mobile_no")
                     doc.custom_vertical = cust.get("custom_vertical")
@@ -236,15 +516,11 @@ def daily_fetch_crm_customers_and_sync():
 
                     ats_customer_name = doc.name
                     total_customers_created += 1
-
                     print(f" Customer Created: {ats_customer_name}")
 
                 # STEP 3: FETCH CONTACTS FOR THIS CUSTOMER
-
                 contact_start = 0
-
                 while True:
-
                     contact_fields = [
                         "name",
                         "first_name",
@@ -279,22 +555,22 @@ def daily_fetch_crm_customers_and_sync():
                     if not contacts:
                         break
 
-                    
                     for cont in contacts:
-
-                        crm_contact_id = cont.get("name")
+                        crm_contact_id = cont.get("name") # This is the source ID
                         if not crm_contact_id:
                             continue
 
-                        if frappe.db.exists("Contact", {"custom_id": crm_contact_id}):
+                        # Validation: Check if exists using custom_contact_id
+                        if frappe.db.exists("Contact", {"custom_contact_id": crm_contact_id}):
                             continue
 
                         try:
                             contact_doc = frappe.new_doc("Contact")
-
                             contact_doc.first_name = cont.get("first_name") or crm_contact_id
                             contact_doc.last_name = cont.get("last_name")
-                            contact_doc.custom_id = crm_contact_id
+                            
+                            # Save source 'name' into custom_contact_id
+                            contact_doc.custom_contact_id = crm_contact_id
 
                             if cont.get("email_id"):
                                 contact_doc.append("email_ids", {
@@ -308,7 +584,7 @@ def daily_fetch_crm_customers_and_sync():
                                     "is_primary_mobile_no": 1
                                 })
 
-                            # 🔗 Proper Link with newly created/existing ATS customer
+                            # Link with the ATS customer name
                             contact_doc.append("links", {
                                 "link_doctype": "Customer",
                                 "link_name": ats_customer_name
@@ -339,7 +615,7 @@ def daily_fetch_crm_customers_and_sync():
         frappe.db.commit()
         start += page_length
 
-
-    # print("Customers Created :", total_customers_created)
-    # print("Contacts Created  :", total_contacts_created)
-    # print("Total Errors      :", total_errors)
+    # Final Summary
+    # print(f"Customers Created: {total_customers_created}")
+    # print(f"Contacts Created: {total_contacts_created}")
+    # print(f"Total Errors: {total_errors}")
