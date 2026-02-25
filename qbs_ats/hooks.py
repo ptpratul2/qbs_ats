@@ -263,15 +263,11 @@ scheduler_events = {
 # }
 
 
-
 fixtures = [
     {
         "doctype": "Custom Field",
         "filters": [
-            ["dt", "=", "Job Opening"],
-            ["dt", "=", "Customer"],
-			["dt", "=", "Contact"],
-            ["dt", "=", "ToDo"]
+            ["dt", "in", ["Job Opening", "Customer", "Contact", "ToDo"]]
         ]
     }
 ]
