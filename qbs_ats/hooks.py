@@ -268,7 +268,10 @@ fixtures = [
     {
         "doctype": "Custom Field",
         "filters": [
-            ["dt", "=", "Job Opening"]
+            ["dt", "=", "Job Opening"],
+            ["dt", "=", "Customer"],
+			["dt", "=", "Contact"],
+            ["dt", "=", "ToDo"]
         ]
     }
 ]
