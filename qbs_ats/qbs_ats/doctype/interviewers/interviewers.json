@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-10 12:18:45.158872",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "interviewer_details_section",
+  "job_opening",
+  "client",
+  "column_break_tzgs",
+  "interviewer_name",
+  "designation"
+ ],
+ "fields": [
+  {
+   "fieldname": "interviewer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Interviewer Details"
+  },
+  {
+   "fieldname": "job_opening",
+   "fieldtype": "Link",
+   "label": "Job Opening",
+   "options": "Job Opening"
+  },
+  {
+   "fetch_from": "job_opening.custom_client_name",
+   "fieldname": "client",
+   "fieldtype": "Data",
+   "label": "Client"
+  },
+  {
+   "fieldname": "column_break_tzgs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interviewer_name",
+   "fieldtype": "Data",
+   "label": "Interviewer Name"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-10 12:22:24.658316",
+ "modified_by": "Administrator",
+ "module": "QBS ATS",
+ "name": "Interviewers",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
