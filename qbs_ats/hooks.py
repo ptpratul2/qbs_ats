@@ -49,7 +49,10 @@ web_include_css = "/assets/qbs_ats/css/theme.css"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"opportunity" : "public/js/custom_opportunity.js"}
+doctype_js = {
+	"opportunity": "public/js/custom_opportunity.js",
+	"Job Opening": "public/js/job_opening_mandate.js",
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

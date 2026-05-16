@@ -1,17 +1,15 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "autoname": "field:opportunity_name",
  "creation": "2026-02-16 12:00:40.931614",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "client_details_section",
   "vertical",
-  "primary_services",
   "customer",
   "column_break_tweu",
   "opportunity_owner",
-  "opportunity_from",
   "source",
   "column_break_ojme",
   "opportunity_name",
@@ -51,11 +49,6 @@
    "label": "Vertical"
   },
   {
-   "fieldname": "primary_services",
-   "fieldtype": "Data",
-   "label": "Primary Services"
-  },
-  {
    "fieldname": "customer",
    "fieldtype": "Data",
    "label": "Customer"
@@ -71,11 +64,6 @@
    "label": "Opportunity Owner"
   },
   {
-   "fieldname": "opportunity_from",
-   "fieldtype": "Data",
-   "label": "Opportunity From"
-  },
-  {
    "fieldname": "source",
    "fieldtype": "Data",
    "label": "Source"
@@ -88,7 +76,8 @@
    "fieldname": "opportunity_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Opportunity Name"
+   "label": "Opportunity Name",
+   "unique": 1
   },
   {
    "fieldname": "expected_close_date",
@@ -199,11 +188,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-18 13:55:12.097611",
+ "modified": "2026-04-03 14:56:28.764427",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Client",
- "naming_rule": "Autoincrement",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -215,6 +204,30 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Team Leader",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Recruiter",
    "share": 1,
    "write": 1
   }

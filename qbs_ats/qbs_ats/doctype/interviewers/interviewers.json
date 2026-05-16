@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:interviewer_name",
  "creation": "2026-04-10 12:18:45.158872",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -37,7 +38,8 @@
   {
    "fieldname": "interviewer_name",
    "fieldtype": "Data",
-   "label": "Interviewer Name"
+   "label": "Interviewer Name",
+   "unique": 1
   },
   {
    "fieldname": "designation",
@@ -48,10 +50,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-10 12:22:24.658316",
+ "modified": "2026-04-13 10:55:28.235179",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Interviewers",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
