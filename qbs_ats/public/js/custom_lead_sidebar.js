@@ -1,6 +1,6 @@
 frappe.provide('prompt_crm_navbar');
 
-// 🎨 Color Constants (from your theme.txt)
+// 🎨 Color Constants
 const PRIMARY_BLUE = '#329BBB';
 const PRIMARY_BLUE_DARK = '#183b72';
 const TEXT_DARK = '#4c5a67';
@@ -8,7 +8,7 @@ const TEXT_LIGHT = '#fff';
 const HOVER_LIGHT = '#dfe6ff';
 const ACTIVE_UNDERLINE = '#214695';
 
-// 👇 Inline SVG Icons (matches Frappe’s icon style)
+// 👇 Inline SVG Icons
 function getIconSVG(name) {
     const icons = {
         'dashboard': `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/></svg>`,
@@ -22,7 +22,6 @@ function getIconSVG(name) {
 }
 
 prompt_crm_navbar.initNavbar = function () {
-    // 🚫 Cleanup (idempotent)
     $('.prompt-crm-nav-bar').remove();
 
     const route = frappe.get_route();
@@ -35,7 +34,10 @@ prompt_crm_navbar.initNavbar = function () {
             return;
         }
 
-        // ✅ CRM Nav Bar — Styled to match your theme
+        // 🛡️ Logic for Franchise Restriction
+        const isFranchiseOnly = frappe.user_roles.includes('Franchise') && !frappe.user_roles.includes('System Manager');
+        const allowedForFranchise = ["Job Opening", "Job Applicant", "Interview"];
+
         const $bar = $(`
             <div class="prompt-crm-nav-bar flex align-center justify-content-center" style="
                 display: flex;
@@ -55,25 +57,18 @@ prompt_crm_navbar.initNavbar = function () {
         `);
 
         const items = [
-
-
             { label: "Client", route: ["List", "Client"], icon: "dashboard" },
-
             { label: "Job Opening", route: ["List", "Job Opening"], icon: "user-plus" },
             { label: "Job Applicant", route: ["List", "Job Applicant"], icon: "briefcase" },
             { label: "Interview", route: ["List", "Interview"], icon: "building" },
             { label: "Job Offer", route: ["List", "Job Offer"], icon: "address-card" },
             { label: "CV Repository", route: ["List", "CV Repository"], icon: "file-alt" },
             { label: "Insights", route: ["List", "Insights"], icon: "file-alt" }
-
-
         ];
 
         items.forEach(item => {
-            const isActive = (
-                (item.label === 'Dashboard' && (route[0] === 'dashboard' || (route[0] === 'dashboard' && route[1]))) ||
-                (Array.isArray(item.route) && route[0] === item.route[0] && route[1] === item.route[1])
-            );  
+            const isActive = (Array.isArray(item.route) && route[0] === item.route[0] && route[1] === item.route[1]);
+            const isDisabled = isFranchiseOnly && !allowedForFranchise.includes(item.label);
 
             const $link = $(`
                 <a href="#" class="crm-nav-link ${isActive ? 'active' : ''}" style="
@@ -85,13 +80,13 @@ prompt_crm_navbar.initNavbar = function () {
                     text-decoration: none;
                     position: relative;
                     transition: color 0.2s;
+                    ${isDisabled ? 'opacity: 0.4; cursor: not-allowed; pointer-events: none;' : 'cursor: pointer;'}
                 ">
-                    <span class="crm-icon" style="
-                        display: inline-block;
-                        width: 16px;
-                    ">${getIconSVG(item.icon)}</span>
+                    <span class="crm-icon" style="display: inline-block; width: 16px;">
+                        ${getIconSVG(item.icon)}
+                    </span>
                     <span>${item.label}</span>
-                    ${isActive ? `<span style="
+                    ${isActive ? `<span class="active-underline" style="
                         position: absolute;
                         bottom: 0;
                         left: 0;
@@ -103,17 +98,18 @@ prompt_crm_navbar.initNavbar = function () {
                 </a>
             `).on('click', function (e) {
                 e.preventDefault();
-                frappe.set_route(...(Array.isArray(item.route) ? item.route : [item.route]));
-            }).on('mouseenter', function () {
-                $(this).css('color', HOVER_LIGHT);
-            }).on('mouseleave', function () {
-                $(this).css('color', TEXT_LIGHT);
+                if (isDisabled) return false;
+                frappe.set_route(...item.route);
             });
+
+            if (!isDisabled) {
+                $link.on('mouseenter', function () { $(this).css('color', HOVER_LIGHT); })
+                     .on('mouseleave', function () { $(this).css('color', TEXT_LIGHT); });
+            }
 
             $bar.append($link);
         });
 
-        // 🔌 Inject into navbar — after search, before user menu
         const $search = $navbar.find('.awesome-bar');
         const $user = $navbar.find('.navbar-user-menu');
 
@@ -125,53 +121,26 @@ prompt_crm_navbar.initNavbar = function () {
             $navbar.append($bar);
         }
 
-        // 🔁 Auto-highlight active route (improved)
         const updateActive = () => {
             const r = frappe.get_route();
             $bar.find('.crm-nav-link').each(function () {
                 const $el = $(this);
-                const label = $el.find('span:last').text().trim(); // Trim whitespace
+                const label = $el.find('span:last').text().trim();
+                let active = (r[0] === 'List' && r[1] === label);
 
-                let active = false;
+                $el.toggleClass('active', active);
 
-                // Handle Dashboard
-                if (r[0] === 'dashboard') {
-                    // Also accept if route is ['dashboard', 'Some Dashboard Name']
-                    if (label === 'Dashboard') {
-                        active = true;
-                    }
-                }
-                // Handle List pages
-                else if (r[0] === 'List' && r[1]) {
-                    const target = r[1];
-                    const matchLabels = {
-                        'Lead': 'Leads',
-                        'Opportunity': 'Opportunity',
-                        'Customer': 'Customers',
-                        'Contact': 'Contacts',
-                        'Report': 'Reports'
-                    };
-                    if (matchLabels[target] && label === matchLabels[target]) {
-                        active = true;
-                    }
-                }
-
-                $el.toggleClass('active', active)
-                    .css('color', active ? HOVER_LIGHT : TEXT_LIGHT);
-
-                // Update underline
+                // Update underline visibility
                 if (active && !$el.find('.active-underline').length) {
-                    $el.append(`<span class="active-underline" style="
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 5px;
-                background: ${ACTIVE_UNDERLINE};
-                border-radius: 18px;
-            "></span>`);
+                    $el.append(`<span class="active-underline" style="position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: ${ACTIVE_UNDERLINE}; border-radius: 18px;"></span>`);
                 } else if (!active) {
                     $el.find('.active-underline').remove();
+                }
+
+                // Restore base color if not active
+                const isItemDisabled = isFranchiseOnly && !allowedForFranchise.includes(label);
+                if (!isItemDisabled) {
+                    $el.css('color', active ? HOVER_LIGHT : TEXT_LIGHT);
                 }
             });
         };
@@ -184,14 +153,13 @@ prompt_crm_navbar.initNavbar = function () {
         setTimeout(prompt_crm_navbar.initNavbar, 500);
     }
 };
+
 // ===== FOOTER INIT =====
 prompt_crm_navbar.initFooter = function () {
-    $('.prompt-crm-footer').remove(); // idempotent
-
+    $('.prompt-crm-footer').remove();
     const route = frappe.get_route();
     if (['login', 'setup', 'app'].includes(route[0]) && route[1] === 'home') return;
 
-    // Insert footer at end of <body>
     const $footer = $(`
         <div class="prompt-crm-footer" style="
             position: fixed;
@@ -210,23 +178,15 @@ prompt_crm_navbar.initFooter = function () {
         </div>
     `).appendTo('body');
 
-    // Adjust main content to avoid overlap
     const footerHeight = $footer.outerHeight();
     $('.layout-main-section, .desk-body, .standard-page').css({
         'padding-bottom': `${footerHeight + 8}px`,
         'transition': 'padding-bottom 0.3s'
     });
-
-    // Cleanup on SPA page change
-    $(document).one('page-change', function () {
-        $('.prompt-crm-footer').remove();
-        $('.layout-main-section, .desk-body, .standard-page').css('padding-bottom', '');
-    });
 };
-// ===== INIT (safe, SPA-aware) =====
+
+// ===== SYSTEM INIT =====
 function safeInit() {
-    const route = frappe.get_route();
-    // Ensure Poppins font is loaded
     if (!document.getElementById('poppins-font')) {
         const link = document.createElement('link');
         link.id = 'poppins-font';
@@ -234,11 +194,6 @@ function safeInit() {
         link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap';
         document.head.appendChild(link);
     }
-    // if (['login', 'app'].includes(route[0]) && route[1] === 'home') {
-    //     $('.prompt-crm-nav-bar, .prompt-crm-footer').remove();
-    //     $('.layout-main-section, .desk-body, .standard-page').css('padding-bottom', '');
-    //     return;
-    // }
     try {
         prompt_crm_navbar.initNavbar();
         prompt_crm_navbar.initFooter();
