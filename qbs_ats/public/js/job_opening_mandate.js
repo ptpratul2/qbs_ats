@@ -46,8 +46,14 @@ frappe.ui.form.on('Job Opening', {
 	},
 });
 
+
+
+
 async function open_bulk_assign_dialog(frm) {
 	let total_positions = frm.doc.custom_no_of_position || 0;
+
+	// Map to store existing assignments: user email -> todo details
+	let existing_assignments_map = {};
 
 	let dialog = new frappe.ui.Dialog({
 		title: __('Assign Positions to Recruiters'),
@@ -109,12 +115,12 @@ async function open_bulk_assign_dialog(frm) {
 				for (let row of selected_data) {
 					let existing = await frappe.db.get_list('ToDo', {
 						fields: ['name'],
-						filters: {
-							reference_type: frm.doctype,
-							reference_name: frm.doc.name,
-							allocated_to: row.user,
-							status: ['!=', 'Cancelled'],
-						},
+						filters: [
+							['reference_type', '=', frm.doctype],
+							['reference_name', '=', frm.doc.name],
+							['allocated_to', '=', row.user],
+							['status', '!=', 'Cancelled']
+						],
 					});
 
 					let todo_values = {
@@ -151,59 +157,165 @@ async function open_bulk_assign_dialog(frm) {
 		},
 	});
 
-	frappe.db
-		.get_list('User', {
-			fields: ['name', 'full_name', 'recruiter_type'],
-			filters: { enabled: 1 },
-			limit: 200,
-		})
-		.then((users) => {
-			let html = `
+	// First fetch existing todos for this job - only standard fields
+	let existing_todos = await frappe.db.get_list('ToDo', {
+		fields: ['name', 'allocated_to', 'custom_no_of_position'],
+		filters: [
+			['reference_type', '=', frm.doctype],
+			['reference_name', '=', frm.doc.name],
+			['status', '!=', 'Cancelled']
+		]
+	});
+
+	// Now fetch full documents to get custom fields (exclusivity, recruiter_type)
+	for (let todo of existing_todos) {
+		let full_todo = await frappe.db.get_doc('ToDo', todo.name);
+		existing_assignments_map[todo.allocated_to] = {
+			name: todo.name,
+			custom_no_of_position: todo.custom_no_of_position,
+			exclusivity: full_todo.exclusivity || 'No',
+			recruiter_type: full_todo.recruiter_type || ''
+		};
+	}
+
+	// Fetch Users
+	let users = await frappe.db.get_list('User', {
+		fields: ['name', 'full_name'],
+		filters: { enabled: 1 },
+		limit: 200,
+	});
+
+	// Try to get recruiter_type from User if it exists
+	let user_with_type = await frappe.db.get_list('User', {
+		fields: ['name', 'full_name', 'recruiter_type'],
+		filters: { enabled: 1 },
+		limit: 200,
+	});
+
+	// Merge recruiter_type if exists
+	let user_map = {};
+	user_with_type.forEach(u => {
+		user_map[u.name] = u;
+	});
+
+	users.forEach(u => {
+		if (user_map[u.name] && user_map[u.name].recruiter_type) {
+			u.recruiter_type = user_map[u.name].recruiter_type;
+		}
+	});
+
+	let html = `
         <div style="border-bottom: 2px solid #eee; padding: 10px; font-weight: bold; display: flex; background: #f8f9fa;">
             <div style="flex: 0.5;">Select</div>
             <div style="flex: 2;">Recruiter Name</div>
             <div style="flex: 1;">Positions</div>
             <div style="flex: 1;">Recruiter Type</div>
             <div style="flex: 1;">Exclusivity</div>
+            <div style="flex: 0.5;">Action</div>
         </div>
         <div style="max-height:350px; overflow-y:auto;">`;
 
-			users.forEach((u) => {
-				let type_display = u.recruiter_type || '';
-				html += `
+	users.forEach((u) => {
+		let type_display = u.recruiter_type || '';
+		
+		// Check if user already has assignment
+		let assigned_data = existing_assignments_map[u.name];
+		let pre_filled_positions = assigned_data ? assigned_data.custom_no_of_position : 0;
+		let is_assigned = assigned_data ? true : false;
+		
+		// Pre-check if already assigned
+		let checked_attr = is_assigned ? 'checked' : '';
+		
+		// Delete button HTML
+		let delete_btn_html = is_assigned 
+			? `<button class="btn btn-danger btn-sm btn-delete-assignment" data-user="${u.name}" style="padding: 4px 8px; font-size: 12px;">Delete</button>`
+			: `<span style="color: #ccc;">-</span>`;
+
+		html += `
             <div class="user-row" style="display:flex; align-items:center; gap:10px; padding: 10px; border-bottom: 1px solid #f1f1f1;">
-                <div style="flex: 0.5;"><input type="checkbox" class="user-check" value="${u.name}"></div>
+                <div style="flex: 0.5;"><input type="checkbox" class="user-check" value="${u.name}" ${checked_attr}></div>
                 <div style="flex: 2; font-size: 13px;">
                     <strong>${u.full_name || u.name}</strong><br><small style="color:gray;">${u.name}</small>
                 </div>
-                <div style="flex: 1;"><input type="number" class="position-input form-control" placeholder="0" style="width: 80%;"></div>
+                <div style="flex: 1;"><input type="number" class="position-input form-control" placeholder="0" value="${pre_filled_positions}" style="width: 80%;"></div>
                 <div style="flex: 1;">
                     <input type="hidden" class="recruiter-type-val" value="${type_display}">
                     <input type="text" class="form-control" value="${type_display}" readonly style="background-color: #f9f9f9;">
                 </div>
                 <div style="flex: 1;">
                     <select class="exclusivity form-control">
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
+                        <option value="No" ${assigned_data && assigned_data.exclusivity === 'No' ? 'selected' : ''}>No</option>
+                        <option value="Yes" ${assigned_data && assigned_data.exclusivity === 'Yes' ? 'selected' : ''}>Yes</option>
                     </select>
                 </div>
+                <div style="flex: 0.5;">
+                    ${delete_btn_html}
+                </div>
             </div>`;
-			});
-			html += `</div>`;
-			dialog.get_field('users_html').$wrapper.html(html);
+	});
+	html += `</div>`;
+	dialog.get_field('users_html').$wrapper.html(html);
 
-			dialog.$wrapper.on('change', '.exclusivity', function () {
-				let current_val = $(this).val();
-				let $all_dropdowns = dialog.$wrapper.find('.exclusivity');
-				if (current_val === 'Yes') {
-					$all_dropdowns.not(this).prop('disabled', true).css('background-color', '#f1f1f1');
-				} else {
-					$all_dropdowns.prop('disabled', false).css('background-color', '');
+	// Handle exclusivity dropdown toggle
+	dialog.$wrapper.on('change', '.exclusivity', function () {
+		let current_val = $(this).val();
+		let $all_dropdowns = dialog.$wrapper.find('.exclusivity');
+		if (current_val === 'Yes') {
+			$all_dropdowns.not(this).prop('disabled', true).css('background-color', '#f1f1f1');
+		} else {
+			$all_dropdowns.prop('disabled', false).css('background-color', '');
+		}
+	});
+
+	// Handle Delete button click
+	dialog.$wrapper.on('click', '.btn-delete-assignment', async function () {
+		let user_to_delete = $(this).data('user');
+		
+		if (!user_to_delete) return;
+
+		frappe.confirm(
+			__('Are you sure you want to remove assignment for user {0}?', [user_to_delete]),
+			async () => {
+				frappe.dom.freeze('Deleting Assignment...');
+				
+				try {
+					// Find the ToDo entry
+					let todo_to_delete = await frappe.db.get_list('ToDo', {
+						fields: ['name'],
+						filters: [
+							['reference_type', '=', frm.doctype],
+							['reference_name', '=', frm.doc.name],
+							['allocated_to', '=', user_to_delete],
+							['status', '!=', 'Cancelled']
+						]
+					});
+
+					if (todo_to_delete.length) {
+						await frappe.db.set_value('ToDo', todo_to_delete[0].name, {
+							status: 'Cancelled'
+						});
+
+						await frm.reload_doc(); 
+
+						frappe.show_alert({ message: __('Assignment removed successfully'), indicator: 'red' });
+						
+						// Refresh the dialog
+						dialog.hide();
+						open_bulk_assign_dialog(frm);
+					}
+				} catch (e) {
+					console.error(e);
+					frappe.msgprint(__('Error removing assignment.'));
+				} finally {
+					frappe.dom.unfreeze();
 				}
-			});
-		});
+			}
+		);
+	});
+
 	dialog.show();
 }
+
 
 async function render_assignment_dashboard(frm) {
 	const docname = frm.doc.name;
