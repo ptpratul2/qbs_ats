@@ -36,7 +36,7 @@ prompt_crm_navbar.initNavbar = function () {
 
         // 🛡️ Logic for Franchise Restriction
         const isFranchiseOnly = frappe.user_roles.includes('Franchise') && !frappe.user_roles.includes('System Manager');
-        const allowedForFranchise = ["Job Opening", "Job Applicant", "Interview"];
+        const allowedForFranchise = ["Job Opening", "Job Applicant", "Interview", "Job Offer"];
 
         const $bar = $(`
             <div class="prompt-crm-nav-bar flex align-center justify-content-center" style="

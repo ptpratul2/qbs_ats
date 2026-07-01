@@ -46,11 +46,11 @@ frappe.ui.form.on('Job Opening', {
 	},
 });
 
-
-
-
 async function open_bulk_assign_dialog(frm) {
 	let total_positions = frm.doc.custom_no_of_position || 0;
+
+	// Check if user is Franchise but NOT a System Manager
+	let is_franchise_only = frappe.user_roles.includes("Franchise") && !frappe.user_roles.includes("System Manager");
 
 	// Map to store existing assignments: user email -> todo details
 	let existing_assignments_map = {};
@@ -157,7 +157,7 @@ async function open_bulk_assign_dialog(frm) {
 		},
 	});
 
-	// First fetch existing todos for this job - only standard fields
+	// First fetch existing todos for this job
 	let existing_todos = await frappe.db.get_list('ToDo', {
 		fields: ['name', 'allocated_to', 'custom_no_of_position'],
 		filters: [
@@ -167,7 +167,6 @@ async function open_bulk_assign_dialog(frm) {
 		]
 	});
 
-	// Now fetch full documents to get custom fields (exclusivity, recruiter_type)
 	for (let todo of existing_todos) {
 		let full_todo = await frappe.db.get_doc('ToDo', todo.name);
 		existing_assignments_map[todo.allocated_to] = {
@@ -178,55 +177,59 @@ async function open_bulk_assign_dialog(frm) {
 		};
 	}
 
-	// Fetch Users
-	let users = await frappe.db.get_list('User', {
-		fields: ['name', 'full_name'],
-		filters: { enabled: 1 },
-		limit: 200,
-	});
+	// Filter for Franchise Owner
+	let user_filters = [
+		["enabled", "=", 1],
+		["name", "not in", ["Administrator", "Guest"]]
+	];
 
-	// Try to get recruiter_type from User if it exists
-	let user_with_type = await frappe.db.get_list('User', {
-		fields: ['name', 'full_name', 'recruiter_type'],
-		filters: { enabled: 1 },
-		limit: 200,
-	});
+	if (is_franchise_only) {
+		let fm_list = await frappe.db.get_list("Franchise Management", {
+			fields: ["franchise"],
+			filters: { franchise_owner: frappe.session.user },
+		});
 
-	// Merge recruiter_type if exists
-	let user_map = {};
-	user_with_type.forEach(u => {
-		user_map[u.name] = u;
-	});
+		let allowed_users = [...new Set(fm_list.map(row => row.franchise).filter(Boolean))];
 
-	users.forEach(u => {
-		if (user_map[u.name] && user_map[u.name].recruiter_type) {
-			u.recruiter_type = user_map[u.name].recruiter_type;
+		if (allowed_users.length > 0) {
+			user_filters.push(["name", "in", allowed_users]);
+		} else {
+			user_filters.push(["name", "=", "__no_user__"]);
 		}
+	}
+
+	let users = await frappe.db.get_list("User", {
+		fields: ["name", "full_name", "recruiter_type"],
+		filters: user_filters,
+		limit: 1000
 	});
 
+	// --- Build HTML Table ---
 	let html = `
         <div style="border-bottom: 2px solid #eee; padding: 10px; font-weight: bold; display: flex; background: #f8f9fa;">
             <div style="flex: 0.5;">Select</div>
             <div style="flex: 2;">Recruiter Name</div>
-            <div style="flex: 1;">Positions</div>
+            <div style="flex: 1;">Positions</div>`;
+
+	// Hide columns if it's a franchise only user
+	if (!is_franchise_only) {
+		html += `
             <div style="flex: 1;">Recruiter Type</div>
-            <div style="flex: 1;">Exclusivity</div>
+            <div style="flex: 1;">Exclusivity</div>`;
+	}
+
+	html += `
             <div style="flex: 0.5;">Action</div>
         </div>
         <div style="max-height:350px; overflow-y:auto;">`;
 
 	users.forEach((u) => {
 		let type_display = u.recruiter_type || '';
-		
-		// Check if user already has assignment
 		let assigned_data = existing_assignments_map[u.name];
 		let pre_filled_positions = assigned_data ? assigned_data.custom_no_of_position : 0;
 		let is_assigned = assigned_data ? true : false;
-		
-		// Pre-check if already assigned
 		let checked_attr = is_assigned ? 'checked' : '';
 		
-		// Delete button HTML
 		let delete_btn_html = is_assigned 
 			? `<button class="btn btn-danger btn-sm btn-delete-assignment" data-user="${u.name}" style="padding: 4px 8px; font-size: 12px;">Delete</button>`
 			: `<span style="color: #ccc;">-</span>`;
@@ -237,7 +240,10 @@ async function open_bulk_assign_dialog(frm) {
                 <div style="flex: 2; font-size: 13px;">
                     <strong>${u.full_name || u.name}</strong><br><small style="color:gray;">${u.name}</small>
                 </div>
-                <div style="flex: 1;"><input type="number" class="position-input form-control" placeholder="0" value="${pre_filled_positions}" style="width: 80%;"></div>
+                <div style="flex: 1;"><input type="number" class="position-input form-control" placeholder="0" value="${pre_filled_positions}" style="width: 80%;"></div>`;
+
+		if (!is_franchise_only) {
+			html += `
                 <div style="flex: 1;">
                     <input type="hidden" class="recruiter-type-val" value="${type_display}">
                     <input type="text" class="form-control" value="${type_display}" readonly style="background-color: #f9f9f9;">
@@ -247,7 +253,16 @@ async function open_bulk_assign_dialog(frm) {
                         <option value="No" ${assigned_data && assigned_data.exclusivity === 'No' ? 'selected' : ''}>No</option>
                         <option value="Yes" ${assigned_data && assigned_data.exclusivity === 'Yes' ? 'selected' : ''}>Yes</option>
                     </select>
-                </div>
+                </div>`;
+		} else {
+			// Add hidden fields for franchise users so the primary_action doesn't fail to find values
+			html += `
+				<input type="hidden" class="recruiter-type-val" value="${type_display}">
+				<input type="hidden" class="exclusivity" value="${assigned_data ? assigned_data.exclusivity : 'No'}">
+			`;
+		}
+
+		html += `
                 <div style="flex: 0.5;">
                     ${delete_btn_html}
                 </div>
@@ -256,10 +271,10 @@ async function open_bulk_assign_dialog(frm) {
 	html += `</div>`;
 	dialog.get_field('users_html').$wrapper.html(html);
 
-	// Handle exclusivity dropdown toggle
+	// Handle exclusivity dropdown toggle (only for non-franchise)
 	dialog.$wrapper.on('change', '.exclusivity', function () {
 		let current_val = $(this).val();
-		let $all_dropdowns = dialog.$wrapper.find('.exclusivity');
+		let $all_dropdowns = dialog.$wrapper.find('select.exclusivity');
 		if (current_val === 'Yes') {
 			$all_dropdowns.not(this).prop('disabled', true).css('background-color', '#f1f1f1');
 		} else {
@@ -270,16 +285,13 @@ async function open_bulk_assign_dialog(frm) {
 	// Handle Delete button click
 	dialog.$wrapper.on('click', '.btn-delete-assignment', async function () {
 		let user_to_delete = $(this).data('user');
-		
 		if (!user_to_delete) return;
 
 		frappe.confirm(
 			__('Are you sure you want to remove assignment for user {0}?', [user_to_delete]),
 			async () => {
 				frappe.dom.freeze('Deleting Assignment...');
-				
 				try {
-					// Find the ToDo entry
 					let todo_to_delete = await frappe.db.get_list('ToDo', {
 						fields: ['name'],
 						filters: [
@@ -291,15 +303,9 @@ async function open_bulk_assign_dialog(frm) {
 					});
 
 					if (todo_to_delete.length) {
-						await frappe.db.set_value('ToDo', todo_to_delete[0].name, {
-							status: 'Cancelled'
-						});
-
+						await frappe.db.set_value('ToDo', todo_to_delete[0].name, { status: 'Cancelled' });
 						await frm.reload_doc(); 
-
 						frappe.show_alert({ message: __('Assignment removed successfully'), indicator: 'red' });
-						
-						// Refresh the dialog
 						dialog.hide();
 						open_bulk_assign_dialog(frm);
 					}
@@ -315,7 +321,6 @@ async function open_bulk_assign_dialog(frm) {
 
 	dialog.show();
 }
-
 
 async function render_assignment_dashboard(frm) {
 	const docname = frm.doc.name;
