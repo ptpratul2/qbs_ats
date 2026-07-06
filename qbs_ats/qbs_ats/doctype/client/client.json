@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "field:opportunity_name",
+ "autoname": "field:opportunity_id",
  "creation": "2026-02-16 12:00:40.931614",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,6 +8,7 @@
   "client_details_section",
   "vertical",
   "customer",
+  "opportunity_id",
   "column_break_tweu",
   "opportunity_owner",
   "source",
@@ -183,12 +184,18 @@
    "fieldname": "qualification",
    "fieldtype": "Data",
    "label": "Qualification"
+  },
+  {
+   "fieldname": "opportunity_id",
+   "fieldtype": "Data",
+   "label": "Opportunity ID",
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-03 14:56:28.764427",
+ "modified": "2026-07-06 09:43:29.028341",
  "modified_by": "Administrator",
  "module": "QBS ATS",
  "name": "Client",
